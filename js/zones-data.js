@@ -4,9 +4,9 @@ const ZONES = [
     "name": "Durotar",
     "continent": "Kalimdor",
     "tagline": "Arid Red Canyons and Sun-Baked Badlands",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Razor Hill Clay Flats",
@@ -51,9 +51,9 @@ const ZONES = [
     "name": "The Barrens",
     "continent": "Kalimdor",
     "tagline": "Expansive Savanna and Oasis Sinkholes",
-    "biome": "Mild (Baseline DC 10 Savanna) / Harsh (DC 14 Oasis Bogs)",
+    "biome": "Mild (Baseline DC 10 Savanna) / Harsh (DC 13 Oasis Bogs)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Forgotten Pools Oases",
@@ -192,9 +192,9 @@ const ZONES = [
     "name": "Darkshore",
     "continent": "Kalimdor",
     "tagline": "Fog-Shrouded Ancient Coastal Shoreline",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Master's Glaive Titan Fossils",
@@ -286,9 +286,9 @@ const ZONES = [
     "name": "Stonetalon Mountains",
     "continent": "Kalimdor",
     "tagline": "Alpine Crags, Windy Passes, and Charred Ravines",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Sun Rock Glade Highlands",
@@ -333,9 +333,9 @@ const ZONES = [
     "name": "Desolace",
     "continent": "Kalimdor",
     "tagline": "Barren Salt Flats and Grey Desolation",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Maraudon Centaur Burial Grounds",
@@ -380,9 +380,9 @@ const ZONES = [
     "name": "Feralas",
     "continent": "Kalimdor",
     "tagline": "Dense Tropical Rainforest and Ancient Highborne Ruins",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Eldre'Thalas (Dire Maul) Elven Ruins",
@@ -427,9 +427,9 @@ const ZONES = [
     "name": "Thousand Needles",
     "continent": "Kalimdor",
     "tagline": "Canyon Pillars and Caked Salt Flats",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Freewind Post Mesa Needle Passes",
@@ -474,9 +474,9 @@ const ZONES = [
     "name": "Tanaris",
     "continent": "Kalimdor",
     "tagline": "Endless Arid Desert Dunes",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Gadgetzan Steamwheedle Outpost",
@@ -521,9 +521,9 @@ const ZONES = [
     "name": "Un'Goro Crater",
     "continent": "Kalimdor",
     "tagline": "Primeval Jungle Basin and Volcanic Fissures",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Fire Plume Ridge Lava Fissures",
@@ -568,9 +568,9 @@ const ZONES = [
     "name": "Silithus",
     "continent": "Kalimdor",
     "tagline": "Arid Insectoid Hive Wastes",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Hive'Ashi Insectoid Clefts",
@@ -662,9 +662,9 @@ const ZONES = [
     "name": "Winterspring",
     "continent": "Kalimdor",
     "tagline": "Subarctic Alpine Glades and Snowbound Slopes",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Frostsaber Rock Snowy Glades",
@@ -803,9 +803,9 @@ const ZONES = [
     "name": "Bloodmyst Isle",
     "continent": "Kalimdor",
     "tagline": "Red Radiation-Warped Marshes and Irradiated Crags",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Bloodcurse Reef Sunken Shoals",
@@ -944,9 +944,9 @@ const ZONES = [
     "name": "Duskwood",
     "continent": "Eastern Kingdoms",
     "tagline": "Cursed Shadowed Forest and Haunted Graveyards",
-    "biome": "Mild (Baseline DC 10 Baseline) / Harsh (DC 14 Shadow Nooks)",
+    "biome": "Mild (Baseline DC 10 Baseline) / Harsh (DC 13 Shadow Nooks)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Darkshire Shadowed Glades",
@@ -1038,9 +1038,9 @@ const ZONES = [
     "name": "Stranglethorn Vale",
     "continent": "Eastern Kingdoms",
     "tagline": "Dense Tropical Jungle and Sunken Ruins",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Booty Bay Sea Caves",
@@ -1132,9 +1132,9 @@ const ZONES = [
     "name": "Wetlands",
     "continent": "Eastern Kingdoms",
     "tagline": "Waterlogged Bogs and Sunken Shoreline",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Menethil Harbor Sunken Shoreline",
@@ -1320,9 +1320,9 @@ const ZONES = [
     "name": "Western Plaguelands",
     "continent": "Eastern Kingdoms",
     "tagline": "Plagued Wastes and Ruined Farmlands",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Caer Darrow Sunken Isle",
@@ -1367,9 +1367,9 @@ const ZONES = [
     "name": "Eastern Plaguelands",
     "continent": "Eastern Kingdoms",
     "tagline": "Blighted Corrupted Scourgelands and Plagued Forests",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Stratholme Burning Slag",
@@ -1414,9 +1414,9 @@ const ZONES = [
     "name": "Badlands",
     "continent": "Eastern Kingdoms",
     "tagline": "Arid Badlands and Canyons",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Dustbowl Salt Flats",
@@ -1461,9 +1461,9 @@ const ZONES = [
     "name": "Searing Gorge",
     "continent": "Eastern Kingdoms",
     "tagline": "Volcanic Ash Basins and Slag Pits",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Slag Pit Molten Fissures",
@@ -1508,9 +1508,9 @@ const ZONES = [
     "name": "Burning Steppes",
     "continent": "Eastern Kingdoms",
     "tagline": "Scorched Volcanic Wastes and Dragon Roosts",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Blackrock Mountain Slag Gates",
@@ -1555,9 +1555,9 @@ const ZONES = [
     "name": "Swamp of Sorrows",
     "continent": "Eastern Kingdoms",
     "tagline": "Murky Swamps and Stagnant Bogs",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Sunken Temple (Atal'Hakkar) Bogs",
@@ -1602,9 +1602,9 @@ const ZONES = [
     "name": "Blasted Lands",
     "continent": "Eastern Kingdoms",
     "tagline": "Ley-Warped Red Desert Wastes",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "The Dark Portal Fel Fissures",
@@ -1696,9 +1696,9 @@ const ZONES = [
     "name": "Ghostlands",
     "continent": "Eastern Kingdoms",
     "tagline": "Blighted Forest and Scourge Corridors",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Tranquillien Shadow Nooks",
@@ -1884,9 +1884,9 @@ const ZONES = [
     "name": "Deadwind Pass",
     "continent": "Eastern Kingdoms",
     "tagline": "Cursed Shadow Ravines and Ley-Rifts",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Karazhan Tower Spire",
@@ -1931,9 +1931,9 @@ const ZONES = [
     "name": "Isle of Quel'Danas",
     "continent": "Eastern Kingdoms",
     "tagline": "Arcane Coastal Isle and Fel Warzones",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Sunwell Plateau Arcane Basin",
@@ -1978,9 +1978,9 @@ const ZONES = [
     "name": "Hellfire Peninsula",
     "continent": "Outland",
     "tagline": "Shattered Red Fel-Wastes",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Hellfire Citadel Iron Scars",
@@ -2025,9 +2025,9 @@ const ZONES = [
     "name": "Zangarmarsh",
     "continent": "Outland",
     "tagline": "Bioluminescent Fungal Swamps",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Coilfang Reservoir Sunken Drain",
@@ -2072,9 +2072,9 @@ const ZONES = [
     "name": "Terokkar Forest",
     "continent": "Outland",
     "tagline": "Ancient Boreal Woods and Bone Wastes",
-    "biome": "Mild (DC 10 Forest) / Harsh (DC 14 Bone Wastes)",
+    "biome": "Mild (DC 10 Forest) / Harsh (DC 13 Bone Wastes)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Auchindoun Ossuary Ruins",
@@ -2166,9 +2166,9 @@ const ZONES = [
     "name": "Blade's Edge Mountains",
     "continent": "Outland",
     "tagline": "Jagged Canyon Spikes and Wind-Swept Ravines",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Circle of Blood Clefts",
@@ -2213,9 +2213,9 @@ const ZONES = [
     "name": "Netherstorm",
     "continent": "Outland",
     "tagline": "Shattered Arcane Ley-Wastes and Mana-Forges",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Mana-Forge Ara Ley-Spires",
@@ -2260,9 +2260,9 @@ const ZONES = [
     "name": "Shadowmoon Valley",
     "continent": "Outland",
     "tagline": "Fel Volcanic Wastes and Nether-Scarred Plains",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Black Temple Fel Citadel",
@@ -2307,9 +2307,9 @@ const ZONES = [
     "name": "Borean Tundra",
     "continent": "Northrend",
     "tagline": "Subarctic Tundra, Tundra Steppes, and Ice Floes",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Coldarra Arcane Spires",
@@ -2360,9 +2360,9 @@ const ZONES = [
     "name": "Howling Fjord",
     "continent": "Northrend",
     "tagline": "Coastal Fjords, Boreal Redwood Forests, and Vrykul Cliffs",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Utgarde Keep Vrykul Cliffs",
@@ -2407,9 +2407,9 @@ const ZONES = [
     "name": "Dragonblight",
     "continent": "Northrend",
     "tagline": "Glacial Dragon Graveyards and Frozen Waste",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Wyrmrest Temple Titan Spire",
@@ -2501,9 +2501,9 @@ const ZONES = [
     "name": "Zul'Drak",
     "continent": "Northrend",
     "tagline": "Plagued Troll Ziggurats and Frozen Necropolises",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Gundrak Temple Terraces",
@@ -2548,9 +2548,9 @@ const ZONES = [
     "name": "Sholazar Basin",
     "continent": "Northrend",
     "tagline": "Primeval Tropical Crater Basin",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "River-Makers Titan Waygate",
@@ -2595,9 +2595,9 @@ const ZONES = [
     "name": "Storm Peaks",
     "continent": "Northrend",
     "tagline": "Alpine Glacial Titan Peaks and Precipices",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Ulduar Titan Precipices",
@@ -2648,9 +2648,9 @@ const ZONES = [
     "name": "Icecrown",
     "continent": "Northrend",
     "tagline": "Glacial Scourge Citadel and Frozen Wastes",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Icecrown Citadel Citadel Gates",
@@ -2701,9 +2701,9 @@ const ZONES = [
     "name": "Crystalsong Forest",
     "continent": "Northrend",
     "tagline": "Crystalline Enchanted Woods and Sunken Elven Ruins",
-    "biome": "Mild (DC 10 Crystalline Forest) / Deadly (DC 18 Great Conflagration Ruins)",
+    "biome": "Mild (DC 10 Crystalline Forest) / Deadly (DC 16 Great Conflagration Ruins)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Dalaran Crater Overlook",
@@ -2748,9 +2748,9 @@ const ZONES = [
     "name": "Wintergrasp",
     "continent": "Northrend",
     "tagline": "Alpine Battleground and Glacial Siege Wastes",
-    "biome": "Harsh (DC 14 Alpine) / Deadly (DC 18 Siege Wastes)",
+    "biome": "Harsh (DC 13 Alpine) / Deadly (DC 16 Siege Wastes)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Wintergrasp Fortress Titan Vault",
@@ -2795,9 +2795,9 @@ const ZONES = [
     "name": "Hrothgar's Landing",
     "continent": "Northrend",
     "tagline": "Subarctic Coastal Mist Isles and Kvaldir Camps",
-    "biome": "Harsh (Baseline DC 14)",
+    "biome": "Harsh (Baseline DC 13)",
     "severity": "harsh",
-    "baselineDC": 14,
+    "baselineDC": 13,
     "subfeatures": [
       {
         "name": "Kvaldir Mist Shorelines",
@@ -2838,9 +2838,9 @@ const ZONES = [
     "name": "Acherus & The Scarlet Enclave",
     "continent": "Northrend",
     "tagline": "Scourge Necropolis and Scorched Haven",
-    "biome": "Deadly (Baseline DC 18)",
+    "biome": "Deadly (Baseline DC 16)",
     "severity": "deadly",
-    "baselineDC": 18,
+    "baselineDC": 16,
     "subfeatures": [
       {
         "name": "Acherus: The Ebon Hold",

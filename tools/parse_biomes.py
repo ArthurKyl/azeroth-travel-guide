@@ -56,9 +56,17 @@ for ci, (cname, cstart) in enumerate(continents):
             sev = "deadly"
         elif "Harsh" in biome_raw:
             sev = "harsh"
-        # baseline DC = first DC number mentioned
+        # House rule: source notes use Harsh DC 14 / Deadly DC 18; the campaign
+        # runs them at 13 / 16. Remap baselines (and the display string) here.
+        BASELINE_REMAP = {14: 13, 18: 16}
+        biome_raw = re.sub(
+            r"DC (\d+)",
+            lambda m: f"DC {BASELINE_REMAP.get(int(m.group(1)), int(m.group(1)))}",
+            biome_raw,
+        )
+        # baseline DC = worst class DC mentioned
         dcs = [int(d) for d in re.findall(r"DC (\d+)", biome_raw)]
-        baseline = max(dcs) if dcs else {"mild": 10, "harsh": 14, "deadly": 18}[sev]
+        baseline = max(dcs) if dcs else {"mild": 10, "harsh": 13, "deadly": 16}[sev]
 
         # sub-features: lines like "    - _Name_: desc"
         subs = []
