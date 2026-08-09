@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biome Compendium — The Wayfarer's Codex</title>
+<meta name="description" content="Environmental hazards, weather tables, and survival DCs for 61 zones across Kalimdor, the Eastern Kingdoms, Outland, and Northrend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5' fill='%23e0622d'/%3E%3Ctext x='16' y='21' font-size='12' font-family='Arial' font-weight='bold' fill='%23fff' text-anchor='middle'%3E20%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="brand-name">Wayfarer's<br>Codex</span>
+      <span class="brand-sub">Azeroth hexcrawl rules</span>
+    </a>
+    <nav aria-label="Main">
+      <span class="nav-label">Rules</span>
+      <a href="index.html">Travel Rules</a>
+      <a href="activities.html">Travel Activities</a>
+      <a href="settlements.html">Settlement Downtime</a>
+      <span class="nav-label">Reference</span>
+      <a href="biomes.html" aria-current="page">Biome Compendium</a>
+    </nav>
+    <div class="sidebar-foot">
+      <span class="tag">D&amp;D 5e · WotLK era</span><br>
+      Fan-made framework for use at your own table.
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <header class="page-head">
+      <p class="kicker">Reference</p>
+      <h1>Biome Compendium</h1>
+      <p class="summary">Environmental hazards, weather tables, and survival DCs for every zone
+        the party can cross — Kalimdor, the Eastern Kingdoms, Outland, and Northrend.</p>
+      <div class="meta-stats">
+        <span><strong>61</strong> zones</span>
+        <span><strong>4</strong> continents</span>
+        <span><strong>1d6</strong> daily weather</span>
+      </div>
+    </header>
+
+    <section class="rule-section" id="primer" aria-labelledby="primer-title">
+      <h2 id="primer-title">Weather &amp; Exhaustion Primer</h2>
+      <div class="primer-grid">
+        <div class="card">
+          <h3>Biome classes</h3>
+          <div class="def-rows">
+            <div class="def-row mild"><span class="def-key">DC 10</span><span><strong>Mild</strong> — temperate forests, pastoral plains, magical sanctuaries. Resources abound.</span></div>
+            <div class="def-row harsh"><span class="def-key">DC 14</span><span><strong>Harsh</strong> — jungles, deserts, swamps, tundras, and alpine crags.</span></div>
+            <div class="def-row deadly"><span class="def-key">DC 18</span><span><strong>Deadly</strong> — volcanic wastes, scourgelands, fel-shatters, glacial peaks.</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Daily weather (1d6)</h3>
+          <div class="def-rows">
+            <div class="def-row neutral"><span class="def-key">1–3</span><span><strong>Clear</strong> · +0 DC — standard visibility, pace, and resource use.</span></div>
+            <div class="def-row rare"><span class="def-key">4–5</span><span><strong>Moderate</strong> · +2 DC — lightly obscured; ranged attack range halved; unpaved ground is difficult terrain.</span></div>
+            <div class="def-row deadly"><span class="def-key">6</span><span><strong>Severe</strong> · +4 DC — heavily obscured; disadvantage on Perception and ranged attacks; extreme heat or cold doubles resource depletion or deals periodic damage.</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Hex navigation sequence</h3>
+          <ol>
+            <li>Roll <strong>1d6 for daily weather</strong> to set the DC modifier and active hazards.</li>
+            <li>Determine travel pace — fast, normal, or slow.</li>
+            <li><strong>Wisdom (Survival)</strong> check to navigate hexes without marked roads.</li>
+            <li>At day's end, every character makes a <strong>Constitution save</strong> vs. baseline + weather DC. Failure: 1 level of Exhaustion.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="rule-section" aria-labelledby="zones-title">
+      <h2 id="zones-title">Zones</h2>
+      <p class="section-note">Filter by continent or severity, search by name or feature, then open
+        a zone and roll its daily weather.</p>
+
+      <div class="filter-bar" role="search">
+        <input type="search" id="zone-search" placeholder="Search zones, features, hazards…" aria-label="Search zones">
+        <div class="chip-row" id="continent-chips" role="group" aria-label="Filter by continent">
+          <button class="chip" data-continent="all" aria-pressed="true">All</button>
+          <button class="chip" data-continent="Kalimdor" aria-pressed="false">Kalimdor</button>
+          <button class="chip" data-continent="Eastern Kingdoms" aria-pressed="false">Eastern Kingdoms</button>
+          <button class="chip" data-continent="Outland" aria-pressed="false">Outland</button>
+          <button class="chip" data-continent="Northrend" aria-pressed="false">Northrend</button>
+        </div>
+        <div class="chip-row" id="severity-chips" role="group" aria-label="Filter by severity">
+          <button class="chip mild" data-severity="mild" aria-pressed="false">Mild</button>
+          <button class="chip harsh" data-severity="harsh" aria-pressed="false">Harsh</button>
+          <button class="chip deadly" data-severity="deadly" aria-pressed="false">Deadly</button>
+        </div>
+      </div>
+      <p class="result-count" id="result-count" aria-live="polite"></p>
+
+      <div class="zone-grid" id="zone-grid"></div>
+    </section>
+
+    <footer class="site-footer">
+      The Wayfarer's Codex — a fan-made D&amp;D 5e framework set in the World of Warcraft.
+      World of Warcraft and related names are trademarks of Blizzard Entertainment.
+    </footer>
+
+  </main>
+</div>
+
+<script src="js/zones-data.js"></script>
+<script src="js/biomes.js"></script>
+</body>
+</html>
