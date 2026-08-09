@@ -1,5 +1,7 @@
 # The Wayfarer's Codex of Azeroth
 
+## ▶ [**arthurkyl.github.io/azeroth-travel-guide**](https://arthurkyl.github.io/azeroth-travel-guide/) — use the site here
+
 A World of Warcraft–themed reference website for D&D 5e hexcrawl travel rules —
 survival, navigation, and environmental hazards across Azeroth, Outland, and Northrend.
 
