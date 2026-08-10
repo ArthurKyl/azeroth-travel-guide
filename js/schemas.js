@@ -495,6 +495,71 @@
     },
   };
 
+  // biomes.yml ----------------------------------------------------------
+
+  SCHEMAS.biomes = {
+    type: "map",
+    fields: {
+      head: head,
+      primer: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          cards: {
+            type: "list",
+            required: true,
+            item: {
+              fields: {
+                heading: { required: true },
+                text: {},
+                def_rows: { type: "list", item: defRowFields },
+                ordered: { type: "list" },
+              },
+            },
+          },
+        },
+      },
+      zones_section: {
+        type: "map",
+        required: true,
+        fields: { heading: { required: true }, note: { required: true } },
+      },
+      zones: {
+        type: "list",
+        required: true,
+        item: {
+          fields: {
+            name: { required: true },
+            continent: { required: true },
+            tagline: { required: true },
+            biome: { required: true },
+            severity: { enum: ["mild", "harsh", "deadly"], required: true },
+            dc: { type: "number", required: true },
+            subfeatures: {
+              type: "list",
+              required: true,
+              item: { fields: { name: { required: true }, text: { required: true } } },
+            },
+            callouts: { type: "list", item: calloutFields },
+            weather: {
+              type: "list",
+              required: true,
+              item: {
+                fields: {
+                  roll: { required: true },
+                  name: { required: true },
+                  mod: { required: true },
+                  effect: { required: true },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  };
+
   globalThis.SCHEMAS = SCHEMAS;
   globalThis.SCHEMA_PARTS = { head, calloutFields, tierFields, defRowFields };
 })();
