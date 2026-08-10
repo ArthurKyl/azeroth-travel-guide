@@ -1,0 +1,175 @@
+# Festivals & Holidays. The year-overview table is built from this same list,
+# so each festival is written once. Add one by copying a block below.
+#
+#   month/days  → the overview table row
+#   when        → the date line on the detail card
+#   factions    → badges under the title
+#   impact      → the card body; **bold** works
+
+head:
+  kicker: Reference
+  title: Festivals & Holidays
+  summary: >
+    Annual celebrations across Azeroth trigger substantial political, economic, and magical
+    shifts — dictating diplomatic trade windows, troop mobilization drives, and spiritual
+    convergences.
+  stats:
+    - { value: "13", label: celebrations }
+    - { value: "7–16", label: days each }
+    - { value: "137", label: festival days per year }
+
+year_table:
+  heading: The Festival Year
+  note: >
+    Dates are given as month and day on the [Azerothian calendar](calendar.html). Only
+    Highspring, Harvestide, and Amberfall carry no major celebration.
+
+detail:
+  heading: Celebrations in Detail
+
+festivals:
+  - id: lunar-festival
+    name: Lunar Festival
+    month: 1 · First Dawn
+    days: 15 – 28
+    when: Month 1 · First Dawn, Days 15 – 28
+    duration: 14 days
+    factions: [Alliance, Horde, Night Elves, Tauren]
+    impact: >
+      Ancestral spirit activity spikes worldwide; Elders award **Lunar Coins**; Elune blessings
+      grant temporary stamina and spell resistance; minor faction **ceasefires** enforced at
+      ancestral grounds.
+
+  - id: love-is-in-the-air
+    name: Love is in the Air
+    month: 2 · Awakening
+    days: 7 – 20
+    when: Month 2 · Awakening, Days 7 – 20
+    duration: 14 days
+    factions: [All factions, Goblins, Humans, Orcs]
+    impact: >
+      Massive trade surges in chemical fragrances; **Crown Chemical Co.** infiltrations trigger
+      biohazard containment protocols in major cities.
+
+  - id: noblegarden
+    name: Noblegarden
+    month: 3 · Sunreach
+    days: 15 – 21
+    when: Month 3 · Sunreach, Days 15 – 21
+    duration: 7 days
+    factions: [Alliance, Horde]
+    impact: >
+      Light-infused fertility rituals; egg-sourcing logistics consume agricultural supply lines;
+      public **morale buffs** in human and blood elf settlements.
+
+  - id: koshharg-spring
+    name: Kosh'harg Festival (Spring)
+    month: 3 · Sunreach
+    days: 21 – 27
+    when: Month 3 · Sunreach, Days 21 – 27
+    duration: 7 days
+    factions: [Orcish Clans, Mag'har]
+    impact: >
+      Total cessation of intra-orcish violence; clan elders converge at Oshu'gun (Nagrand) or
+      Durotar; ancestral communion grants **clan blessings**; **Om'riggor** rites initiated for
+      young warriors.
+
+  - id: summer-solstice
+    name: Night Elf Summer Solstice
+    month: 5 · Solstice Peak
+    days: 13 – 19
+    when: Month 5 · Solstice Peak, Days 13 – 19
+    duration: 7 days
+    factions: [Night Elves, Highborne, Druidic Orders]
+    impact: >
+      Peak ley-line siphon efficiency; **moonwell recharge rates double**; Sentinels rotate
+      defensive deployments along the Ashenvale borders.
+
+  - id: sunstrider-rites
+    name: Sunstrider Rites
+    month: 5 · Solstice Peak
+    days: 25 – 31
+    when: Month 5 · Solstice Peak, Days 25 – 31
+    duration: 7 days
+    factions: [Blood Elves, High Elves]
+    impact: >
+      Commemoration of Dath'Remar; the Sunwell is recalibrated and magical intake regulated
+      across Quel'Thalas; **arcane spellcasting efficiency boosted** for Thalassian races.
+
+  - id: midsummer
+    name: Midsummer Fire Festival
+    month: 6 · Hearthfire
+    days: 10 – 24
+    when: Month 6 · Hearthfire, Days 10 – 24
+    duration: 15 days
+    factions: [All factions]
+    impact: >
+      Elemental Fire spirits rage; bonfires stoked across all territories provide **stamina
+      buffs**; Ahune's forces attempt frost invasions in the Slave Pens.
+
+  - id: harvest-festival
+    name: Harvest Festival
+    month: 9 · Shadowrise
+    days: 5 – 11
+    when: Month 9 · Shadowrise, Days 5 – 11
+    duration: 7 days
+    factions: [Alliance, Horde]
+    impact: >
+      Logistics lines carry massive grain shipments to urban centers; memorial tributes paid to
+      heroes (Uther Lightbringer, Grom Hellscream); **food storage drives** for the coming winter.
+
+  - id: koshharg-autumn
+    name: Kosh'harg Festival (Autumn)
+    month: 9 · Shadowrise
+    days: 21 – 27
+    when: Month 9 · Shadowrise, Days 21 – 27
+    duration: 7 days
+    factions: [Orcish Clans, Mag'har]
+    impact: >
+      Second annual equinox convergence; trade of game and weapons; formal **council of
+      chieftains**; integration rites for newly arrived clans.
+
+  - id: brewfest
+    name: Brewfest
+    month: 9 → 10
+    days: Shadowrise 25 – Frosting Gale 8
+    when: Month 9, Day 25 → Month 10, Day 8
+    duration: 14 days
+    factions: [Alliance, Horde, Dwarves, Orcs]
+    impact: >
+      Mass supply logistics of hops and grains; **Dark Iron Dwarf invasions** target iron and
+      brewing infrastructure outside Ironforge and Orgrimmar.
+
+  - id: hallows-end
+    name: Hallow's End
+    month: 10 → 11
+    days: Frosting Gale 18 – Deepwinter 1
+    when: Month 10, Day 18 → Month 11, Day 1
+    duration: 15 days
+    factions: [Forsaken, Alliance, Horde]
+    impact: >
+      Commemorates the Forsaken liberation; Wickerman burnings in Tirisfal and Southshore; the
+      **Headless Horseman** unleashes fire attacks on low-level settlements; **Fel/Death magic
+      affinity rises**.
+
+  - id: foundry-rites
+    name: Ironforge Foundry Rites
+    month: 11 · Deepwinter
+    days: 10 – 16
+    when: Month 11 · Deepwinter, Days 10 – 16
+    duration: 7 days
+    factions: [Dwarves, Gnomes]
+    impact: >
+      Re-ignition and purification of the Great Forge; titan-artifact resonance tests; **peak
+      iron and steel production** drive across Khaz Modan.
+
+  - id: winter-veil
+    name: Feast of Winter Veil
+    month: 12 · Veilfall
+    days: 15 – 30
+    when: Month 12 · Veilfall, Days 15 – 30
+    duration: 16 days
+    factions: [All factions, Smokywood Pastures]
+    impact: >
+      Greatfather Winter visits the capital cities; diplomatic **trade truces** active in neutral
+      zones; festive food distribution strains transport networks.

@@ -12,199 +12,23 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5' fill='%23e0622d'/%3E%3Ctext x='16' y='21' font-size='12' font-family='Arial' font-weight='bold' fill='%23fff' text-anchor='middle'%3E20%3C/text%3E%3C/svg%3E">
 </head>
 <body>
+<!-- Content lives in content/travel-rules.yml — see docs/editing.md -->
 <div class="app">
-
-  <aside class="sidebar">
-    <a class="brand" href="index.html">
-      <span class="brand-name">Wayfarer's<br>Codex</span>
-      <span class="brand-sub">Azeroth hexcrawl rules</span>
-    </a>
-    <nav aria-label="Main">
-      <span class="nav-label">Rules</span>
-      <a href="index.html" aria-current="page">Travel Rules</a>
-      <a href="activities.html">Travel Activities</a>
-      <a href="settlements.html">Settlement Downtime</a>
-      <span class="nav-label">Reference</span>
-      <a href="biomes.html">Biome Compendium</a>
-      <a href="calendar.html">Calendar &amp; Moons</a>
-      <a href="holidays.html">Festivals &amp; Holidays</a>
-      <a href="timeline.html">Historical Timeline</a>
-    </nav>
-    <div class="sidebar-foot">
-      <span class="tag">D&amp;D 5e · WotLK era</span><br>
-      Fan-made framework for use at your own table.
-    </div>
-  </aside>
-
+  <aside class="sidebar"></aside>
   <main class="content">
-
-    <header class="page-head">
-      <p class="kicker">Core rules</p>
-      <h1>Travel Rules</h1>
-      <p class="summary">Survival and navigation for wild exploration across Azeroth —
-        overland travel runs on a 6-mile hex grid with an 8-hour daily march.</p>
-      <div class="meta-stats">
-        <span><strong>4</strong> daily phases</span>
-        <span><strong>3</strong> travel paces</span>
-        <span><strong>d20</strong> encounter check</span>
-      </div>
-    </header>
-
-    <blockquote class="read-aloud">
-      <p>Traveling through Azeroth is rarely a peaceful stroll down the King's Road.
-        Whether braving the toxic bogs of Dustwallow, the freezing winds of Frostfire
-        Ridge, or the blighted soil of the Plaguelands, wilderness travel requires
-        preparation, teamwork, and vigilance.</p>
-    </blockquote>
-
-    <section class="rule-section" aria-labelledby="loop-title">
-      <h2 id="loop-title">The Travel Phase Loop</h2>
-      <p class="section-note">Every day on the road follows the same four-step procedure, in order.</p>
-      <ol class="steps">
-        <li>
-          <div>
-            <strong class="step-name">Determine pace</strong>
-            <p>The party selects a <strong>Fast</strong>, <strong>Normal</strong>, or <strong>Slow</strong> pace for the march.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <strong class="step-name">Assign roles</strong>
-            <p>Each player chooses one <a href="activities.html">travel activity</a> — Scout, Hunter, Pioneer, and more.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <strong class="step-name">Roll environment</strong>
-            <p>The GM rolls 1d6 on the current zone's <a href="biomes.html">weather table</a> for the day's hazards and DC modifiers.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <strong class="step-name">Check for encounters</strong>
-            <p>Roll a d20 for wilderness events. Encounters trigger on <strong>18–20</strong>.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section class="rule-section" aria-labelledby="pace-title">
-      <h2 id="pace-title">Travel Pace</h2>
-      <div class="table-scroll">
-        <table class="codex">
-          <thead>
-            <tr><th scope="col">Pace</th><th scope="col">Distance / day</th><th scope="col">Perception</th><th scope="col">Restrictions</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="key">Fast</td>
-              <td>30 miles (5 hexes)</td>
-              <td><span class="label-failure">−5 passive Perception</span></td>
-              <td>Cannot stealth, forage, or map.</td>
-            </tr>
-            <tr>
-              <td class="key">Normal</td>
-              <td>24 miles (4 hexes)</td>
-              <td>Standard</td>
-              <td>Standard travel operations.</td>
-            </tr>
-            <tr>
-              <td class="key">Slow</td>
-              <td>18 miles (3 hexes)</td>
-              <td>Standard</td>
-              <td>Group can use <span class="label-success">Stealth</span> to avoid encounters, and forage while traveling.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="rule-section" aria-labelledby="danger-title">
-      <h2 id="danger-title">Wilderness Hazards</h2>
-      <p class="section-note">Unlike standard high-fantasy travel, the wilds of Azeroth carry
-        environmental corruption, elemental instability, and hostile factions.</p>
-      <div class="callout danger">
-        <h4>Fel &amp; Blight contamination</h4>
-        <p>Unpurified water or food gathered in corrupted biomes requires a
-          <strong>DC 13 Constitution saving throw</strong> to avoid disease or exhaustion.</p>
-      </div>
-      <div class="callout warning">
-        <h4>Resting constraints</h4>
-        <p>A <em>Long Rest</em> cannot be taken in hazardous or unfortified wilderness without a
-          successful <strong>Camping / Fortification check</strong> by the party. Resting in a Harsh or
-          Deadly biome without protective gear, shelter, or magical protection prevents recovering
-          levels of Exhaustion during a Long Rest.</p>
-      </div>
-      <div class="callout info">
-        <h4>Daily exhaustion check</h4>
-        <p>At the end of each travel day, every character makes a <strong>Constitution saving throw</strong>
-          against the <strong>zone baseline DC + daily weather modifier</strong>. On a failure, the
-          character gains 1 level of Exhaustion. Clearing it requires a night at a
-          <a href="settlements.html">Safe Spot</a> — or a bard with a good
-          <a href="activities.html#motivate">Motivate</a> roll.</p>
-      </div>
-    </section>
-
-    <section class="rule-section" aria-labelledby="gm-title">
-      <h2 id="gm-title">GM Checklist — Per Travel Day</h2>
-      <ul class="checklist">
-        <li>
-          <input type="checkbox" id="check-rations" aria-labelledby="check-rations-label">
-          <span id="check-rations-label"><strong>Track rations &amp; water</strong> — 1 ration &amp; 1 gallon of water consumed per character.</span>
-        </li>
-        <li>
-          <input type="checkbox" id="check-exhaustion" aria-labelledby="check-exhaustion-label">
-          <span id="check-exhaustion-label"><strong>Check exhaustion</strong> — did the party travel over 8 hours today? <em>(DC 10 + 1 per extra hour Con check.)</em></span>
-        </li>
-        <li>
-          <input type="checkbox" id="check-weather" aria-labelledby="check-weather-label">
-          <span id="check-weather-label"><strong>Weather shift</strong> — roll 1d6 on the active zone's weather chart in the <a href="biomes.html">Biome Compendium</a>.</span>
-        </li>
-      </ul>
-    </section>
-
-    <section class="rule-section" aria-labelledby="gateway-title">
-      <h2 id="gateway-title">Reference</h2>
-      <div class="gateway-grid">
-        <a class="gateway card" href="activities.html">
-          <h3>Travel Activities</h3>
-          <p>Player roles for the march — scouting, hunting, foraging, prayer, and camp-phase rules.</p>
-          <span class="count">8 activities · stacking rules</span>
-        </a>
-        <a class="gateway card" href="settlements.html">
-          <h3>Settlement Downtime</h3>
-          <p>Downtime in villages and cities — taverns, town squares, black markets, scouts, chapels, and provisioners.</p>
-          <span class="count">6 locations · every settlement</span>
-        </a>
-        <a class="gateway card" href="biomes.html">
-          <h3>Biome Compendium</h3>
-          <p>Environmental hazards, weather tables, survival DCs, and local sub-features for every zone.</p>
-          <span class="count">61 zones · 4 continents</span>
-        </a>
-        <a class="gateway card" href="calendar.html">
-          <h3>Calendar &amp; Moons</h3>
-          <p>The ADP epoch, the twelve months, the seven-day week, and the phases of both moons.</p>
-          <span class="count">365 days · 2 moons</span>
-        </a>
-        <a class="gateway card" href="holidays.html">
-          <h3>Festivals &amp; Holidays</h3>
-          <p>Annual celebrations and the trade windows, ceasefires, buffs, and invasions they bring.</p>
-          <span class="count">13 celebrations · calendar order</span>
-        </a>
-        <a class="gateway card" href="timeline.html">
-          <h3>Historical Timeline</h3>
-          <p>Every dated main event and pre-event phase, from the First War to the Worldsoul Saga.</p>
-          <span class="count">96 events · 0–41 ADP</span>
-        </a>
-      </div>
-    </section>
-
-    <footer class="site-footer">
-      The Wayfarer's Codex — a fan-made D&amp;D 5e framework set in the World of Warcraft.
-      World of Warcraft and related names are trademarks of Blizzard Entertainment.
-    </footer>
-
+    <header class="page-head"></header>
+    <blockquote class="read-aloud" id="intro"></blockquote>
+    <section class="rule-section" id="loop" aria-labelledby="loop-title"></section>
+    <section class="rule-section" id="pace" aria-labelledby="pace-title"></section>
+    <section class="rule-section" id="danger" aria-labelledby="danger-title"></section>
+    <section class="rule-section" id="gm" aria-labelledby="gm-title"></section>
+    <section class="rule-section" id="gateway" aria-labelledby="gateway-title"></section>
+    <footer class="site-footer"></footer>
   </main>
 </div>
+<script src="vendor/js-yaml.min.js"></script>
+<script src="js/codex.js"></script>
+<script src="js/schemas.js"></script>
+<script src="js/page-travel-rules.js"></script>
 </body>
 </html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Check — The Wayfarer's Codex</title>
+<meta name="description" content="Validates every content file and reports problems in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5' fill='%23e0622d'/%3E%3Ctext x='16' y='21' font-size='12' font-family='Arial' font-weight='bold' fill='%23fff' text-anchor='middle'%3E20%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar"></aside>
+  <main class="content">
+    <header class="page-head"></header>
+    <section class="rule-section" id="report"></section>
+    <footer class="site-footer"></footer>
+  </main>
+</div>
+<script src="vendor/js-yaml.min.js"></script>
+<script src="js/codex.js"></script>
+<script src="js/schemas.js"></script>
+<script>
+/* Content Check — loads every content file, validates it, reports in one place. */
+(function () {
+  "use strict";
+  const { el, load, validate, renderChrome, defRows } = Codex;
+
+  const FILES = [
+    ["site", "Sidebar, nav and footer"],
+    ["travel-rules", "Travel Rules (index.html)"],
+    ["activities", "Travel Activities"],
+    ["settlements", "Settlement Downtime"],
+    ["biomes", "Biome Compendium"],
+    ["calendar", "Calendar & Moons"],
+    ["holidays", "Festivals & Holidays"],
+    ["timeline", "Historical Timeline"],
+  ];
+
+  // A short "what's in here" line per file, so the report doubles as an inventory.
+  function summarize(name, data) {
+    if (!data || typeof data !== "object") return "";
+    const counts = [];
+    const add = (n, label) => { if (n) counts.push(`${n} ${label}`); };
+    if (name === "site") add((data.nav || []).reduce((n, g) => n + g.links.length, 0), "nav links");
+    add((data.festivals || []).length, "festivals");
+    add((data.activities || []).length, "activities");
+    add((data.locations || []).length, "locations");
+    add((data.zones || []).length, "zones");
+    add((data.eras || []).length, "eras");
+    if (data.eras) add(data.eras.reduce((n, e) => n + e.events.length, 0), "events");
+    if (data.months && data.months.rows) add(data.months.rows.length, "months");
+    if (data.moons) add((data.moons.list || []).length, "moons");
+    if (data.pace) add((data.pace.rows || []).length, "pace rows");
+    return counts.join(" · ");
+  }
+
+  async function run() {
+    let site = null;
+    try {
+      site = await load("site");
+      renderChrome(site);
+    } catch (e) {
+      /* chrome is best-effort here; the report below says what went wrong */
+    }
+
+    document.querySelector("header.page-head").replaceChildren(
+      el("p", { class: "kicker", text: "Maintenance" }),
+      el("h1", { text: "Content Check" }),
+      el("p", {
+        class: "summary",
+        text: "Every content file, validated against its schema. Run this after editing — it finds the problem before a visitor does.",
+      })
+    );
+
+    const report = document.getElementById("report");
+    const rows = [];
+    let totalProblems = 0;
+
+    for (const [name, label] of FILES) {
+      let problems, summary = "";
+      try {
+        const data = await load(name);
+        problems = validate(data, SCHEMAS[name], `${name}.yml`);
+        summary = summarize(name, data);
+      } catch (e) {
+        problems = [e.message];
+      }
+      totalProblems += problems.length;
+      rows.push({ name, label, problems, summary });
+    }
+
+    report.appendChild(
+      el("h2", {
+        text: totalProblems
+          ? `${FILES.length} files · ${totalProblems} problem${totalProblems === 1 ? "" : "s"}`
+          : `${FILES.length} files · all clean`,
+      })
+    );
+    report.appendChild(
+      el("div", { class: "callout " + (totalProblems ? "danger" : "info") }, [
+        el("h4", { text: totalProblems ? "Needs fixing" : "Everything validates" }),
+        el("p", {
+          text: totalProblems
+            ? "Each problem below names the file, the entry and the field. Fix, save, reload this page."
+            : "All content files parse and match their schemas. The site will render.",
+        }),
+      ])
+    );
+
+    report.appendChild(
+      el(
+        "div",
+        { class: "def-rows" },
+        rows.map((r) =>
+          el("div", { class: "def-row " + (r.problems.length ? "deadly" : "mild") }, [
+            el("span", { class: "def-key", text: r.problems.length ? "FAIL" : "OK" }),
+            el("span", null, [
+              el("strong", { text: `content/${r.name}.yml` }),
+              document.createTextNode(` — ${r.label}`),
+              r.summary ? el("br") : null,
+              r.summary ? el("span", { style: "color:var(--ink-dim)", text: r.summary }) : null,
+              r.problems.length
+                ? el("ul", { style: "margin:0.4rem 0 0 1.2rem" },
+                    r.problems.map((p) => el("li", { text: p })))
+                : null,
+            ]),
+          ])
+        )
+      )
+    );
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run);
+  } else {
+    run();
+  }
+})();
+</script>
+</body>
+</html>
