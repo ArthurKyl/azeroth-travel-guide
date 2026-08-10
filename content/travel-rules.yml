@@ -1,0 +1,132 @@
+# Travel Rules — the site's front page.
+#
+# Colour conventions inside any text: ++green++, --red--, !!amber!!
+# Links: [label](page.html)
+
+head:
+  kicker: Core rules
+  title: Travel Rules
+  summary: >
+    Survival and navigation for wild exploration across Azeroth — overland travel runs on a
+    6-mile hex grid with an 8-hour daily march.
+  stats:
+    - { value: "4", label: daily phases }
+    - { value: "3", label: travel paces }
+    - { value: d20, label: encounter check }
+
+intro: >
+  Traveling through Azeroth is rarely a peaceful stroll down the King's Road. Whether braving the
+  toxic bogs of Dustwallow, the freezing winds of Frostfire Ridge, or the blighted soil of the
+  Plaguelands, wilderness travel requires preparation, teamwork, and vigilance.
+
+phase_loop:
+  heading: The Travel Phase Loop
+  note: Every day on the road follows the same four-step procedure, in order.
+  steps:
+    - name: Determine pace
+      text: The party selects a **Fast**, **Normal**, or **Slow** pace for the march.
+    - name: Assign roles
+      text: >
+        Each player chooses one [travel activity](activities.html) — Scout, Hunter, Pioneer, and
+        more.
+    - name: Roll environment
+      text: >
+        The GM rolls 1d6 on the current zone's [weather table](biomes.html) for the day's hazards
+        and DC modifiers.
+    - name: Check for encounters
+      text: Roll a d20 for wilderness events. Encounters trigger on **18–20**.
+
+pace:
+  heading: Travel Pace
+  columns: [Pace, Distance / day, Effect, Restrictions]
+  rows:
+    - pace: Fast
+      distance: 30 miles (5 hexes)
+      effect: "--−5 passive Perception--"
+      restrictions: Cannot stealth, forage, or map.
+    - pace: Normal
+      distance: 24 miles (4 hexes)
+      effect: Standard
+      restrictions: Standard travel operations.
+    - pace: Slow
+      distance: 18 miles (3 hexes)
+      effect: Standard
+      restrictions: >
+        Group can use ++Stealth++ to avoid encounters, and forage while traveling.
+
+hazards:
+  heading: Wilderness Hazards
+  note: >
+    Unlike standard high-fantasy travel, the wilds of Azeroth carry environmental corruption,
+    elemental instability, and hostile factions.
+  callouts:
+    - kind: danger
+      title: Fel & Blight contamination
+      text: >
+        Unpurified water or food gathered in corrupted biomes requires a **DC 13 Constitution
+        saving throw** to avoid disease or exhaustion.
+    - kind: warning
+      title: Resting constraints
+      text: >
+        A _Long Rest_ cannot be taken in hazardous or unfortified wilderness without a successful
+        **Camping / Fortification check** by the party. Resting in a Harsh or Deadly biome without
+        protective gear, shelter, or magical protection prevents recovering levels of Exhaustion
+        during a Long Rest.
+    - kind: info
+      title: Daily exhaustion check
+      text: >
+        At the end of each travel day, every character makes a **Constitution saving throw**
+        against the **zone baseline DC + daily weather modifier**. On a failure, the character
+        gains 1 level of Exhaustion. Clearing it requires a night at a
+        [Safe Spot](settlements.html) — or a bard with a good
+        [Motivate](activities.html#motivate) roll.
+
+gm_checklist:
+  heading: GM Checklist — Per Travel Day
+  items:
+    - id: rations
+      text: >
+        **Track rations & water** — 1 ration & 1 gallon of water consumed per character.
+    - id: exhaustion
+      text: >
+        **Check exhaustion** — did the party travel over 8 hours today? _(DC 10 + 1 per extra
+        hour Con check.)_
+    - id: weather
+      text: >
+        **Weather shift** — roll 1d6 on the active zone's weather chart in the
+        [Biome Compendium](biomes.html).
+
+gateways:
+  heading: Reference
+  cards:
+    - title: Travel Activities
+      href: activities.html
+      text: >
+        Player roles for the march — scouting, hunting, foraging, prayer, and camp-phase rules.
+      count: 8 activities · stacking rules
+    - title: Settlement Downtime
+      href: settlements.html
+      text: >
+        Downtime in villages and cities — taverns, town squares, black markets, scouts, chapels,
+        and provisioners.
+      count: 6 locations · every settlement
+    - title: Biome Compendium
+      href: biomes.html
+      text: >
+        Environmental hazards, weather tables, survival DCs, and local sub-features for every zone.
+      count: 61 zones · 4 continents
+    - title: Calendar & Moons
+      href: calendar.html
+      text: >
+        The ADP epoch, the twelve months, the seven-day week, and the phases of both moons.
+      count: 365 days · 2 moons
+    - title: Festivals & Holidays
+      href: holidays.html
+      text: >
+        Annual celebrations and the trade windows, ceasefires, buffs, and invasions they bring.
+      count: 13 celebrations · calendar order
+    - title: Historical Timeline
+      href: timeline.html
+      text: >
+        Every dated main event and pre-event phase, from the First War to the Worldsoul Saga.
+      count: 96 events · 0–41 ADP

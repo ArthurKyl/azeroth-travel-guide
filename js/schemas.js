@@ -249,6 +249,89 @@
     },
   };
 
+  // travel-rules.yml ----------------------------------------------------
+
+  SCHEMAS["travel-rules"] = {
+    type: "map",
+    fields: {
+      head: head,
+      intro: { required: true },
+      phase_loop: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          note: {},
+          steps: {
+            type: "list",
+            required: true,
+            item: { fields: { name: { required: true }, text: { required: true } } },
+          },
+        },
+      },
+      pace: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          columns: { type: "list", required: true },
+          rows: {
+            type: "list",
+            required: true,
+            item: {
+              fields: {
+                pace: { required: true },
+                distance: { required: true },
+                effect: { required: true },
+                restrictions: { required: true },
+              },
+            },
+          },
+        },
+      },
+      hazards: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          note: {},
+          callouts: { type: "list", required: true, item: calloutFields },
+        },
+      },
+      gm_checklist: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          items: {
+            type: "list",
+            required: true,
+            item: { fields: { id: { required: true }, text: { required: true } } },
+          },
+        },
+      },
+      gateways: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          cards: {
+            type: "list",
+            required: true,
+            item: {
+              fields: {
+                title: { required: true },
+                href: { required: true },
+                text: { required: true },
+                count: { required: true },
+              },
+            },
+          },
+        },
+      },
+    },
+  };
+
   globalThis.SCHEMAS = SCHEMAS;
   globalThis.SCHEMA_PARTS = { head, calloutFields, tierFields, defRowFields };
 })();
