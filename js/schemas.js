@@ -332,6 +332,169 @@
     },
   };
 
+  // calendar.yml --------------------------------------------------------
+
+  const GLYPHS = [
+    "new", "waxing-crescent", "first-quarter", "waxing-gibbous",
+    "full", "waning-gibbous", "last-quarter", "waning-crescent",
+  ];
+
+  SCHEMAS.calendar = {
+    type: "map",
+    fields: {
+      head: head,
+      epoch: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          note: { required: true },
+          cards: {
+            type: "list",
+            required: true,
+            item: { fields: { heading: { required: true }, text: { required: true } } },
+          },
+        },
+      },
+      months: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          columns: { type: "list", required: true },
+          rows: {
+            type: "list",
+            required: true,
+            item: {
+              fields: {
+                index: { type: "number", required: true },
+                name: { required: true },
+                days: { type: "number", required: true },
+                range: { required: true },
+                season: { required: true },
+              },
+            },
+          },
+        },
+      },
+      week: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          note: {},
+          columns: { type: "list", required: true },
+          rows: {
+            type: "list",
+            required: true,
+            item: {
+              fields: {
+                index: { type: "number", required: true },
+                name: { required: true },
+                assoc: { required: true },
+              },
+            },
+          },
+        },
+      },
+      moons: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          note: { required: true },
+          list: {
+            type: "list",
+            required: true,
+            item: {
+              fields: {
+                name: { required: true },
+                cycle: { required: true },
+                lit: { required: true },
+                tagline: { required: true },
+                blue: {},
+                peak_badge: {},
+                phases: {
+                  type: "list",
+                  required: true,
+                  item: {
+                    fields: {
+                      glyph: { enum: GLYPHS, required: true },
+                      days: { required: true },
+                      name: { required: true },
+                      text: { required: true },
+                      peak: {},
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      syzygy: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          note: { required: true },
+          days: {
+            type: "list",
+            required: true,
+            item: {
+              fields: {
+                number: { required: true },
+                where: { required: true },
+                note: { required: true },
+              },
+            },
+          },
+          callouts: { type: "list", required: true, item: calloutFields },
+        },
+      },
+      module: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          note: { required: true },
+          columns: { type: "list", required: true },
+          rows: {
+            type: "list",
+            required: true,
+            item: {
+              fields: {
+                moon: { required: true },
+                cycle: { required: true },
+                lengths: { required: true },
+                peak: { required: true },
+                anchor: { required: true },
+              },
+            },
+          },
+        },
+      },
+      at_a_glance: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          cards: {
+            type: "list",
+            required: true,
+            item: {
+              fields: {
+                heading: { required: true },
+                def_rows: { type: "list", item: defRowFields },
+                paragraphs: { type: "list" },
+              },
+            },
+          },
+        },
+      },
+    },
+  };
+
   globalThis.SCHEMAS = SCHEMAS;
   globalThis.SCHEMA_PARTS = { head, calloutFields, tierFields, defRowFields };
 })();

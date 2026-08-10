@@ -1,0 +1,178 @@
+# Calendar & Moons.
+#
+# Moon phases: `glyph` picks the drawn shape — new, waxing-crescent,
+# first-quarter, waxing-gibbous, full, waning-gibbous, last-quarter,
+# waning-crescent. Phase `days` must cover the cycle with no gaps; `lit` is
+# the moon's colour. If you change a cycle length, re-check the syzygy maths
+# below (they are lcm(white, blue) apart).
+
+head:
+  kicker: Reference
+  title: Calendar & Moons
+  summary: >
+    How time is tracked on Azeroth — the ADP epoch, twelve solar months, the seven-day week,
+    and the two moons whose cycles drive tides, ley-lines, and moonwell recharge.
+  stats:
+    - { value: "365", label: days per year }
+    - { value: "12", label: months }
+    - { value: "2", label: moons }
+    - { value: "182", label: -day syzygy }
+
+epoch:
+  heading: The ADP Epoch
+  note: >
+    Temporal tracking across Azerothian societies relies on the **After the Dark Portal (ADP)**
+    and **Before the Dark Portal (BDP)** epoch system.
+  cards:
+    - heading: Year 0
+      text: >
+        The opening of the rift between Azeroth and Draenor marks **Year 0 ADP**. Eras preceding
+        this pivot point are numbered in reverse as **BDP**; everything after increments forward.
+    - heading: The campaign present
+      text: >
+        Under this framework, the onset of the Northrend campaign during the **Wrath of the Lich
+        King** occurs in **Year 27 ADP** — see the [Historical Timeline](timeline.html).
+    - heading: The solar year
+      text: >
+        The standardized solar year spans exactly **365 days** across **twelve months** of fixed
+        length, structured around the equinoxes and solstices. The week runs on a continuous
+        **7-day** cycle.
+
+months:
+  heading: The Twelve Months
+  columns: ["#", Month, Days, Day range, Season / solar alignment]
+  rows:
+    - { index: 1, name: First Dawn, days: 31, range: 1 – 31, season: Early Winter / Winter Solstice Transition }
+    - { index: 2, name: Awakening, days: 28, range: 32 – 59, season: Late Winter }
+    - { index: 3, name: Sunreach, days: 31, range: 60 – 90, season: Spring Equinox Transition }
+    - { index: 4, name: Highspring, days: 30, range: 91 – 120, season: Mid-Spring }
+    - { index: 5, name: Solstice Peak, days: 31, range: 121 – 151, season: Late Spring / Summer Solstice Transition }
+    - { index: 6, name: Hearthfire, days: 30, range: 152 – 181, season: Early Summer }
+    - { index: 7, name: Harvestide, days: 31, range: 182 – 212, season: Mid-Summer }
+    - { index: 8, name: Amberfall, days: 31, range: 213 – 243, season: Late Summer / Early Autumn }
+    - { index: 9, name: Shadowrise, days: 30, range: 244 – 273, season: Autumn Equinox Transition }
+    - { index: 10, name: Frosting Gale, days: 31, range: 274 – 304, season: Mid-Autumn }
+    - { index: 11, name: Deepwinter, days: 30, range: 305 – 334, season: Early Winter }
+    - { index: 12, name: Veilfall, days: 31, range: 335 – 365, season: Mid-Winter / Year's End }
+
+week:
+  heading: The Seven-Day Week
+  note: >
+    Day names reflect thematic elemental and cosmological pillars recognized by both Alliance and
+    Horde cartographers.
+  columns: ["#", Day, Cosmological / elemental association]
+  rows:
+    - { index: 1, name: Sun's Day, assoc: "Solar Energy, Light, Solaris" }
+    - { index: 2, name: Moon's Day, assoc: "Lunar Energy, Elune, Mu'sha" }
+    - { index: 3, name: Earth's Day, assoc: "Terrestrial Forces, Deep Stone, Earthmother" }
+    - { index: 4, name: Arcane's Day, assoc: "Ley-Line Resonance, Arcane Order" }
+    - { index: 5, name: Forge's Day, assoc: "Metal, Industrial Craft, Fire" }
+    - { index: 6, name: Shadow's Day, assoc: "Twilight, Void, Nether Drift" }
+    - { index: 7, name: Spirit's Day, assoc: "Ancestral Spirits, Elements, Wild Gods" }
+
+moons:
+  heading: The Two Moons
+  note: >
+    Azeroth is orbited by two celestial bodies: the primary moon, the **White Lady** (also known
+    as Lady Forlorn or Mu'sha), and the secondary moon, the **Blue Child**.
+  list:
+    - name: The White Lady
+      cycle: 26-day cycle
+      lit: "#e9e7e2"
+      tagline: >
+        Its cycle dictates tidal movements, ley-line fluidities, and night elven moonwell
+        recharge rates.
+      phases:
+        - { glyph: "new", days: 1 – 3, name: New Moon, text: "Dark sky; arcane stealth heightened; moonwell recharge drops" }
+        - { glyph: waxing-crescent, days: 4 – 6, name: Waxing Crescent, text: "Thin silver sliver; Sentinels begin nocturnal rites" }
+        - { glyph: first-quarter, days: 7 – 9, name: First Quarter, text: "Half-disc light; arcane flux stabilizes across ley-nodes" }
+        - { glyph: waxing-gibbous, days: 10 – 13, name: Waxing Gibbous, text: "Expanding illumination; druidic growth spells amplified" }
+        - { glyph: "full", days: 14 – 16, name: Full Moon, text: "Maximum brilliance; lunar light peaks; moonwells overflow.", peak: "Peak: day 15" }
+        - { glyph: waning-gibbous, days: 17 – 20, name: Waning Gibbous, text: "Diminishing disc; night elven shadow-melding efficacy rises" }
+        - { glyph: last-quarter, days: 21 – 23, name: Last Quarter, text: "Crescent inflection; shadow and void magic stabilization" }
+        - { glyph: waning-crescent, days: 24 – 26, name: Waning Crescent, text: "Dying sliver; spirit-realm thinness increases near graveyards" }
+    - name: The Blue Child
+      cycle: 91-day cycle
+      lit: "#5b9fd6"
+      blue: true
+      peak_badge: skill
+      tagline: >
+        A wider, slower orbital path with a distinct cerulean hue — one full turn per season,
+        four to the year.
+      phases:
+        - { glyph: "new", days: 1 – 17, name: New Child, text: "Dark sky; the Blue Child completely obscured" }
+        - { glyph: waxing-crescent, days: 18 – 36, name: Waxing Sapphire, text: "Faint blue crescent expanding in the western sky" }
+        - { glyph: "full", days: 37 – 55, name: Full Child, text: "Radiant azure disc; Wild God instincts heightened.", peak: "Peak: day 46" }
+        - { glyph: waning-gibbous, days: 56 – 74, name: Waning Azure, text: "Fading blue disc shrinking toward the eastern horizon" }
+        - { glyph: waning-crescent, days: 75 – 91, name: Crescent Veil, text: "Thin blue thread; unstable planar shifts in the Emerald Dream" }
+
+syzygy:
+  heading: Syzygy — The Double Full Moon
+  note: >
+    Syzygy is the night both moons hit their **peak** together — White Lady day 15 and Blue Child
+    day 46 falling on the same date. The two cycles resonate every **182 days** (26 × 7 = 182,
+    and 91 × 2 = 182), which is exactly 26 weeks. Since 2 × 182 = 364 and a third would need 546,
+    a 365-day year always holds exactly two.
+  days:
+    - { number: "146", where: Solstice Peak 26, note: First syzygy of 27 ADP }
+    - { number: "328", where: Deepwinter 24, note: Second syzygy of 27 ADP }
+  callouts:
+    - kind: warning
+      title: The slip
+      text: >
+        The year runs one day longer than two syzygy intervals (365 − 364 = 1), so the pair falls
+        **one day earlier each year**: Solstice Peak 25 and Deepwinter 23 in 28 ADP, Solstice Peak
+        24 and Deepwinter 22 in 29 ADP, and so on. It takes 182 years for the alignment to walk
+        the calendar once — which is exactly the sort of thing Kirin Tor astronomers keep tables
+        for.
+    - kind: info
+      title: Arcano-lunar tides
+      text: |
+        During syzygy, Azeroth experiences arcano-lunar tides:
+
+        - **Ley-line throughput surges by 300%.**
+        - **Druids and Priests of Elune** experience doubled mana recovery rates.
+        - **Planar boundaries** between Azeroth, the Emerald Dream, and the Spirit Realm thin significantly.
+
+        Both moons can show a full face on the same night without a syzygy — the Blue Child's Full Child phase alone runs 19 days. Only the coinciding **peak** days count.
+
+module:
+  heading: Module Reference
+  note: >
+    Everything a calendar module needs: whole-day cycle lengths, phase lengths in order, and a
+    reference date for day 1 of each cycle. From these two anchors the peaks coincide on Day 146
+    of 27 ADP, then every 182 days thereafter.
+  columns: [Moon, Cycle, "Phase lengths, in order", Peak, Cycle day 1]
+  rows:
+    - moon: White Lady
+      cycle: 26 days
+      lengths: "3, 3, 3, 4, 3, 4, 3, 3"
+      peak: Day 15
+      anchor: "27 ADP, Solstice Peak 12"
+    - moon: Blue Child
+      cycle: 91 days
+      lengths: "17, 19, 19, 19, 17"
+      peak: Day 46
+      anchor: "27 ADP, Highspring 11"
+
+at_a_glance:
+  heading: At a Glance
+  cards:
+    - heading: Calendar metrics
+      def_rows:
+        - { key: "365", tone: neutral, text: days in a year }
+        - { key: "12", tone: neutral, text: months per year }
+        - { key: "7", tone: neutral, text: days per week }
+    - heading: Orbital periods
+      def_rows:
+        - { key: "26", tone: neutral, text: "**White Lady** — primary moon, synodic period in days (just over 14 turns a year)" }
+        - { key: "91", tone: rare, text: "**Blue Child** — secondary moon, synodic period in days (just over 4 turns a year)" }
+        - { key: "182", tone: harsh, text: "**Syzygy interval** — twice yearly; days 146 and 328 in 27 ADP" }
+    - heading: Related pages
+      paragraphs:
+        - >
+          [Festivals & Holidays](holidays.html) — the 13 annual celebrations and their mechanical
+          effects, keyed to these months.
+        - >
+          [Historical Timeline](timeline.html) — every recorded event from 0 ADP to 41 ADP, dated
+          on this calendar.
