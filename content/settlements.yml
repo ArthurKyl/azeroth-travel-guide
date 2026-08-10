@@ -1,0 +1,196 @@
+# Settlement Downtime. Each location needs EITHER `options` (discrete things to
+# do, with a cost) OR `mechanic_line` + `tiers` (one roll on a d20 table).
+#
+#   accent   → the dot colour and card highlight
+#   check    → either { skills: [...] } or { note: "No check — automatic" }
+#   outcome  → result: success | failure | nat  (colours the label)
+
+head:
+  kicker: Core rules
+  title: Settlement Downtime
+  summary: >
+    When the party reaches a village or city, the march pauses and downtime begins. Every
+    settlement — from Goldshire to Dalaran — offers the same six locations. Each day in town,
+    every character commits to one of them.
+  stats:
+    - { value: "6", label: locations }
+    - { value: "every", label: village & city }
+    - { value: "1", label: token per character per day }
+
+rules:
+  heading: Downtime Rules
+  cards:
+    - heading: Safe Spot
+      text: >
+        Every settlement is a **Safe Spot**: a night's rest here clears
+        [Exhaustion](index.html) gained on the road — no Camping or Fortification check needed.
+        Stock up before heading back into the wilds.
+    - heading: Check DCs by disposition
+      def_rows:
+        - { key: DC 12, tone: mild, text: "**Friendly** — the party is welcome, or unknown but unremarkable." }
+        - { key: DC 15, tone: harsh, text: "**Wary** — suspicious locals, contested territory, or a bad reputation." }
+        - { key: DC 18, tone: deadly, text: "**Hostile** — enemy-aligned or occupied. Tread very carefully." }
+    - heading: Reputation
+      text: >
+        Track Reputation per settlement. It rises through goodwill and coin, and falls through
+        scandal and suspicion.
+      def_rows:
+        - { key: +1–2, tone: mild, text: "**Friendly faces** — small discounts, a free bed offered." }
+        - { key: +3–4, tone: rare, text: "**Trusted** — better goods surface; locals volunteer information freely." }
+        - { key: "+5", tone: epic, text: "**Local champion** — quest hooks, safe haven, doors open everywhere." }
+        - { key: "< 0", tone: deadly, text: "**Watched → unwelcome** — prices rise, tongues still, guards follow." }
+
+grid:
+  heading: The Six Locations
+  note: >
+    Available in every village and city, regardless of region. Costs scale with settlement
+    size — a copper-pinch hamlet versus a gilded capital.
+
+locations:
+  - id: tavern
+    name: The Tavern
+    accent: "#d9973b"
+    tagline: Information, social lubrication & local rumors
+    options:
+      - title: Drink & Gossip
+        cost: Free
+        check: { skills: [Charisma (Persuasion), Intelligence (Investigation)] }
+        outcome:
+          result: success
+          label: "Success:"
+          text: >
+            discover a regional rumor, a lead on a nearby hex, or an unverified quest hint.
+      - title: Buy a Round
+        cost: 5–20 gold · by settlement size
+        check: { note: No check — automatic }
+        outcome:
+          result: success
+          label: "Effect:"
+          text: >
+            loosen local tongues and earn an immediate **+1 Reputation** with the settlement.
+            Any _Drink & Gossip_ attempts here today are made with advantage.
+
+  - id: square
+    name: The Town Square
+    accent: "#5b9fd6"
+    tagline: Civic goodwill, open inquiries & local standing
+    options:
+      - title: Civic Favor
+        cost: Minor effort or small gift
+        check: { note: No check — roleplay only }
+        outcome:
+          result: success
+          label: "Effect:"
+          text: >
+            help push a cart, fix a fence, hand out candy — earn **+1 Reputation** with the
+            locals without spending gold.
+      - title: Mingle & Ask
+        cost: Free
+        check: { skills: [Charisma (Persuasion), Wisdom (Insight)] }
+        outcome:
+          result: success
+          label: "Success:"
+          text: >
+            learn about immediate civic needs, town notices, or public requests from everyday folk.
+
+  - id: underbelly
+    name: The Underbelly
+    accent: "#a887d9"
+    tagline: High-risk secrets, black markets & illicit opportunities
+    mechanic_line: >
+      Single check: **Dexterity (Stealth)**, **Charisma (Deception)**, or
+      **Intelligence (Investigation)**
+    tiers:
+      - tier: poor
+        range: 1–9
+        text: >
+          **You stand out.** Nobody talks to you. Local eyes watch with suspicion — risk a minor
+          Reputation penalty.
+      - tier: rare
+        range: 10–14
+        text: >
+          **Whispered secrets.** Uncover hidden lore, secret faction activity, or a dark hint
+          tied to an ongoing quest.
+      - tier: legendary
+        range: 15+
+        text: >
+          **Risky mission.** An off-the-books job offer: high reward, high threat, morally gray
+          objectives.
+
+  - id: scout-den
+    name: The Scout Den
+    accent: "#79b95e"
+    tagline: Wilderness preparation, local trappers & hexcrawl intel
+    mechanic_line: "Single check: **Wisdom (Survival or Nature)**, or a flat d20"
+    tiers:
+      - tier: poor
+        range: 1–9
+        text: Conflicting stories and bad advice. **No bonus.**
+      - tier: uncommon
+        range: 10–14
+        text: >
+          **−2** to biome exhaustion & navigation DCs for the **next 2 days** — hunters outline
+          safe paths through the immediate hexes.
+      - tier: rare
+        range: 15–19
+        text: >
+          **−3** to biome exhaustion & navigation DCs for the **next 3 days** — trappers point
+          out hidden animal trails and water sources.
+      - tier: legendary
+        range: 20+
+        text: >
+          **−5** to biome exhaustion & navigation DCs for the **next 3 days**, and **reveal 1
+          adjacent hex feature** — detailed maps of hazard zones, landmarks, and monster nests.
+    stack_note: >
+      Overlapping reductions don't stack — on days a [Pioneer](activities.html#pioneer) is also
+      cutting the trail, apply the better of the two.
+
+  - id: chapel
+    name: The Chapel
+    accent: "#e9e7e2"
+    tagline: The Light, the Loa, Elune — every settlement keeps a shrine
+    options:
+      - title: Tithe for Cleansing
+        cost: 10–50 gold · by settlement size
+        check: { note: No check — donation }
+        outcome:
+          result: success
+          label: "Effect:"
+          text: >
+            an acolyte casts _Lesser Restoration_ — cure one disease or poison, including
+            [Fel/Blight contamination](index.html) picked up from corrupted food or water on
+            the road.
+      - title: Quiet Devotion
+        cost: Free
+        check: { skills: [Intelligence (Religion), Charisma (Persuasion)] }
+        outcome:
+          result: success
+          label: "Success:"
+          text: >
+            leave with steadied spirit — gain advantage on your **first biome exhaustion save**
+            after leaving town.
+
+  - id: provisioner
+    name: The Provisioner
+    accent: "#e0622d"
+    tagline: Rations, waterskins & gear for the biome ahead
+    options:
+      - title: Restock Supplies
+        cost: 5 silver per ration
+        check: { note: No check — purchase }
+        outcome:
+          result: success
+          label: "Effect:"
+          text: >
+            buy rations and refill water. Remember: **1 ration & 1 gallon per character per
+            travel day** — double water in extreme-heat weather.
+      - title: Outfit for the Climate
+        cost: 10–25 gold per kit
+        check: { note: No check — purchase }
+        outcome:
+          result: success
+          label: "Effect:"
+          text: >
+            cold- or heat-weather gear. Without it, resting in a
+            [Harsh or Deadly biome](biomes.html) recovers **no Exhaustion** — ask the shopkeep
+            what the road ahead demands.

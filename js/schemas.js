@@ -179,6 +179,76 @@
     },
   };
 
+  // settlements.yml -----------------------------------------------------
+
+  SCHEMAS.settlements = {
+    type: "map",
+    fields: {
+      head: head,
+      rules: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          cards: {
+            type: "list",
+            required: true,
+            item: {
+              fields: {
+                heading: { required: true },
+                text: {},
+                def_rows: { type: "list", item: defRowFields },
+              },
+            },
+          },
+        },
+      },
+      grid: {
+        type: "map",
+        required: true,
+        fields: { heading: { required: true }, note: { required: true } },
+      },
+      locations: {
+        type: "list",
+        required: true,
+        item: {
+          fields: {
+            id: { required: true },
+            name: { required: true },
+            accent: { required: true },
+            tagline: { required: true },
+            mechanic_line: {},
+            stack_note: {},
+            tiers: { type: "list", item: tierFields },
+            options: {
+              type: "list",
+              item: {
+                fields: {
+                  title: { required: true },
+                  cost: { required: true },
+                  check: {
+                    type: "map",
+                    required: true,
+                    fields: { skills: { type: "list" }, note: {} },
+                  },
+                  outcome: {
+                    type: "map",
+                    required: true,
+                    fields: {
+                      result: { enum: ["success", "failure", "nat"], required: true },
+                      label: { required: true },
+                      text: { required: true },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  };
+
   globalThis.SCHEMAS = SCHEMAS;
   globalThis.SCHEMA_PARTS = { head, calloutFields, tierFields, defRowFields };
 })();
