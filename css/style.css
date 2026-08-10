@@ -862,6 +862,261 @@ details.zone[open] > summary::after { transform: rotate(225deg); top: 1.55rem; }
 .roll-result strong { color: var(--text); }
 .roll-result .dc-final { color: var(--accent-strong); font-weight: 700; }
 
+/* ============================================================
+   Calendar & moons
+   ============================================================ */
+
+.month-table td.month-idx,
+.week-table td.day-idx {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-strong);
+  width: 3rem;
+  white-space: nowrap;
+}
+.month-table td.days {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+.month-table td.range,
+.week-table td.assoc { color: var(--text-2); white-space: nowrap; }
+
+.moon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+.moon-card header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.15rem;
+}
+.moon-card h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.moon-card .period {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  padding: 0.05rem 0.45rem;
+  white-space: nowrap;
+}
+.moon-card .tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-2);
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+}
+.moon-card.blue h3 { color: var(--rare); }
+
+.phase-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.phase-table td {
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--text-2);
+}
+.phase-table tr:first-child td { border-top: none; }
+.phase-table td.glyph { width: 1.9rem; padding-right: 0.6rem; line-height: 0; }
+.phase-table td.glyph svg { display: block; }
+.phase-table td.days {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  white-space: nowrap;
+  width: 4.5rem;
+  padding-right: 0.6rem;
+}
+.phase-table .phase-name { display: block; color: var(--text); font-weight: 600; }
+.phase-table .badge { margin-top: 0.25rem; }
+
+.syzygy-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.syzygy-day .day-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--accent-strong);
+  display: block;
+}
+.syzygy-day .day-where { display: block; color: var(--text); font-weight: 600; margin-top: 0.3rem; }
+.syzygy-day .day-note { display: block; color: var(--text-2); font-size: 0.9rem; }
+
+/* ============================================================
+   Holidays
+   ============================================================ */
+
+.holiday-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+.holiday { display: flex; flex-direction: column; }
+.holiday h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.holiday .when {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  margin: 0.15rem 0 0.6rem;
+}
+.holiday .when .dur {
+  color: var(--text-2);
+  border-left: 1px solid var(--border-strong);
+  margin-left: 0.5rem;
+  padding-left: 0.5rem;
+}
+.holiday .who { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.65rem; }
+.holiday .impact {
+  font-size: 0.93rem;
+  color: var(--text-2);
+  border-top: 1px solid var(--border);
+  padding-top: 0.65rem;
+}
+.holiday .impact strong { color: var(--text); }
+
+/* ============================================================
+   Historical timeline
+   ============================================================ */
+
+#era-jump { margin-bottom: 1.5rem; }
+a.chip { color: var(--text-2); text-decoration: none; }
+a.chip:hover { color: var(--text); text-decoration: none; }
+
+.era { margin: 2.25rem 0; }
+.era > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 0.35rem;
+}
+.era h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.era .era-span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-strong);
+  white-space: nowrap;
+}
+
+.timeline { list-style: none; }
+.timeline > li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1.1rem;
+  padding: 0.95rem 0;
+}
+.timeline > li + li { border-top: 1px solid var(--border); }
+.tl-when { text-align: right; padding-top: 0.1rem; }
+.tl-year {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  white-space: nowrap;
+}
+.tl-date { display: block; font-size: 0.82rem; color: var(--text-2); }
+.tl-body { position: relative; padding-left: 1.35rem; border-left: 1px solid var(--border-strong); }
+.tl-body::before {
+  content: "";
+  position: absolute;
+  left: -0.3rem;
+  top: 0.45rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--border-strong);
+}
+.timeline > li.main .tl-body::before { background: var(--accent); border-color: var(--accent); }
+.tl-body h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  line-height: 1.25;
+}
+.timeline > li.main .tl-body h3 { color: var(--text); }
+.timeline > li.pre .tl-body h3 { color: var(--text-2); }
+.tl-kind {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  display: block;
+  margin-bottom: 0.1rem;
+}
+.timeline > li.main .tl-kind { color: var(--accent-strong); }
+.tl-body p { font-size: 0.95rem; color: var(--text-2); margin-top: 0.25rem; }
+.tl-body p em { color: var(--text); font-style: italic; }
+
+@media (max-width: 560px) {
+  .timeline > li { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; }
+  .tl-when { text-align: left; }
+  .tl-year { display: inline; }
+  .tl-date { display: inline; margin-left: 0.5rem; }
+}
+
+.era-start-table td.era-name { font-weight: 600; color: var(--text); }
+.era-start-table td.era-date { color: var(--text-2); white-space: nowrap; }
+.era-start-table td.era-year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-strong);
+  white-space: nowrap;
+}
+
 /* ---------- Gateway link cards ---------- */
 
 .gateway-grid {

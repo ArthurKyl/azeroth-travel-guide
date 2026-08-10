@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendar &amp; Moons — The Wayfarer's Codex</title>
+<meta name="description" content="The Azerothian calendar for D&D 5e play — the ADP epoch, 12 solar months, the 7-day week, and the phases of the White Lady and the Blue Child.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5' fill='%23e0622d'/%3E%3Ctext x='16' y='21' font-size='12' font-family='Arial' font-weight='bold' fill='%23fff' text-anchor='middle'%3E20%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="brand-name">Wayfarer's<br>Codex</span>
+      <span class="brand-sub">Azeroth hexcrawl rules</span>
+    </a>
+    <nav aria-label="Main">
+      <span class="nav-label">Rules</span>
+      <a href="index.html">Travel Rules</a>
+      <a href="activities.html">Travel Activities</a>
+      <a href="settlements.html">Settlement Downtime</a>
+      <span class="nav-label">Reference</span>
+      <a href="biomes.html">Biome Compendium</a>
+      <a href="calendar.html" aria-current="page">Calendar &amp; Moons</a>
+      <a href="holidays.html">Festivals &amp; Holidays</a>
+      <a href="timeline.html">Historical Timeline</a>
+    </nav>
+    <div class="sidebar-foot">
+      <span class="tag">D&amp;D 5e · WotLK era</span><br>
+      Fan-made framework for use at your own table.
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <header class="page-head">
+      <p class="kicker">Reference</p>
+      <h1>Calendar &amp; Moons</h1>
+      <p class="summary">How time is tracked on Azeroth — the ADP epoch, twelve solar months,
+        the seven-day week, and the two moons whose cycles drive tides, ley-lines, and
+        moonwell recharge.</p>
+      <div class="meta-stats">
+        <span><strong>365</strong> days per year</span>
+        <span><strong>12</strong> months</span>
+        <span><strong>2</strong> moons</span>
+        <span><strong>182</strong>-day syzygy</span>
+      </div>
+    </header>
+
+    <section class="rule-section" id="epoch" aria-labelledby="epoch-title">
+      <h2 id="epoch-title">The ADP Epoch</h2>
+      <p class="section-note">Temporal tracking across Azerothian societies relies on the
+        <strong>After the Dark Portal (ADP)</strong> and <strong>Before the Dark Portal (BDP)</strong>
+        epoch system.</p>
+      <div class="primer-grid">
+        <div class="card">
+          <h3>Year 0</h3>
+          <p>The opening of the rift between Azeroth and Draenor marks <strong>Year 0 ADP</strong>.
+            Eras preceding this pivot point are numbered in reverse as <strong>BDP</strong>;
+            everything after increments forward.</p>
+        </div>
+        <div class="card">
+          <h3>The campaign present</h3>
+          <p>Under this framework, the onset of the Northrend campaign during the
+            <strong>Wrath of the Lich King</strong> occurs in <strong>Year 27 ADP</strong> —
+            see the <a href="timeline.html">Historical Timeline</a>.</p>
+        </div>
+        <div class="card">
+          <h3>The solar year</h3>
+          <p>The standardized solar year spans exactly <strong>365 days</strong> across
+            <strong>twelve months</strong> of fixed length, structured around the equinoxes and
+            solstices. The week runs on a continuous <strong>7-day</strong> cycle.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rule-section" id="months" aria-labelledby="months-title">
+      <h2 id="months-title">The Twelve Months</h2>
+      <div class="table-scroll">
+        <table class="codex month-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Month</th>
+              <th scope="col">Days</th>
+              <th scope="col">Day range</th>
+              <th scope="col">Season / solar alignment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="month-idx">1</td><td class="key">First Dawn</td><td class="days">31</td><td class="range">1 – 31</td><td>Early Winter / Winter Solstice Transition</td></tr>
+            <tr><td class="month-idx">2</td><td class="key">Awakening</td><td class="days">28</td><td class="range">32 – 59</td><td>Late Winter</td></tr>
+            <tr><td class="month-idx">3</td><td class="key">Sunreach</td><td class="days">31</td><td class="range">60 – 90</td><td>Spring Equinox Transition</td></tr>
+            <tr><td class="month-idx">4</td><td class="key">Highspring</td><td class="days">30</td><td class="range">91 – 120</td><td>Mid-Spring</td></tr>
+            <tr><td class="month-idx">5</td><td class="key">Solstice Peak</td><td class="days">31</td><td class="range">121 – 151</td><td>Late Spring / Summer Solstice Transition</td></tr>
+            <tr><td class="month-idx">6</td><td class="key">Hearthfire</td><td class="days">30</td><td class="range">152 – 181</td><td>Early Summer</td></tr>
+            <tr><td class="month-idx">7</td><td class="key">Harvestide</td><td class="days">31</td><td class="range">182 – 212</td><td>Mid-Summer</td></tr>
+            <tr><td class="month-idx">8</td><td class="key">Amberfall</td><td class="days">31</td><td class="range">213 – 243</td><td>Late Summer / Early Autumn</td></tr>
+            <tr><td class="month-idx">9</td><td class="key">Shadowrise</td><td class="days">30</td><td class="range">244 – 273</td><td>Autumn Equinox Transition</td></tr>
+            <tr><td class="month-idx">10</td><td class="key">Frosting Gale</td><td class="days">31</td><td class="range">274 – 304</td><td>Mid-Autumn</td></tr>
+            <tr><td class="month-idx">11</td><td class="key">Deepwinter</td><td class="days">30</td><td class="range">305 – 334</td><td>Early Winter</td></tr>
+            <tr><td class="month-idx">12</td><td class="key">Veilfall</td><td class="days">31</td><td class="range">335 – 365</td><td>Mid-Winter / Year's End</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="rule-section" id="week" aria-labelledby="week-title">
+      <h2 id="week-title">The Seven-Day Week</h2>
+      <p class="section-note">Day names reflect thematic elemental and cosmological pillars
+        recognized by both Alliance and Horde cartographers.</p>
+      <div class="table-scroll">
+        <table class="codex week-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Day</th>
+              <th scope="col">Cosmological / elemental association</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="day-idx">1</td><td class="key">Sun's Day</td><td class="assoc">Solar Energy, Light, Solaris</td></tr>
+            <tr><td class="day-idx">2</td><td class="key">Moon's Day</td><td class="assoc">Lunar Energy, Elune, Mu'sha</td></tr>
+            <tr><td class="day-idx">3</td><td class="key">Earth's Day</td><td class="assoc">Terrestrial Forces, Deep Stone, Earthmother</td></tr>
+            <tr><td class="day-idx">4</td><td class="key">Arcane's Day</td><td class="assoc">Ley-Line Resonance, Arcane Order</td></tr>
+            <tr><td class="day-idx">5</td><td class="key">Forge's Day</td><td class="assoc">Metal, Industrial Craft, Fire</td></tr>
+            <tr><td class="day-idx">6</td><td class="key">Shadow's Day</td><td class="assoc">Twilight, Void, Nether Drift</td></tr>
+            <tr><td class="day-idx">7</td><td class="key">Spirit's Day</td><td class="assoc">Ancestral Spirits, Elements, Wild Gods</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="rule-section" id="moons" aria-labelledby="moons-title">
+      <h2 id="moons-title">The Two Moons</h2>
+      <p class="section-note">Azeroth is orbited by two celestial bodies: the primary moon, the
+        <strong>White Lady</strong> (also known as Lady Forlorn or Mu'sha), and the secondary moon,
+        the <strong>Blue Child</strong>.</p>
+
+      <div class="moon-grid">
+
+        <div class="card moon-card">
+          <header>
+            <h3>The White Lady</h3>
+            <span class="period">26-day cycle</span>
+          </header>
+          <p class="tagline">Its cycle dictates tidal movements, ley-line fluidities, and night
+            elven moonwell recharge rates.</p>
+          <table class="phase-table">
+            <tbody>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/></svg></td>
+                <td class="days">1 – 3</td>
+                <td><span class="phase-name">New Moon</span>Dark sky; arcane stealth heightened; moonwell recharge drops</td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/><path d="M9,1 A8,8 0 0 1 9,17 A4,8 0 0 0 9,1 Z" fill="#e9e7e2"/></svg></td>
+                <td class="days">4 – 6</td>
+                <td><span class="phase-name">Waxing Crescent</span>Thin silver sliver; Sentinels begin nocturnal rites</td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/><path d="M9,1 A8,8 0 0 1 9,17 Z" fill="#e9e7e2"/></svg></td>
+                <td class="days">7 – 9</td>
+                <td><span class="phase-name">First Quarter</span>Half-disc light; arcane flux stabilizes across ley-nodes</td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/><path d="M9,1 A8,8 0 0 1 9,17 A4,8 0 0 1 9,1 Z" fill="#e9e7e2"/></svg></td>
+                <td class="days">10 – 13</td>
+                <td><span class="phase-name">Waxing Gibbous</span>Expanding illumination; druidic growth spells amplified</td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#e9e7e2"/></svg></td>
+                <td class="days">14 – 16</td>
+                <td><span class="phase-name">Full Moon</span>Maximum brilliance; lunar light peaks; moonwells overflow.
+                  <span class="badge">Peak: day 15</span></td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/><path d="M9,1 A8,8 0 0 0 9,17 A4,8 0 0 0 9,1 Z" fill="#e9e7e2"/></svg></td>
+                <td class="days">17 – 20</td>
+                <td><span class="phase-name">Waning Gibbous</span>Diminishing disc; night elven shadow-melding efficacy rises</td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/><path d="M9,1 A8,8 0 0 0 9,17 Z" fill="#e9e7e2"/></svg></td>
+                <td class="days">21 – 23</td>
+                <td><span class="phase-name">Last Quarter</span>Crescent inflection; shadow and void magic stabilization</td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/><path d="M9,1 A8,8 0 0 0 9,17 A4,8 0 0 1 9,1 Z" fill="#e9e7e2"/></svg></td>
+                <td class="days">24 – 26</td>
+                <td><span class="phase-name">Waning Crescent</span>Dying sliver; spirit-realm thinness increases near graveyards</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card moon-card blue">
+          <header>
+            <h3>The Blue Child</h3>
+            <span class="period">91-day cycle</span>
+          </header>
+          <p class="tagline">A wider, slower orbital path with a distinct cerulean hue — one full
+            turn per season, four to the year.</p>
+          <table class="phase-table">
+            <tbody>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/></svg></td>
+                <td class="days">1 – 17</td>
+                <td><span class="phase-name">New Child</span>Dark sky; the Blue Child completely obscured</td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/><path d="M9,1 A8,8 0 0 1 9,17 A4,8 0 0 0 9,1 Z" fill="#5b9fd6"/></svg></td>
+                <td class="days">18 – 36</td>
+                <td><span class="phase-name">Waxing Sapphire</span>Faint blue crescent expanding in the western sky</td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#5b9fd6"/></svg></td>
+                <td class="days">37 – 55</td>
+                <td><span class="phase-name">Full Child</span>Radiant azure disc; Wild God instincts heightened.
+                  <span class="badge skill">Peak: day 46</span></td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/><path d="M9,1 A8,8 0 0 0 9,17 A4,8 0 0 0 9,1 Z" fill="#5b9fd6"/></svg></td>
+                <td class="days">56 – 74</td>
+                <td><span class="phase-name">Waning Azure</span>Fading blue disc shrinking toward the eastern horizon</td>
+              </tr>
+              <tr>
+                <td class="glyph"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#24262b" stroke="#3c3f47"/><path d="M9,1 A8,8 0 0 0 9,17 A4,8 0 0 1 9,1 Z" fill="#5b9fd6"/></svg></td>
+                <td class="days">75 – 91</td>
+                <td><span class="phase-name">Crescent Veil</span>Thin blue thread; unstable planar shifts in the Emerald Dream</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="rule-section" id="syzygy" aria-labelledby="syzygy-title">
+      <h2 id="syzygy-title">Syzygy — The Double Full Moon</h2>
+      <p class="section-note">Syzygy is the night both moons hit their <strong>peak</strong> together
+        — White Lady day 15 and Blue Child day 46 falling on the same date. The two cycles resonate
+        every <strong>182 days</strong> (26 × 7 = 182, and 91 × 2 = 182), which is exactly 26 weeks.
+        Since 2 × 182 = 364 and a third would need 546, a 365-day year always holds exactly two.</p>
+
+      <div class="syzygy-row">
+        <div class="card syzygy-day">
+          <span class="day-num">146</span>
+          <span class="day-where">Solstice Peak 26</span>
+          <span class="day-note">First syzygy of 27 ADP</span>
+        </div>
+        <div class="card syzygy-day">
+          <span class="day-num">328</span>
+          <span class="day-where">Deepwinter 24</span>
+          <span class="day-note">Second syzygy of 27 ADP</span>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <h4>The slip</h4>
+        <p>The year runs one day longer than two syzygy intervals (365 − 364 = 1), so the pair falls
+          <strong>one day earlier each year</strong>: Solstice Peak 25 and Deepwinter 23 in 28 ADP,
+          Solstice Peak 24 and Deepwinter 22 in 29 ADP, and so on. It takes 182 years for the
+          alignment to walk the calendar once — which is exactly the sort of thing Kirin Tor
+          astronomers keep tables for.</p>
+      </div>
+
+      <div class="callout info">
+        <h4>Arcano-lunar tides</h4>
+        <p>During syzygy, Azeroth experiences arcano-lunar tides:</p>
+        <ul>
+          <li><strong>Ley-line throughput surges by 300%.</strong></li>
+          <li><strong>Druids and Priests of Elune</strong> experience doubled mana recovery rates.</li>
+          <li><strong>Planar boundaries</strong> between Azeroth, the Emerald Dream, and the Spirit
+            Realm thin significantly.</li>
+        </ul>
+        <p>Both moons can show a full face on the same night without a syzygy — the Blue Child's
+          Full Child phase alone runs 19 days. Only the coinciding <strong>peak</strong> days count.</p>
+      </div>
+    </section>
+
+    <section class="rule-section" id="module" aria-labelledby="module-title">
+      <h2 id="module-title">Module Reference</h2>
+      <p class="section-note">Everything a calendar module needs: whole-day cycle lengths, phase
+        lengths in order, and a reference date for day 1 of each cycle. From these two anchors the
+        peaks coincide on Day 146 of 27 ADP, then every 182 days thereafter.</p>
+      <div class="table-scroll">
+        <table class="codex">
+          <thead>
+            <tr>
+              <th scope="col">Moon</th>
+              <th scope="col">Cycle</th>
+              <th scope="col">Phase lengths, in order</th>
+              <th scope="col">Peak</th>
+              <th scope="col">Cycle day 1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="key">White Lady</td>
+              <td class="dc-stat">26 days</td>
+              <td>3, 3, 3, 4, 3, 4, 3, 3</td>
+              <td>Day 15</td>
+              <td>27 ADP, Solstice Peak 12</td>
+            </tr>
+            <tr>
+              <td class="key">Blue Child</td>
+              <td class="dc-stat">91 days</td>
+              <td>17, 19, 19, 19, 17</td>
+              <td>Day 46</td>
+              <td>27 ADP, Highspring 11</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="rule-section" aria-labelledby="cheat-title">
+      <h2 id="cheat-title">At a Glance</h2>
+      <div class="primer-grid">
+        <div class="card">
+          <h3>Calendar metrics</h3>
+          <div class="def-rows">
+            <div class="def-row neutral"><span class="def-key">365</span><span>days in a year</span></div>
+            <div class="def-row neutral"><span class="def-key">12</span><span>months per year</span></div>
+            <div class="def-row neutral"><span class="def-key">7</span><span>days per week</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Orbital periods</h3>
+          <div class="def-rows">
+            <div class="def-row neutral"><span class="def-key">26</span><span><strong>White Lady</strong> — primary moon, synodic period in days (just over 14 turns a year)</span></div>
+            <div class="def-row rare"><span class="def-key">91</span><span><strong>Blue Child</strong> — secondary moon, synodic period in days (just over 4 turns a year)</span></div>
+            <div class="def-row harsh"><span class="def-key">182</span><span><strong>Syzygy interval</strong> — twice yearly; days 146 and 328 in 27 ADP</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Related pages</h3>
+          <p><a href="holidays.html">Festivals &amp; Holidays</a> — the 13 annual celebrations and
+            their mechanical effects, keyed to these months.</p>
+          <p><a href="timeline.html">Historical Timeline</a> — every recorded event from 0 ADP to
+            41 ADP, dated on this calendar.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      The Wayfarer's Codex — a fan-made D&amp;D 5e framework set in the World of Warcraft.
+      World of Warcraft and related names are trademarks of Blizzard Entertainment.
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>
