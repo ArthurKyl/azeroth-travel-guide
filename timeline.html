@@ -12,103 +12,19 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5' fill='%23e0622d'/%3E%3Ctext x='16' y='21' font-size='12' font-family='Arial' font-weight='bold' fill='%23fff' text-anchor='middle'%3E20%3C/text%3E%3C/svg%3E">
 </head>
 <body>
+<!-- Content lives in content/timeline.yml — see docs/editing.md -->
 <div class="app">
-
-  <aside class="sidebar">
-    <a class="brand" href="index.html">
-      <span class="brand-name">Wayfarer's<br>Codex</span>
-      <span class="brand-sub">Azeroth hexcrawl rules</span>
-    </a>
-    <nav aria-label="Main">
-      <span class="nav-label">Rules</span>
-      <a href="index.html">Travel Rules</a>
-      <a href="activities.html">Travel Activities</a>
-      <a href="settlements.html">Settlement Downtime</a>
-      <span class="nav-label">Reference</span>
-      <a href="biomes.html">Biome Compendium</a>
-      <a href="calendar.html">Calendar &amp; Moons</a>
-      <a href="holidays.html">Festivals &amp; Holidays</a>
-      <a href="timeline.html" aria-current="page">Historical Timeline</a>
-    </nav>
-    <div class="sidebar-foot">
-      <span class="tag">D&amp;D 5e · WotLK era</span><br>
-      Fan-made framework for use at your own table.
-    </div>
-  </aside>
-
+  <aside class="sidebar"></aside>
   <main class="content">
-
-    <header class="page-head">
-      <p class="kicker">Reference</p>
-      <h1>Historical Timeline</h1>
-      <p class="summary">The recorded chronology of Azeroth, dated on the
-        <a href="calendar.html">ADP calendar</a>. Each era lists its <strong>main events</strong>
-        alongside the <strong>pre-event phases</strong> that lead into them — the rumors,
-        mobilizations, and omens a party can actually stumble into on the road.</p>
-      <div class="meta-stats">
-        <span><strong>13</strong> eras</span>
-        <span><strong>96</strong> dated events</span>
-        <span><strong>0 – 41</strong> ADP</span>
-      </div>
-    </header>
-
-    <div class="callout info">
-      <h4>The campaign present</h4>
-      <p>This framework is set during <strong>Wrath of the Lich King — Year 27 ADP</strong>.
-        Everything before it is history the party can research, remember, or unearth; everything
-        after is what the world is still walking into.</p>
-    </div>
-
-    <section class="rule-section" aria-labelledby="baselines-title">
-      <h2 id="baselines-title">Era Start Dates</h2>
-      <p class="section-note">The opening date of each era, for setting a campaign clock.</p>
-      <div class="table-scroll">
-        <table class="codex era-start-table">
-          <thead>
-            <tr>
-              <th scope="col">Era</th>
-              <th scope="col">Year</th>
-              <th scope="col">Date</th>
-            </tr>
-          </thead>
-          <tbody id="era-baselines"></tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="rule-section" aria-labelledby="events-title">
-      <h2 id="events-title">Chronology</h2>
-      <p class="section-note">Filter by period or event type, or search for a person, place, or
-        battle.</p>
-
-      <div class="filter-bar" role="search">
-        <input type="search" id="event-search" placeholder="Search events, people, places…" aria-label="Search timeline events">
-        <div class="chip-row" id="chapter-chips" role="group" aria-label="Filter by period">
-          <button class="chip" data-chapter="all" aria-pressed="true">All</button>
-          <button class="chip" data-chapter="history" aria-pressed="false">0 – 26 ADP</button>
-          <button class="chip" data-chapter="modern" aria-pressed="false">27 ADP onward</button>
-        </div>
-        <div class="chip-row" id="kind-chips" role="group" aria-label="Filter by event type">
-          <button class="chip" data-kind="main" aria-pressed="false">Main events</button>
-          <button class="chip" data-kind="pre" aria-pressed="false">Pre-events</button>
-        </div>
-      </div>
-      <p class="result-count" id="result-count" aria-live="polite"></p>
-
-      <nav class="chip-row" id="era-jump" aria-label="Jump to era"></nav>
-
-      <div id="timeline-eras"></div>
-    </section>
-
-    <footer class="site-footer">
-      The Wayfarer's Codex — a fan-made D&amp;D 5e framework set in the World of Warcraft.
-      World of Warcraft and related names are trademarks of Blizzard Entertainment.
-    </footer>
-
+    <header class="page-head"></header>
+    <section class="rule-section" id="baselines" aria-labelledby="baselines-title"></section>
+    <section class="rule-section" id="chronology" aria-labelledby="events-title"></section>
+    <footer class="site-footer"></footer>
   </main>
 </div>
-
-<script src="js/timeline-data.js"></script>
-<script src="js/timeline.js"></script>
+<script src="vendor/js-yaml.min.js"></script>
+<script src="js/codex.js"></script>
+<script src="js/schemas.js"></script>
+<script src="js/page-timeline.js"></script>
 </body>
 </html>

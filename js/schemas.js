@@ -560,6 +560,70 @@
     },
   };
 
+  // timeline.yml ---------------------------------------------------------
+
+  SCHEMAS.timeline = {
+    type: "map",
+    fields: {
+      head: head,
+      campaign_note: { type: "map", required: true, ...calloutFields },
+      baselines: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          note: { required: true },
+          columns: { type: "list", required: true },
+        },
+      },
+      chronology: {
+        type: "map",
+        required: true,
+        fields: { heading: { required: true }, note: { required: true } },
+      },
+      months: { type: "list", required: true },
+      era_baselines: {
+        type: "list",
+        required: true,
+        item: {
+          fields: {
+            name: { required: true },
+            year: { type: "number", required: true },
+            month: { type: "number", required: true },
+            day: { type: "number", required: true },
+          },
+        },
+      },
+      eras: {
+        type: "list",
+        required: true,
+        item: {
+          fields: {
+            id: { required: true },
+            name: { required: true },
+            span: { required: true },
+            chapter: { enum: ["history", "modern"], required: true },
+            note: {},
+            events: {
+              type: "list",
+              required: true,
+              item: {
+                fields: {
+                  year: { type: "number", required: true },
+                  month: { type: "number", required: true },
+                  day: { type: "number", required: true },
+                  kind: { enum: ["main", "pre"], required: true },
+                  title: { required: true },
+                  desc: { required: true },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  };
+
   globalThis.SCHEMAS = SCHEMAS;
   globalThis.SCHEMA_PARTS = { head, calloutFields, tierFields, defRowFields };
 })();
