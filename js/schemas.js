@@ -129,6 +129,56 @@
     },
   };
 
+  // activities.yml ------------------------------------------------------
+
+  SCHEMAS.activities = {
+    type: "map",
+    fields: {
+      head: head,
+      daily_loop: {
+        type: "map",
+        required: true,
+        fields: {
+          heading: { required: true },
+          steps: {
+            type: "list",
+            required: true,
+            item: { fields: { name: { required: true }, text: { required: true } } },
+          },
+          stacking: { type: "map", required: true, ...calloutFields },
+        },
+      },
+      activities_section: {
+        type: "map",
+        required: true,
+        fields: { heading: { required: true } },
+      },
+      activities: {
+        type: "list",
+        required: true,
+        item: {
+          fields: {
+            id: { required: true },
+            name: { required: true },
+            goal: { required: true },
+            checks: { type: "list", required: true },
+            outcomes: {
+              type: "list",
+              item: {
+                fields: {
+                  result: { enum: ["success", "failure", "nat"], required: true },
+                  label: { required: true },
+                  text: { required: true },
+                },
+              },
+            },
+            tiers: { type: "list", item: tierFields },
+          },
+        },
+      },
+    },
+  };
+
   globalThis.SCHEMAS = SCHEMAS;
   globalThis.SCHEMA_PARTS = { head, calloutFields, tierFields, defRowFields };
 })();

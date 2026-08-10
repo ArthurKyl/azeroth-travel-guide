@@ -19,6 +19,16 @@ test("md handles bold, italic, code, links", () => {
   assert.equal(md("[Biomes](biomes.html)"), '<a href="biomes.html">Biomes</a>');
 });
 
+test("md handles the three label colours", () => {
+  assert.equal(md("++advantage++"), '<span class="label-success">advantage</span>');
+  assert.equal(md("--−5 passive--"), '<span class="label-failure">−5 passive</span>');
+  assert.equal(md("!!Natural 20:!!"), '<span class="label-nat">Natural 20:</span>');
+});
+
+test("md leaves lone plus/minus/bang characters alone", () => {
+  assert.equal(md("+2 DC and 5 - 3 and wow!"), "+2 DC and 5 - 3 and wow!");
+});
+
 test("md leaves underscores inside words alone", () => {
   assert.equal(md("Kosh'harg and snake_case_word"), "Kosh'harg and snake_case_word");
 });

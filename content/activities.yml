@@ -1,0 +1,167 @@
+# Travel Activities. Each activity needs `checks`, then EITHER `outcomes`
+# (a bulleted result list) OR `tiers` (a d20 roll table) — not both.
+#
+#   checks    → skill badges, joined with "or"
+#   outcomes  → result: success | failure | nat  (colours the label)
+#   tiers     → tier: poor | uncommon | rare | epic | legendary  (colours the range)
+
+head:
+  kicker: Core rules
+  title: Travel Activities
+  summary: >
+    Each day on the march, every player selects one travel activity. Choose wisely — the wilds
+    do not forgive idle hands.
+  stats:
+    - { value: "8", label: activities }
+    - { value: "1", label: per character per day }
+
+daily_loop:
+  heading: The Daily Loop
+  steps:
+    - name: Pace selection
+      text: The party chooses their marching speed for the day.
+    - name: Biome exhaustion check
+      text: >
+        Roll a daily Constitution or Survival check against the current [biome DC](biomes.html).
+        **Failure:** gain 1 level of Exhaustion. Clearing it requires a night at a
+        [Safe Spot](settlements.html) (settlement, tavern, outpost) or a successful
+        [Motivate](#motivate) action.
+    - name: Assign activities
+      text: Each player selects **1 travel activity** for the day from the eight below.
+  stacking:
+    kind: info
+    title: Activity stacking
+    text: "Two or more players can perform the **same activity**:"
+    items:
+      - >
+        **Solo (double output):** both players roll separately. Each roll resolves individually,
+        so the party can gain double the rewards — two separate rolls for Hunting rations or
+        Scavenging loot.
+      - >
+        **Helping (safety first):** one player rolls as primary while the second assists. The
+        primary rolls with ++advantage++, but the activity produces only **a single reward** on a
+        success.
+
+activities_section:
+  heading: The 8 Activities
+
+activities:
+  - id: scouting
+    name: Scouting
+    goal: Keep eyes on the horizon to spot threats, ambushes, or points of interest early.
+    checks: [Wisdom (Perception), Dexterity (Stealth)]
+    outcomes:
+      - result: success
+        label: "Success:"
+        text: >
+          the party cannot be surprised during encounters today, and hidden points of interest
+          (ruins, caves, outposts) in adjacent hexes are revealed.
+      - result: failure
+        label: "Failure:"
+        text: standard passive Perception applies.
+
+  - id: hunting
+    name: Hunting
+    goal: Track and hunt wild game to feed the party.
+    checks: [Wisdom (Survival)]
+    outcomes:
+      - { result: success, label: "Success:", text: "yields **1d4 + Wisdom modifier** rations." }
+      - { result: failure, label: "Failure:", text: find no game. }
+      - { result: failure, label: "Natural 1:", text: disturb a wild predator or minor hazard. }
+
+  - id: gathering
+    name: Gathering
+    goal: Harvest useful flora or remedies along the trail. Choose your approach before rolling.
+    checks: [Survival, Medicine]
+    outcomes:
+      - result: success
+        label: "Survival (rations):"
+        text: yields **1d4** edible plant or berry rations.
+      - result: success
+        label: "Medicine (remedies):"
+        text: >
+          finds 1 daily dose of healing herbs — restores **1d4 + 2 HP** when consumed.
+
+  - id: cover-tracks
+    name: Cover Tracks
+    goal: Hide party footprints and signs of passage.
+    checks: [Dexterity (Stealth), Wisdom (Survival)]
+    outcomes:
+      - result: success
+        label: "Success:"
+        text: >
+          the party's trail becomes invisible to tracking. If currently stalked or chased, the
+          party slips away and breaks pursuit.
+      - result: failure
+        label: "Failure:"
+        text: the party leaves standard tracks.
+
+  - id: pray
+    name: Pray / Commune
+    goal: >
+      Commune with your deity, ancestors, Elune, the Holy Light, or the Loa. Gain a daily boon
+      lasting 24 hours based on your d20 roll.
+    checks: [Intelligence (Religion), Charisma (Persuasion)]
+    tiers:
+      - { tier: poor, range: 1–9, text: No response. }
+      - tier: uncommon
+        range: 10–14
+        text: "**Light Blessing** — gain temporary HP equal to your proficiency bonus."
+      - tier: rare
+        range: 15–19
+        text: "**Ancestor's Grace** — advantage on your first attack roll or saving throw today."
+      - tier: legendary
+        range: 20+
+        text: "**Elemental Favor** — gain +1 AC for the day."
+
+  - id: motivate
+    name: Motivate
+    goal: >
+      Use inspiring war chants, stories, or music to keep spirits high despite physical strain.
+    checks: [Charisma (Performance or Persuasion)]
+    outcomes:
+      - result: success
+        label: "Success (DC = biome DC):"
+        text: remove **1 level of Exhaustion** gained today from **1 target player**.
+      - result: nat
+        label: "Natural 20:"
+        text: >
+          rally the entire party — remove 1 level of Exhaustion from **all party members**.
+      - { result: failure, label: "Failure:", text: no effect. }
+
+  - id: pioneer
+    name: Pioneer
+    goal: >
+      Blaze a cleaner trail through dense brush, test ice, or clear obstacles ahead of the march.
+    checks: [Wisdom (Survival), Strength (Athletics)]
+    tiers:
+      - tier: uncommon
+        range: 10–14
+        text: Lowers the daily biome exhaustion DC by **−2** for the whole party.
+      - tier: rare
+        range: 15+
+        text: Lowers the daily biome exhaustion DC by **−4** for the whole party.
+      - tier: legendary
+        range: Nat 20
+        text: >
+          The entire party automatically succeeds their biome exhaustion check for the day.
+      - tier: poor
+        range: Fail
+        text: >
+          The pioneer takes a **−2 penalty** on their own biome exhaustion check today due to
+          strain.
+
+  - id: scavenging
+    name: Scavenging
+    goal: >
+      Search old battlefields, ruined camps, dry creek beds, and debris for items of value.
+    checks: [Intelligence (Investigation), Wisdom (Perception)]
+    tiers:
+      - { tier: poor, range: 1–9, text: You ain't getting shit. }
+      - tier: uncommon
+        range: 10–14
+        text: Find minor scraps and trinkets worth **1d6 gold**.
+      - { tier: rare, range: 15–19, text: Find valuable salvage worth **3d6 gold**. }
+      - tier: legendary
+        range: 20+
+        text: Find a rare trade good, intact gem, or pouch worth **5d6 gold**.

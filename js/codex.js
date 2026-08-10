@@ -28,6 +28,10 @@
     s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
     s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    // Label colours: ++good++ (green), --bad-- (red), !!notable!! (amber)
+    s = s.replace(/\+\+([^+]+)\+\+/g, '<span class="label-success">$1</span>');
+    s = s.replace(/--([^-]+)--/g, '<span class="label-failure">$1</span>');
+    s = s.replace(/!!([^!]+)!!/g, '<span class="label-nat">$1</span>');
     // _italic_ only at word boundaries, so snake_case_words survive intact
     s = s.replace(/(^|[^\w])_([^_\n]+)_(?=$|[^\w])/g, "$1<em>$2</em>");
     return s;
@@ -183,8 +187,9 @@
   function callout(spec) {
     const kids = [el("h4", { html: md(spec.title) })];
     if (spec.text) {
+      // rich() may yield several blocks; move them out of the holder.
       const holder = el("div", { html: rich(spec.text) });
-      while (holder.firstChild) kids.push(holder.firstChild);
+      kids.push(...Array.from(holder.childNodes));
     }
     if (spec.items && spec.items.length) {
       kids.push(el("ul", null, spec.items.map((i) => el("li", { html: md(i) }))));
