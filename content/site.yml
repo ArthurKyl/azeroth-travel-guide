@@ -1,0 +1,26 @@
+# Chrome shared by every page: the sidebar, its nav, and the footer.
+# Add a page here and it appears in the nav on all pages at once.
+
+brand:
+  name: "Wayfarer's\nCodex"
+  sub: Azeroth hexcrawl rules
+
+nav:
+  - label: Rules
+    links:
+      - { text: Travel Rules, href: index.html }
+      - { text: Travel Activities, href: activities.html }
+      - { text: Settlement Downtime, href: settlements.html }
+  - label: Reference
+    links:
+      - { text: Biome Compendium, href: biomes.html }
+      - { text: Calendar & Moons, href: calendar.html }
+      - { text: Festivals & Holidays, href: holidays.html }
+      - { text: Historical Timeline, href: timeline.html }
+
+footer:
+  tag: D&D 5e · WotLK era
+  note: Fan-made framework for use at your own table.
+  legal: >
+    The Wayfarer's Codex — a fan-made D&D 5e framework set in the World of Warcraft.
+    World of Warcraft and related names are trademarks of Blizzard Entertainment.
