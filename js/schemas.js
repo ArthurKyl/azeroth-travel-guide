@@ -94,6 +94,41 @@
     },
   };
 
+  // holidays.yml -------------------------------------------------------
+
+  SCHEMAS.holidays = {
+    type: "map",
+    fields: {
+      head: head,
+      year_table: {
+        type: "map",
+        required: true,
+        fields: { heading: { required: true }, note: { required: true } },
+      },
+      detail: {
+        type: "map",
+        required: true,
+        fields: { heading: { required: true } },
+      },
+      festivals: {
+        type: "list",
+        required: true,
+        item: {
+          fields: {
+            id: { required: true },
+            name: { required: true },
+            month: { required: true },
+            days: { required: true },
+            when: { required: true },
+            duration: { required: true },
+            factions: { type: "list", required: true },
+            impact: { required: true },
+          },
+        },
+      },
+    },
+  };
+
   globalThis.SCHEMAS = SCHEMAS;
   globalThis.SCHEMA_PARTS = { head, calloutFields, tierFields, defRowFields };
 })();
