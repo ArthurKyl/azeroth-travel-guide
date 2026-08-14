@@ -599,6 +599,12 @@ tr.t-legendary td.range { color: var(--harsh); }
 .option .check { margin: 0.35rem 0; display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; font-size: 0.85rem; color: var(--text-2); }
 .option .outcome { font-size: 0.93rem; color: var(--text-2); }
 .option .outcome strong, .option .outcome em { color: var(--text); }
+.option .outcome p + ul { margin-top: 0.45rem; }
+.option .outcome ul {
+  margin: 0.35rem 0 0 1.2rem;
+  list-style: disc;
+}
+.option .outcome li + li { margin-top: 0.3rem; }
 .stack-note { font-size: 0.85rem; color: var(--text-2); margin-top: 0.6rem; }
 
 /* ---------- Definition rows (DC ladders, reputation) ---------- */

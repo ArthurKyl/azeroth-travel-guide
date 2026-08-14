@@ -47,20 +47,36 @@ Codex.boot("settlements", (d) => {
         if (loc.tiers) parts.push(tierTable(loc.tiers));
         if (loc.options) {
           for (const opt of loc.options) {
-            const check = opt.check.skills
-              ? badgeList(opt.check.skills, "skill")
-              : [badge(opt.check.note)];
+            const check = [];
+            if (opt.check.skills) {
+              check.push(...badgeList(opt.check.skills, "skill"));
+            }
+            if (opt.check.note) {
+              check.push(badge(opt.check.note));
+            }
             const title = el("h4", { class: "option-title", html: md(opt.title) + " " });
             title.appendChild(el("span", { class: "cost", html: md(opt.cost) }));
             parts.push(
               el("div", { class: "option" }, [
                 title,
                 el("p", { class: "check" }, check),
-                el("p", { class: "outcome" }, [
-                  el("span", { class: "label-" + opt.outcome.result, html: md(opt.outcome.label) }),
-                  " ",
-                  el("span", { html: md(opt.outcome.text) }),
-                ]),
+                (() => {
+                  const outcome = el("div", { class: "outcome" });
+                  const label = el("span", {
+                    class: "label-" + opt.outcome.result,
+                    html: md(opt.outcome.label),
+                  });
+                  const blocks = Array.from(el("div", { html: rich(opt.outcome.text) }).childNodes);
+                  if (blocks[0]?.nodeName === "P") {
+                    blocks[0].prepend(label, document.createTextNode(" "));
+                  } else {
+                    outcome.append(label, document.createTextNode(" "));
+                  }
+                  for (const block of blocks) {
+                    outcome.appendChild(block);
+                  }
+                  return outcome;
+                })(),
               ])
             );
           }

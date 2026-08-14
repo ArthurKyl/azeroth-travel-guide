@@ -21,20 +21,26 @@ intro: >
 
 phase_loop:
   heading: The Travel Phase Loop
-  note: Every day on the road follows the same four-step procedure, in order.
+  note: Every day on the road follows the same five-step procedure, in order.
   steps:
-    - name: Determine pace
-      text: The party selects a **Fast**, **Normal**, or **Slow** pace for the march.
-    - name: Assign roles
-      text: >
-        Each player chooses one [travel activity](activities.html) — Scout, Hunter, Pioneer, and
-        more.
     - name: Roll environment
       text: >
         The GM rolls 1d6 on the current zone's [weather table](biomes.html) for the day's hazards
         and DC modifiers.
+    - name: Determine pace & assign roles
+      text: >
+        Knowing the weather, the party selects a **Fast**, **Normal**, or **Slow** pace, and each
+        player chooses one [travel activity](activities.html) — Scout, Hunter, Pioneer, and more.
+    - name: March the trail
+      text: >
+        Move party tokens across the map based on chosen pace and resolve passive/active role checks.
     - name: Check for encounters
-      text: Roll a d20 for wilderness events. Encounters trigger on **18–20**.
+      text: >
+        Roll a d20 for wilderness events, points of interest, or ambushes. Encounters trigger on **18–20**.
+    - name: Resolve exhaustion
+      text: >
+        If the march ends in the wilderness, apply Pioneer and Motivate modifiers before rolling 
+        **Exhaustion saves**. Ending the day inside a safe town or hub waives this check completely.
 
 pace:
   heading: Travel Pace
@@ -42,17 +48,16 @@ pace:
   rows:
     - pace: Fast
       distance: 30 miles (5 hexes)
-      effect: "--−5 passive Perception--"
-      restrictions: Cannot stealth, forage, or map.
+      effect: "−5 passive Perception"
+      restrictions: Cannot stealth.
     - pace: Normal
       distance: 24 miles (4 hexes)
       effect: Standard
       restrictions: Standard travel operations.
     - pace: Slow
       distance: 18 miles (3 hexes)
-      effect: Standard
-      restrictions: >
-        Group can use ++Stealth++ to avoid encounters, and forage while traveling.
+      effect: Advantage on daily Exhaustion saves
+      restrictions: Group can use Stealth to avoid encounters.
 
 hazards:
   heading: Wilderness Hazards
@@ -64,37 +69,37 @@ hazards:
       title: Fel & Blight contamination
       text: >
         Unpurified water or food gathered in corrupted biomes requires a **DC 13 Constitution
-        saving throw** to avoid disease or exhaustion.
+        saving throw** to avoid disease or gaining a level of exhaustion.
     - kind: warning
       title: Resting constraints
       text: >
-        A _Long Rest_ cannot be taken in hazardous or unfortified wilderness without a successful
-        **Camping / Fortification check** by the party. Resting in a Harsh or Deadly biome without
-        protective gear, shelter, or magical protection prevents recovering levels of Exhaustion
-        during a Long Rest.
+        A _Long Rest_ taken in unfortified wilderness prevents recovering levels of Exhaustion
+        and carries high encounter risks. To rest safely in the wild, the party must deploy a heavy
+        **Fortification Kit** (secures a campsite for up to 3 days). The party can carry a **maximum of 2 Kits**
+        at any time, which can be restocked at any non-hostile village or hub.
     - kind: info
       title: Daily exhaustion check
       text: >
-        At the end of each travel day, every character makes a **Constitution saving throw**
+        At the end of each travel day in the wilderness, every character makes a **Constitution saving throw**
         against the **zone baseline DC + daily weather modifier**. On a failure, the character
-        gains 1 level of Exhaustion. Clearing it requires a night at a
-        [Safe Spot](settlements.html) — or a bard with a good
-        [Motivate](activities.html#motivate) roll.
+        gains 1 level of Exhaustion. Reaching a [Safe Spot](settlements.html) waives this check, while 
+        clearing existing exhaustion requires an Inn stay, a Fortified Camp, or a successful [Motivate](activities.html#motivate) roll.
 
 gm_checklist:
   heading: GM Checklist — Per Travel Day
   items:
-    - id: rations
-      text: >
-        **Track rations & water** — 1 ration & 1 gallon of water consumed per character.
-    - id: exhaustion
-      text: >
-        **Check exhaustion** — did the party travel over 8 hours today? _(DC 10 + 1 per extra
-        hour Con check.)_
     - id: weather
       text: >
-        **Weather shift** — roll 1d6 on the active zone's weather chart in the
-        [Biome Compendium](biomes.html).
+        **Roll weather** — roll 1d6 on the active zone's weather chart in the
+        [Biome Compendium](biomes.html) to set daily hazards and DC modifiers.
+    - id: rations
+      text: >
+        **Track supplies** — enforce consumption of 1 ration & 1 gallon of water per character.
+    - id: exhaustion
+      text: >
+        **Check exhaustion** — if ending the march in the wilderness, resolve Pioneer/Motivate
+        modifiers and have characters roll Con saves vs **Zone Baseline DC + Weather**. 
+        (Waived inside safe towns or hubs).
 
 gateways:
   heading: Reference
@@ -108,7 +113,7 @@ gateways:
       href: settlements.html
       text: >
         Downtime in villages and cities — taverns, town squares, black markets, scouts, chapels,
-        and provisioners.
+        and watchtowers.
       count: 6 locations · every settlement
     - title: Biome Compendium
       href: biomes.html

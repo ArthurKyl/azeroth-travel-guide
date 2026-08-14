@@ -14,24 +14,36 @@ head:
     shifts — dictating diplomatic trade windows, troop mobilization drives, and spiritual
     convergences.
   stats:
-    - { value: "13", label: celebrations }
-    - { value: "7–16", label: days each }
-    - { value: "137", label: festival days per year }
+    - { value: "21", label: celebrations }
+    - { value: "2–16", label: days each }
+    - { value: "245", label: total active festival days per year }
 
 year_table:
   heading: The Festival Year
   note: >
-    Dates are given as month and day on the [Azerothian calendar](calendar.html). Only
-    Highspring, Harvestide, and Amberfall carry no major celebration.
+    Dates are given as month and day on the [Azerothian calendar](calendar.html).
+    Darkmoon Faire recurs the first week of every month.
 
 detail:
   heading: Celebrations in Detail
 
 festivals:
+  - id: darkmoon-faire
+    name: Darkmoon Faire
+    month: Monthly (Variable)
+    days: Months 1–12 · Days 1 – 7
+    when: Month 1–12 · Days 1 – 7
+    duration: 7 days
+    factions: [Neutral, Steamwheedle, Darkmoon Troupe]
+    impact: >
+      Silas Darkmoon's carnival sets up outside major capitals or wilderness crossroads.
+      Offers exotic games, fortune telling, rare trinket trades, and dangerous carnival favors.
+      **18+ on d20** during month-start indicates the Faire sets up in the party's current region!
+
   - id: lunar-festival
     name: Lunar Festival
     month: 1 · First Dawn
-    days: 15 – 28
+    days: First Dawn 15 – 28
     when: Month 1 · First Dawn, Days 15 – 28
     duration: 14 days
     factions: [Alliance, Horde, Night Elves, Tauren]
@@ -43,7 +55,7 @@ festivals:
   - id: love-is-in-the-air
     name: Love is in the Air
     month: 2 · Awakening
-    days: 7 – 20
+    days: Awakening 7 – 20
     when: Month 2 · Awakening, Days 7 – 20
     duration: 14 days
     factions: [All factions, Goblins, Humans, Orcs]
@@ -54,7 +66,7 @@ festivals:
   - id: noblegarden
     name: Noblegarden
     month: 3 · Sunreach
-    days: 15 – 21
+    days: Sunreach 15 – 21
     when: Month 3 · Sunreach, Days 15 – 21
     duration: 7 days
     factions: [Alliance, Horde]
@@ -65,7 +77,7 @@ festivals:
   - id: koshharg-spring
     name: Kosh'harg Festival (Spring)
     month: 3 · Sunreach
-    days: 21 – 27
+    days: Sunreach 21 – 27
     when: Month 3 · Sunreach, Days 21 – 27
     duration: 7 days
     factions: [Orcish Clans, Mag'har]
@@ -74,10 +86,32 @@ festivals:
       Durotar; ancestral communion grants **clan blessings**; **Om'riggor** rites initiated for
       young warriors.
 
+  - id: grell-hatching
+    name: Hatching of the Grell & Fledglings
+    month: 4 · Highspring
+    days: Highspring 5 – 8
+    when: Month 4 · Highspring, Days 5 – 8
+    duration: 4 days
+    factions: [Wilderness, Neutral, Druids]
+    impact: >
+      Wild nature spriggans and avian fledglings hatch en masse across forest, jungle, and hill biomes (Ashenvale, Feralas, Stranglethorn).
+      Beast-taming checks gain Advantage, but mischievous Grell pests cause widespread camp theft and trail sabotage.
+
+  - id: trial-of-style
+    name: Vanity Fair & Crown Jewels
+    month: 4 · Highspring
+    days: Highspring 12 – 16
+    when: Month 4 · Highspring, Days 12 – 16
+    duration: 5 days
+    factions: [Alliance, Horde, Goblins, Cartels]
+    impact: >
+      Wealthy nobles, goblin socialites, and vain vanity merchants converge in major capitals (Orgrimmar, Silvermoon, Booty Bay).
+      High-society crime spikes—a prime window for petty heist quests, missing hat/pendant contracts, and disguise-based infiltration.
+
   - id: summer-solstice
     name: Night Elf Summer Solstice
     month: 5 · Solstice Peak
-    days: 13 – 19
+    days: Solstice Peak 13 – 19
     when: Month 5 · Solstice Peak, Days 13 – 19
     duration: 7 days
     factions: [Night Elves, Highborne, Druidic Orders]
@@ -88,7 +122,7 @@ festivals:
   - id: sunstrider-rites
     name: Sunstrider Rites
     month: 5 · Solstice Peak
-    days: 25 – 31
+    days: Solstice Peak 25 – 31
     when: Month 5 · Solstice Peak, Days 25 – 31
     duration: 7 days
     factions: [Blood Elves, High Elves]
@@ -99,7 +133,7 @@ festivals:
   - id: midsummer
     name: Midsummer Fire Festival
     month: 6 · Hearthfire
-    days: 10 – 24
+    days: Hearthfire 10 – 24
     when: Month 6 · Hearthfire, Days 10 – 24
     duration: 15 days
     factions: [All factions]
@@ -107,10 +141,43 @@ festivals:
       Elemental Fire spirits rage; bonfires stoked across all territories provide **stamina
       buffs**; Ahune's forces attempt frost invasions in the Slave Pens.
 
+  - id: ungoro-madness
+    name: Un'Goro Primeval Surge
+    month: 7 · Harvestide
+    days: Harvestide 18 – 20
+    when: Month 7 · Harvestide, Days 18 – 20
+    duration: 3 days
+    factions: [Wilderness, Neutral]
+    impact: >
+      Apex predators and dinosaurs enter a hormonal frenzy in primeval biomes (Un'Goro Crater, Sholazar Basin, Northern Stranglethorn).
+      Beast encounter lethality and aggression spike, but defeating mega-fauna yields double crafting hides, pristine bones, and rare alchemy ingredients.
+
+  - id: luminous-night
+    name: Luminous Night
+    month: 8 · Amberfall
+    days: Amberfall 12 – 14
+    when: Month 8 · Amberfall, Days 12 – 14
+    duration: 3 days
+    factions: [Coastal Settlements, Sailors, Neutral]
+    impact: >
+      Bioluminescent jellyfish, spore-clouds, and glowing algae illuminate coastal and wetland biomes (Tanaris Coast, Zangarmarsh, Dustwallow Marsh).
+      Nighttime vision penalties are negated, water-breathing duration doubles, and sea-monsters are drawn to shorelines.
+
+  - id: volunteer-guard-day
+    name: Volunteer Guard Day
+    month: 8 · Amberfall
+    days: Amberfall 26 – 27
+    when: Month 8 · Amberfall, Days 26 – 27
+    duration: 2 days
+    factions: [Horde, Alliance, Capital Cities]
+    impact: >
+      Eager civilians "play guard" in capital strongholds (Orgrimmar, Thunder Bluff, Undercity, Ratchet).
+      Official military security drops—amateur guards are easily duped, bribed, or distracted, creating a prime window for Underbelly heists and illicit trade.
+
   - id: harvest-festival
     name: Harvest Festival
     month: 9 · Shadowrise
-    days: 5 – 11
+    days: Shadowrise 5 – 11
     when: Month 9 · Shadowrise, Days 5 – 11
     duration: 7 days
     factions: [Alliance, Horde]
@@ -118,10 +185,21 @@ festivals:
       Logistics lines carry massive grain shipments to urban centers; memorial tributes paid to
       heroes (Uther Lightbringer, Grom Hellscream); **food storage drives** for the coming winter.
 
+  - id: pirates-day
+    name: Pirate's Day
+    month: 9 · Shadowrise
+    days: Shadowrise 19 – 20
+    when: Month 9 · Shadowrise, Days 19 – 20
+    duration: 2 days
+    factions: [Booty Bay, Bloodsail Buccaneers, Cartels]
+    impact: >
+      Dread Captain DeMeza docks at Booty Bay; sea shanties, free-flowing grog, and chaotic black-market
+      trident/gun sales. Naval guards lower their guard, making smuggling and port heists significantly easier.
+
   - id: koshharg-autumn
     name: Kosh'harg Festival (Autumn)
     month: 9 · Shadowrise
-    days: 21 – 27
+    days: Shadowrise 21 – 27
     when: Month 9 · Shadowrise, Days 21 – 27
     duration: 7 days
     factions: [Orcish Clans, Mag'har]
@@ -152,10 +230,32 @@ festivals:
       **Headless Horseman** unleashes fire attacks on low-level settlements; **Fel/Death magic
       affinity rises**.
 
+  - id: day-of-the-dead
+    name: Day of the Dead
+    month: 11 · Deepwinter
+    days: Deepwinter 1 – 2
+    when: Month 11 · Deepwinter, Days 1 – 2
+    duration: 2 days
+    factions: [All factions]
+    impact: >
+      Dances with the dead in city graveyards; orange marigolds line shrine altars. The veil to the Spirit Realm
+      thins—enabling communion with fallen companions or ancient ancestors without costly divine rituals.
+
+  - id: tavern-crawl
+    name: Great Crossroads Tavern Crawl
+    month: 11 · Deepwinter
+    days: Deepwinter 5 – 7
+    when: Month 11 · Deepwinter, Days 5 – 7
+    duration: 3 days
+    factions: [Horde, Neutral Cartels]
+    impact: >
+      Drunken revelry sweeps major regional outposts and settlement taverns (The Crossroads, Gadgetzan, Brackenwall, Booty Bay).
+      Brawls carry zero lethal consequences, and loose-lipped patron gossip guarantees **free rumor leads** without requiring checks.
+
   - id: foundry-rites
     name: Ironforge Foundry Rites
     month: 11 · Deepwinter
-    days: 10 – 16
+    days: Deepwinter 10 – 16
     when: Month 11 · Deepwinter, Days 10 – 16
     duration: 7 days
     factions: [Dwarves, Gnomes]
@@ -166,7 +266,7 @@ festivals:
   - id: winter-veil
     name: Feast of Winter Veil
     month: 12 · Veilfall
-    days: 15 – 30
+    days: Veilfall 15 – 30
     when: Month 12 · Veilfall, Days 15 – 30
     duration: 16 days
     factions: [All factions, Smokywood Pastures]

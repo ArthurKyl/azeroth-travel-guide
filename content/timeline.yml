@@ -15,7 +15,7 @@ head:
     mobilizations, and omens a party can actually stumble into on the road.
   stats:
     - { value: "13", label: eras }
-    - { value: "96", label: dated events }
+    - { value: "129", label: dated events }
     - { value: 0 – 41, label: ADP }
 
 campaign_note:
@@ -154,6 +154,22 @@ eras:
           Warchief Blackhand orders a direct assault on Stormwind City. Human archers and knight
           counter-charges inflict massive casualties on the Horde, forcing a temporary tactical
           retreat back to the Redridge foothills.
+      - year: 1
+        month: 2
+        day: 10
+        kind: pre
+        title: Shadow Council Puppet Rule
+        desc: >-
+          Gul'dan elevates Blackhand to Warchief behind closed doors, centralizing clan authority
+          and establishing stealth raiding encampments along the Redridge borders.
+      - year: 2
+        month: 7
+        day: 15
+        kind: pre
+        title: Redridge Foothills Border Defense
+        desc: >-
+          Sir Anduin Lothar establishes fortified watchposts in Lakeshire and Camp Stonewatch as
+          Orcish raiding bands begin harassing local trade caravans.
       - year: 3
         month: 5
         day: 20
@@ -238,6 +254,22 @@ eras:
           Horde. Gul'dan abandons the front lines with the Stormreaver and Twilight's Hammer
           clans to locate the Tomb of Sargeras, forcing Doomhammer to divide his forces.
       - year: 6
+        month: 5
+        day: 1
+        kind: pre
+        title: Gul'dan's Desertion to Sargeras's Tomb
+        desc: >-
+          Gul'dan pulls the Stormreaver and Twilight's Hammer clans away from the siege front,
+          fracturing Horde lines and giving the Alliance room to launch a counter-offensive.
+      - year: 6
+        month: 6
+        day: 15
+        kind: pre
+        title: Alliance Counter-Offensive at Hillsbrad
+        desc: >-
+          General Turalyon leads allied forces to reclaim Hillsbrad and Southshore, cutting off
+          Horde supply lines from Khaz Modan.
+      - year: 6
         month: 8
         day: 5
         kind: main
@@ -317,6 +349,14 @@ eras:
           Assessing that the populace is beyond salvation, Arthas purges Stratholme's citizens,
           causing Uther and Jaina Proudmoore to abandon his command.
       - year: 20
+        month: 5
+        day: 15
+        kind: pre
+        title: Expedition to Northrend & Frostmourne's Claim
+        desc: >-
+          Prince Arthas sails to Northrend, burns his fleet, and takes up the cursed runeblade
+          Frostmourne, sacrificing his soul to defeat Mal'Ganis.
+      - year: 20
         month: 7
         day: 20
         kind: main
@@ -341,6 +381,14 @@ eras:
         desc: >-
           Guided by the Prophet Medivh, Thrall frees the internment camps and sails for
           Kalimdor; Jaina Proudmoore gathers human survivors and sets sail west.
+      - year: 21
+        month: 4
+        day: 10
+        kind: pre
+        title: Legion Invasion of Ashenvale & Fall of Cenarius
+        desc: >-
+          Mannoroth's blood corrupts Warsong Orcs under Grom Hellscream, leading to the slaying
+          of the Wild God Cenarius and paving the way for Archimonde's march on Hyjal.
       - year: 21
         month: 6
         day: 22
@@ -373,6 +421,14 @@ eras:
           Throne. The Lich King's power drains, weakening his psychic hold over free-willed
           undead.
       - year: 22
+        month: 4
+        day: 18
+        kind: pre
+        title: Sylvanas's Triumvirate Pact
+        desc: >-
+          Sylvanas secretly alliances with the Dreadlords Varimathras, Detheroc, and Balnazzar
+          to plan a coordinated ambush against the weakened Arthas in Capital City.
+      - year: 22
         month: 5
         day: 8
         kind: main
@@ -380,6 +436,14 @@ eras:
         desc: >-
           Sylvanas Windrunner breaks free from the Lich King's control, founding the Forsaken.
           She drives Arthas and the Dreadlord triumvirate from the Capital City ruins.
+      - year: 22
+        month: 8
+        day: 10
+        kind: pre
+        title: Blood Elf & Naga Blockade in Howling Fjord
+        desc: >-
+          Kael'thas Sunstrider and Lady Vashj land in Northrend under Illidan's command,
+          establishing coastal blockades to intercept Arthas's fleet.
       - year: 22
         month: 9
         day: 18
@@ -402,6 +466,22 @@ eras:
         desc: >-
           Onyxia, disguised as Katrana Prestor, manipulates King Varian Wrynn's absence to
           withhold military aid from Westfall, Lakeshire, and Darkshire.
+      - year: 25
+        month: 1
+        day: 20
+        kind: pre
+        title: Disappearance of King Varian Wrynn
+        desc: >-
+          King Varian disappears during a diplomatic voyage to Theramore. Lady Katrana Prestor
+          assumes de facto political control over Stormwind's royal court.
+      - year: 25
+        month: 2
+        day: 1
+        kind: pre
+        title: Nefarian's Chromatic Flight Experiments
+        desc: >-
+          Whispers from Blackwing Lair report strange draconic monstrosities emerging from
+          upper Blackrock Spire, threatening the surrounding Burning Steppes.
       - year: 25
         month: 2
         day: 12
@@ -480,6 +560,14 @@ eras:
           Alliance and Horde forces drive the Legion back through the archway, establishing
           strongholds at Honor Hold and Thrallmar in Hellfire Peninsula.
       - year: 26
+        month: 5
+        day: 10
+        kind: pre
+        title: Netherstorm Arcane Mana-Forge Siphoning
+        desc: >-
+          Kael'thas Sunstrider activates the Mana-Forges in Netherstorm, destabilizing regional
+          ley-lines and causing mana storms across Outland.
+      - year: 26
         month: 7
         day: 14
         kind: main
@@ -487,6 +575,14 @@ eras:
         desc: >-
           Expeditionary forces assault Netherstorm, defeating Kael'thas Sunstrider at Tempest
           Keep, and breach the Black Temple to depose Illidan Stormrage.
+      - year: 26
+        month: 10
+        day: 15
+        kind: pre
+        title: Sunblade Raid on Shattrath
+        desc: >-
+          Kael'thas's rogue Sunblade forces infiltrate Shattrath City, seize the Naaru M'uru,
+          and transport it to Quel'Thalas to power the corrupted Sunwell.
       - year: 26
         month: 11
         day: 20
@@ -527,6 +623,14 @@ eras:
           is interrupted by a Scourge frost wyrm attack on Orgrimmar.
       - year: 27
         month: 2
+        day: 5
+        kind: pre
+        title: Global Necropolis Invasions
+        desc: >-
+          Floating Scourge Necropolises appear over major regional hubs (Tanaris, Barrens,
+          Eastern Plaguelands), dropping necrotic crystals and spawning undead waves.
+      - year: 27
+        month: 2
         day: 15
         kind: pre
         title: Expedition Fleet Assembly
@@ -541,6 +645,14 @@ eras:
         desc: >-
           Alliance forces land at Valiance Keep (Borean Tundra) and Valgarde (Howling Fjord);
           the Horde Warsong Offensive establishes Warsaw Hold.
+      - year: 27
+        month: 5
+        day: 10
+        kind: pre
+        title: Dragonblight Staging Ground Fortification
+        desc: >-
+          Wrath Gate vanguards push into Dragonblight, establishing Venomspite and Kor'kron
+          Command while Scourge forces reinforce Angrathar.
       - year: 27
         month: 6
         day: 1
@@ -557,6 +669,14 @@ eras:
         desc: >-
           Varian Wrynn and Thrall launch separate assaults on Undercity to purge Putress and
           Varimathras, severing Alliance-Horde diplomatic relations.
+      - year: 27
+        month: 8
+        day: 1
+        kind: pre
+        title: Ulduar Seismic Resonance Signals
+        desc: >-
+          Explorer's League outposts in Storm Peaks detect massive titanic power surges and
+          maddening psychic whispers radiating from Ulduar.
       - year: 27
         month: 8
         day: 20
@@ -604,6 +724,14 @@ eras:
           Bluff. Thrall steps down as Warchief to join the Ring of Earth, appointing Garrosh
           Hellscream as Warchief.
       - year: 28
+        month: 2
+        day: 28
+        kind: pre
+        title: Fissures & Drying Water Wells
+        desc: >-
+          Pre-Shattering earthquakes crack trade highways across Kalimdor and Eastern Kingdoms;
+          natural springs and riverbeds dry up overnight.
+      - year: 28
         month: 3
         day: 1
         kind: pre
@@ -618,6 +746,14 @@ eras:
           Deathwing ruptures the boundary between Deepholm and Azeroth. Tidal waves submerge
           Thousand Needles, the Barrens splits in two, and Blackrock Mountain erupts.
       - year: 28
+        month: 4
+        day: 10
+        kind: pre
+        title: Great Cataclysm Refugee Crisis
+        desc: >-
+          Floodwaters in Thousand Needles and lava flows in Badlands displace tens of thousands.
+          Refugee camps outside Orgrimmar and Stormwind strain city food rations.
+      - year: 28
         month: 6
         day: 10
         kind: main
@@ -625,6 +761,30 @@ eras:
         desc: >-
           Garrosh initiates military campaigns across Ashenvale, Azshara, and the Southern
           Barrens. The Forsaken invade Gilneas, forcing the Worgen into the Alliance.
+      - year: 28
+        month: 8
+        day: 1
+        kind: pre
+        title: Southern Barrens Great Gate Construction
+        desc: >-
+          As Garrosh aggressively claims territory, Tauren forces build the Great Gate of
+          Mulgore to seal their borders, while the Alliance constructs Fort Triumph.
+      - year: 29
+        month: 2
+        day: 15
+        kind: pre
+        title: Twilight's Hammer High Highlands Mobilization
+        desc: >-
+          Cultists construct massive elementium blockades and ritual towers across the Twilight
+          Highlands, threatening Grim Batol.
+      - year: 29
+        month: 8
+        day: 20
+        kind: pre
+        title: Dragon Soul Caverns Infiltration
+        desc: >-
+          Bronze Dragonflight agents locate the time-lost artifact in the War of the Ancients
+          timeline, prompting the Alliance and Horde to assemble elite retrieval squads.
       - year: 29
         month: 11
         day: 15
@@ -659,6 +819,14 @@ eras:
           Garrosh orders engineers to construct an arcano-magical weapon powered by the stolen
           Focusing Iris.
       - year: 30
+        month: 3
+        day: 18
+        kind: pre
+        title: Northern Barrens Troop Mobilization
+        desc: >-
+          Garrosh mobilizes siege engines and troops along the Gold Road under the guise of
+          border patrols before pivoting south to Theramore.
+      - year: 30
         month: 4
         day: 12
         kind: main
@@ -675,6 +843,14 @@ eras:
           Alliance and Horde warships wreck off the coast of the Jade Forest, introducing global
           warfare to the isolated continent.
       - year: 30
+        month: 6
+        day: 1
+        kind: pre
+        title: Jade Forest Landing Staging
+        desc: >-
+          Shipwrecked naval crews build forward encampments (Paw'don Village and Tian Monastery),
+          coercing local Hozu and Jinyu tribes into proxy warfare.
+      - year: 30
         month: 8
         day: 1
         kind: main
@@ -682,6 +858,22 @@ eras:
         desc: >-
           Faction conflict unleashes the Sha spirits. Garrosh claims the Divine Bell, prompting
           Vol'jin to organize an anti-Garrosh resistance movement.
+      - year: 30
+        month: 9
+        day: 15
+        kind: pre
+        title: Krasarang Wilds Fortress Construction
+        desc: >-
+          Garrosh lands the Horde fleet at Domination Point while Varian constructs Lion's
+          Landing, turning southern Pandaria into a massive trench-warfare zone.
+      - year: 30
+        month: 11
+        day: 1
+        kind: pre
+        title: Darkspear Rebellion Outbreak
+        desc: >-
+          Vol'jin survives Kor'kron assassination attempt and declares open rebellion against
+          Garrosh. Sen'jin Village and Razor Hill are fortified by Darkspear rebels.
       - year: 30
         month: 12
         day: 10
@@ -696,6 +888,22 @@ eras:
     span: 31 – 33 ADP
     chapter: modern
     events:
+      - year: 31
+        month: 1
+        day: 1
+        kind: pre
+        title: Trial of Garrosh Hellscream
+        desc: >-
+          Supreme Justice Taran Zhu convenes the celestial trial at the Temple of the White
+          Tiger, drawing diplomats and spies from all major factions to Pandaria.
+      - year: 31
+        month: 1
+        day: 10
+        kind: pre
+        title: Kairozdormu's Temporal Breakout
+        desc: >-
+          Kairoz and Zaela sabotage the trial, freeing Garrosh and utilizing an upgraded Vision
+          of Time to tear an orbital rift to alternate Draenor.
       - year: 31
         month: 1
         day: 15
@@ -754,6 +962,14 @@ eras:
           Hillsbrad, and Mulgore.
       - year: 32
         month: 3
+        day: 1
+        kind: pre
+        title: Dalaran Relocation to Deadwind Pass
+        desc: >-
+          The Kirin Tor teleports Dalaran to the skies above Karazhan to secure the tower's
+          ley-node network before launching the Broken Shore invasion.
+      - year: 32
+        month: 3
         day: 15
         kind: main
         title: Broken Shore Disaster
@@ -761,6 +977,22 @@ eras:
           Alliance and Horde armies launch a joint assault on the Broken Shore. King Varian
           Wrynn and Warchief Vol'jin are mortally wounded; Sylvanas Windrunner assumes command
           of the Horde, and Anduin Wrynn is crowned King of Stormwind.
+      - year: 32
+        month: 4
+        day: 12
+        kind: pre
+        title: Karazhan & Ulduar Legion Invasions
+        desc: >-
+          Demonic fleets focus orbital bombardment on Azeroth's major ley-line nexus points,
+          forcing Dalaran to initiate an emergency mass-teleportation sequence.
+      - year: 32
+        month: 6
+        day: 20
+        kind: pre
+        title: Broken Isles Pillar Expeditions
+        desc: >-
+          Order Halls dispatch elite champions to Highmountain, Val'sharah, and Stormheim to
+          recover titan artifacts before dreadlord infiltrators secure them.
       - year: 32
         month: 8
         day: 10
@@ -783,6 +1015,14 @@ eras:
     chapter: modern
     events:
       - year: 33
+        month: 2
+        day: 10
+        kind: pre
+        title: Silithus Azerite Encampments
+        desc: >-
+          Goblin mining teams and Gnomish researchers establish massive extraction rigs around
+          Sargeras's sword, sparking lethal border skirmishes over raw Azerite ore.
+      - year: 33
         month: 4
         day: 10
         kind: pre
@@ -798,6 +1038,14 @@ eras:
         desc: >-
           Sylvanas gathers Horde armies in the Northern Barrens, feigning a march to secure
           Silithus Azerite fields.
+      - year: 33
+        month: 5
+        day: 12
+        kind: pre
+        title: Ashenvale Border Incursion
+        desc: >-
+          Sylvanas abruptly turns her armies north from the Barrens, breaching Night Elven
+          fortifications in Ashenvale 8 days before Teldrassil burns.
       - year: 33
         month: 5
         day: 20
@@ -822,6 +1070,22 @@ eras:
         desc: >-
           The Alliance secures Kul Tiras, while the Horde secures Zandalar. War fronts ignite
           across Arathi and Darkshore.
+      - year: 33
+        month: 10
+        day: 5
+        kind: pre
+        title: Battle for Darkshore & Blight Warfronts
+        desc: >-
+          Night Elf resistance under Tyrande's Night Warrior ritual wages guerilla warfare
+          against Forsaken occupying forces across the blackened ruins of Darkshore.
+      - year: 34
+        month: 1
+        day: 15
+        kind: pre
+        title: Saurfang's Underground Resistance
+        desc: >-
+          Varok Saurfang and Anduin Wrynn forge a covert pact, gathering loyalist orc dissidents
+          and Alliance veteran brigades in the Redridge foothills to march on Orgrimmar.
       - year: 34
         month: 3
         day: 10

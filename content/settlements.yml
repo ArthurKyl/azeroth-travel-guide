@@ -22,23 +22,20 @@ rules:
   cards:
     - heading: Safe Spot
       text: >
-        Every settlement is a **Safe Spot**: a night's rest here clears
+        Every settlement is a **Safe Spot**: a night's rest here automatically clears all
         [Exhaustion](index.html) gained on the road — no Camping or Fortification check needed.
-        Stock up before heading back into the wilds.
-    - heading: Check DCs by disposition
-      def_rows:
-        - { key: DC 12, tone: mild, text: "**Friendly** — the party is welcome, or unknown but unremarkable." }
-        - { key: DC 15, tone: harsh, text: "**Wary** — suspicious locals, contested territory, or a bad reputation." }
-        - { key: DC 18, tone: deadly, text: "**Hostile** — enemy-aligned or occupied. Tread very carefully." }
-    - heading: Reputation
+        Restock supplies and Fortification Kits before heading back into the wilds.
+    - heading: Settlement Reputation
       text: >
-        Track Reputation per settlement. It rises through goodwill and coin, and falls through
-        scandal and suspicion.
+        Track Reputation standing with individual factions and hubs. Perform local favors, trade,
+        and turn in quest objectives to earn **Reputation XP** (typically +5 to +20 per task).
       def_rows:
-        - { key: +1–2, tone: mild, text: "**Friendly faces** — small discounts, a free bed offered." }
-        - { key: +3–4, tone: rare, text: "**Trusted** — better goods surface; locals volunteer information freely." }
-        - { key: "+5", tone: epic, text: "**Local champion** — quest hooks, safe haven, doors open everywhere." }
-        - { key: "< 0", tone: deadly, text: "**Watched → unwelcome** — prices rise, tongues still, guards follow." }
+        - { key: "Hated", tone: deadly, text: "**Unwelcome (< 0 XP)** — Downtime checks +4 DC, guards follow, basic services refused." }
+        - { key: Neutral, tone: neutral, text: "**Baseline (0–10 XP)** — Standard DCs and basic downtime access." }
+        - { key: Friendly, tone: mild, text: "**Welcomed (11–30 XP)** — Downtime checks -2 DC, locals share rumors freely." }
+        - { key: Honored, tone: rare, text: "**Respected (31–60 XP)** — Downtime checks -4 DC, rare goods and specialist training unlocked." }
+        - { key: Revered, tone: epic, text: "**Heroic (61–90 XP)** — Auto-succeed basic downtime checks, elite quest hooks, free lodging." }
+        - { key: Exalted, tone: epic, text: "**Local Champion (100 XP)** — Full faction authority, key to a private sanctuary, high council access." }
 
 grid:
   heading: The Six Locations
@@ -54,21 +51,22 @@ locations:
     options:
       - title: Drink & Gossip
         cost: Free
-        check: { skills: [Charisma (Persuasion), Intelligence (Investigation)] }
-        outcome:
-          result: success
-          label: "Success:"
-          text: >
-            discover a regional rumor, a lead on a nearby hex, or an unverified quest hint.
-      - title: Buy a Round
-        cost: 5–20 gold · by settlement size
-        check: { note: No check — automatic }
+        check: { note: "Optional — Any skill with GM approval (e.g. Persuasion, Stealth, Investigation)" }
         outcome:
           result: success
           label: "Effect:"
           text: >
-            loosen local tongues and earn an immediate **+1 Reputation** with the settlement.
-            Any _Drink & Gossip_ attempts here today are made with advantage.
+            Mingle with locals or eavesdrop to hear regional rumors, map leads, or quest hints (no roll needed for basic chatter).
+            If a check is required for guarded secrets, players can use any skill they can logically justify to the GM.
+      - title: Buy a Round
+        cost: "1d20 gold · or GM discretion by settlement size"
+        check: { note: "Automatic success" }
+        outcome:
+          result: success
+          label: "Effect:"
+          text: >
+            Loosen local tongues and earn an immediate **+3 Reputation XP** with the settlement.
+            The party automatically learns standard local gossip, and any GM-requested checks here today are made with **Advantage**.
 
   - id: square
     name: The Town Square
@@ -77,120 +75,112 @@ locations:
     options:
       - title: Civic Favor
         cost: Minor effort or small gift
-        check: { note: No check — roleplay only }
+        check: { note: "Automatic success · Roleplay focus" }
         outcome:
           result: success
           label: "Effect:"
           text: >
-            help push a cart, fix a fence, hand out candy — earn **+1 Reputation** with the
-            locals without spending gold.
+            Help push a heavy cart, repair a fence, or assist local guards. Earn **+3 Reputation XP**
+            with the settlement without spending gold.
       - title: Mingle & Ask
         cost: Free
-        check: { skills: [Charisma (Persuasion), Wisdom (Insight)] }
+        check: { note: "Optional — Any skill with GM approval (e.g. Persuasion, Insight, History)" }
         outcome:
           result: success
-          label: "Success:"
+          label: "Effect:"
           text: >
-            learn about immediate civic needs, town notices, or public requests from everyday folk.
+            Fish for public quest hooks, local notice board jobs, or immediate civic needs. Basic inquiries
+            require no roll, while success on GM checks unlocks subtle clues or hidden opportunities.
 
   - id: underbelly
     name: The Underbelly
     accent: "#a887d9"
     tagline: High-risk secrets, black markets & illicit opportunities
     mechanic_line: >
-      Single check: **Dexterity (Stealth)**, **Charisma (Deception)**, or
-      **Intelligence (Investigation)**
+      Single check: **Dexterity (Stealth)**, **Charisma (Deception)**, **Intelligence (Investigation)**, or any shady skill with GM approval.
     tiers:
       - tier: poor
-        range: 1–9
+        range: "1–9"
         text: >
-          **You stand out.** Nobody talks to you. Local eyes watch with suspicion — risk a minor
-          Reputation penalty.
+          **You stand out.** Nobody talks to you. Local thugs or guards watch with suspicion — lose **3 Reputation XP**.
       - tier: rare
-        range: 10–14
+        range: "10–14"
         text: >
-          **Whispered secrets.** Uncover hidden lore, secret faction activity, or a dark hint
-          tied to an ongoing quest.
-      - tier: legendary
-        range: 15+
+          **Whispered secrets.** Uncover hidden lore, secret faction moves, or a lead on a local fence for selling stolen goods.
+      - tier: epic
+        range: "15+"
         text: >
-          **Risky mission.** An off-the-books job offer: high reward, high threat, morally gray
-          objectives.
+          **Black market & high-risk job.** Unlock a hidden shady vendor (poisons, illicit gear, contraband) or receive an off-the-books job offer: high coin, high threat, morally gray objectives.
 
   - id: scout-den
     name: The Scout Den
     accent: "#79b95e"
     tagline: Wilderness preparation, local trappers & hexcrawl intel
-    mechanic_line: "Single check: **Wisdom (Survival or Nature)**, or a flat d20"
+    mechanic_line: "Single check: **Wisdom (Survival)**, **Intelligence (Nature)**, or a relevant wilderness skill"
     tiers:
       - tier: poor
-        range: 1–9
+        range: "1–9"
         text: Conflicting stories and bad advice. **No bonus.**
       - tier: uncommon
-        range: 10–14
+        range: "10–14"
         text: >
-          **−2** to biome exhaustion & navigation DCs for the **next 2 days** — hunters outline
-          safe paths through the immediate hexes.
+          **−2** to Biome Exhaustion DCs for the **next 2 days** — hunters outline safe paths through immediate hexes.
       - tier: rare
-        range: 15–19
+        range: "15–19"
         text: >
-          **−3** to biome exhaustion & navigation DCs for the **next 3 days** — trappers point
-          out hidden animal trails and water sources.
-      - tier: legendary
-        range: 20+
+          **−3** to Biome Exhaustion DCs for the **next 3 days** — trappers point out hidden animal trails and water sources.
+      - tier: epic
+        range: "20+"
         text: >
-          **−5** to biome exhaustion & navigation DCs for the **next 3 days**, and **reveal 1
-          adjacent hex feature** — detailed maps of hazard zones, landmarks, and monster nests.
+          **−5** to Biome Exhaustion DCs for the **next 3 days**, and **reveal 1 Point of Interest** on the regional map nearby — detailed intel on hazard zones, ruins, or monster nests.
     stack_note: >
-      Overlapping reductions don't stack — on days a [Pioneer](activities.html#pioneer) is also
-      cutting the trail, apply the better of the two.
+      Wilderness intel stacks fully with the [Pioneer](activities.html#pioneer) activity, making properly surveyed marches exceptionally safe.
 
   - id: chapel
-    name: The Chapel
+    name: The Chapel / Shrine
     accent: "#e9e7e2"
-    tagline: The Light, the Loa, Elune — every settlement keeps a shrine
+    tagline: Sanctuary, spiritual purification & divine favor
     options:
-      - title: Tithe for Cleansing
-        cost: 10–50 gold · by settlement size
-        check: { note: No check — donation }
-        outcome:
-          result: success
-          label: "Effect:"
-          text: >
-            an acolyte casts _Lesser Restoration_ — cure one disease or poison, including
-            [Fel/Blight contamination](index.html) picked up from corrupted food or water on
-            the road.
-      - title: Quiet Devotion
+      - title: Devotion & Prayer
         cost: Free
-        check: { skills: [Intelligence (Religion), Charisma (Persuasion)] }
+        check: { note: "Automatic or GM discretion" }
         outcome:
           result: success
-          label: "Success:"
-          text: >
-            leave with steadied spirit — gain advantage on your **first biome exhaustion save**
-            after leaving town.
+          label: "Effect:"
+          text: |
+            Offer a prayer to the Light, Elune, the Loa, or ancestral spirits. The GM grants a flavor boon or subtle sign based on your deity. Examples:
 
-  - id: provisioner
-    name: The Provisioner
+            - **Holy Light / Elune:** Gain temporary HP equal to your level upon leaving town.
+            - **The Loa / Wild Gods:** Learn the location of a hidden shrine or beast nest in a nearby hex.
+            - **Ancestors / Spirits:** Gain Advantage on your first skill check on the trail tomorrow.
+      - title: Sacred Services
+        cost: "10–50 gold · or GM discretion by settlement size"
+        check: { note: "Automatic success" }
+        outcome:
+          result: success
+          label: "Effect:"
+          text: >
+            Acolytes or shamans cleanse the body and soul. Cures **all active poisons, diseases, or Fel/Blight corruptions**, and grants **+3 Reputation XP** with the settlement.
+
+  - id: watchtower
+    name: The Watchtower
     accent: "#e0622d"
-    tagline: Rations, waterskins & gear for the biome ahead
-    options:
-      - title: Restock Supplies
-        cost: 5 silver per ration
-        check: { note: No check — purchase }
-        outcome:
-          result: success
-          label: "Effect:"
-          text: >
-            buy rations and refill water. Remember: **1 ration & 1 gallon per character per
-            travel day** — double water in extreme-heat weather.
-      - title: Outfit for the Climate
-        cost: 10–25 gold per kit
-        check: { note: No check — purchase }
-        outcome:
-          result: success
-          label: "Effect:"
-          text: >
-            cold- or heat-weather gear. Without it, resting in a
-            [Harsh or Deadly biome](biomes.html) recovers **no Exhaustion** — ask the shopkeep
-            what the road ahead demands.
+    tagline: Military surveillance, patrol logs & tracking hidden forces
+    mechanic_line: "Single check: **Intelligence (History or Investigation)**, **Wisdom (Perception)**, or military tactics"
+    tiers:
+      - tier: poor
+        range: "1–9"
+        text: >
+          **Outdated logs.** Conflicting reports and old scout entries. You learn nothing about current threat movements.
+      - tier: uncommon
+        range: "10–14"
+        text: >
+          **General area.** The guards confirm the general vicinity of a major threat, warband, or hidden force active in the region.
+      - tier: rare
+        range: "15–19"
+        text: >
+          **Area & direction.** Learn the general location and active direction of travel for a nearby hidden threat.
+      - tier: epic
+        range: "20+"
+        text: >
+          **Tactical tracking.** Reveal the exact current location of 1 hidden threat on the map, and track its movement on your map for 1–2 days (GM discretion).

@@ -353,7 +353,9 @@
     const url = `content/${name}.yml`;
     let res;
     try {
-      res = await fetch(url);
+      // no-cache: revalidate every load, so an edit shows up on refresh instead
+      // of waiting out GitHub Pages' 10-minute max-age. Unchanged files 304.
+      res = await fetch(url, { cache: "no-cache" });
     } catch (e) {
       throw new Error(
         `${url} could not be loaded (${e.message}). ` +

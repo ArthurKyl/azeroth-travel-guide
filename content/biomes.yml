@@ -22,21 +22,20 @@ primer:
   cards:
     - heading: Biome classes
       def_rows:
-        - { key: DC 10, tone: mild, text: "**Mild** — temperate forests, pastoral plains, magical sanctuaries. Resources abound." }
-        - { key: DC 13, tone: harsh, text: "**Harsh** — jungles, deserts, swamps, tundras, and alpine crags." }
-        - { key: DC 16, tone: deadly, text: "**Deadly** — volcanic wastes, scourgelands, fel-shatters, glacial peaks." }
+        - { key: DC 8, tone: mild, text: "**Mild** — temperate forests, pastoral plains, magical sanctuaries. Low environmental strain." }
+        - { key: DC 10, tone: harsh, text: "**Harsh** — jungles, deserts, swamps, tundras, alpine crags. Moderate environmental strain." }
+        - { key: DC 12, tone: deadly, text: "**Deadly** — volcanic wastes, scourgelands, fel-shatters, glacial peaks. Severe environmental strain." }
     - heading: Daily weather (1d6)
       def_rows:
-        - { key: 1–3, tone: neutral, text: "**Clear** · +0 DC — standard visibility, pace, and resource use." }
-        - { key: 4–5, tone: rare, text: "**Moderate** · +2 DC — lightly obscured; ranged attack range halved; unpaved ground is difficult terrain." }
-        - { key: "6", tone: deadly, text: "**Severe** · +4 DC — heavily obscured; disadvantage on Perception and ranged attacks; extreme heat or cold doubles resource depletion or deals periodic damage." }
-    - heading: Hex navigation sequence
+        - { key: 1–4, tone: neutral, text: "**Clear** · +0 DC — standard conditions for the region." }
+        - { key: "5", tone: rare, text: "**Moderate** · +2 DC — elevated weather intensity; triggers regional moderate traits." }
+        - { key: "6", tone: deadly, text: "**Severe** · +4 DC — extreme regional weather; choose to **Hunker Down** (0 movement, auto-pass CON save) or **Push Through** (+4 to evening CON save)." }
+    - heading: Daily travel sequence
       ordered:
-        - Roll **1d6 for daily weather** to set the DC modifier and active hazards.
-        - Determine travel pace — fast, normal, or slow.
-        - "**Wisdom (Survival)** check to navigate hexes without marked roads."
+        - Roll **1d6 for daily weather** to set the DC modifier (+0, +2, or +4).
+        - Travel 4 hexes on the map (or choose to Hunker Down on a 6).
         - >
-          At day's end, every character makes a **Constitution save** vs. baseline + weather DC.
+          At day's end, every character makes a **Constitution save** vs. baseline Biome DC + Weather DC.
           Failure: 1 level of Exhaustion.
 
 zones_section:
@@ -49,9 +48,9 @@ zones:
   - name: Durotar
     continent: Kalimdor
     tagline: Arid Red Canyons and Sun-Baked Badlands
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Razor Hill Clay Flats
         text: Open red clay plains. Standard travel pace applies.
@@ -64,63 +63,66 @@ zones:
       - name: Drygulch Ravine
         text: >-
           Narrow canyon walls providing total cover against gale winds, but creating
-          vulnerability to flash floods.
+          vulnerability to flash floods and Harpy ambushes.
+      - name: Southfury River Mudflats
+        text: >-
+          Silty crossings infested with crocolisks. DC 10 Survival check to locate safe fordable shallows.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Sun-Baked Heatwave
         mod: +0 DC
-        effect: Clear conditions. Bright sunlight throughout the day.
-      - roll: 4–5
+        effect: Clear conditions. Bright sunlight and dry heat throughout the day.
+      - roll: "5"
         name: Blistering Dust Storm
         mod: +2 DC
-        effect: Lightly obscured. Disadvantage on Wisdom (Perception) checks relying on sight.
+        effect: Lightly obscured outdoors. Disadvantage on Wisdom (Perception) checks relying on sight due to swirling dust.
       - roll: '6'
         name: Scorching Solar Gale
         mod: +4 DC
         effect: >-
-          Double daily water requirements. DC 14 Constitution save or gain 1 level of Exhaustion
-          upon finishing travel.
+          Extreme heatwave and fierce dust squalls. Disadvantage on Wisdom (Perception) checks relying on sight due to fierce dust squalls.
   - name: The Barrens
     continent: Kalimdor
     tagline: Expansive Savanna and Oasis Sinkholes
-    biome: Mild (Baseline DC 10 Savanna) / Harsh (DC 13 Oasis Bogs)
+    biome: Mild (Baseline DC 8 Savanna) / Harsh (DC 10 Oasis Bogs)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Forgotten Pools Oases
         text: Freshwater oases wrapped in lush flora; advantage on daily Foraging checks.
       - name: Wailing Caverns Sinkhole
         text: Corrupted natural caverns emitting nightmare mists; Wisdom checks incur a -2 penalty.
       - name: Camp Taurajo Scrublands
-        text: Dry brushwood terrain; open line of sight extends up to 3 hexes.
+        text: Dry brushwood terrain; sparse cover across the open savanna.
       - name: Thorn Hill Quillboar Maze
         text: >-
-          Dense briar patches acting as difficult terrain; dealing 1d4 piercing damage per hex
-          traversed off-road.
+          Dense briar patches acting as difficult terrain. Off-road travel costs 1 extra hex of
+          the day's movement.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Golden Savanna Breeze
         mod: +0 DC
         effect: Mild temperature. Standard travel speeds apply.
-      - roll: 4–5
+      - roll: "5"
         name: Dry Scrub Haze
         mod: +2 DC
-        effect: Line of sight reduced to 2 hexes. Ranged attack rolls beyond 30 feet suffer -2.
+        effect: Lightly obscured outdoors. Disadvantage on Wisdom (Perception) checks relying on sight due to heat shimmer and dust.
       - roll: '6'
         name: Savannah Thunderstrike
         mod: +4 DC
         effect: >-
-          Heavy rain turns dirt roads into difficult terrain. On a roll of 1 on 1d20, a random
-          player is struck by lightning for 4d10 lightning damage.
+          Heavy rain turns dirt roads into difficult terrain and refills all waterskins.
+          Thunder spooks mounts and pack animals — unless a DC 12 Animal Handling check succeeds,
+          the party travels 1 fewer hex today.
   - name: Mulgore
     continent: Kalimdor
     tagline: Pastoral Windswept Grasslands and High Mesas
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Redcloud Mesa Highlands
-        text: High-altitude plains granting double sight range across adjacent hexes.
+        text: High-altitude plains; advantage on Wisdom (Perception) checks relying on sight.
       - name: Golden Plains
         text: >-
           Rolling grass fields offering abundant game; double food yield on successful Survival
@@ -130,26 +132,26 @@ zones:
       - name: Venture Co. Deforested Slags
         text: Muddy logging sites with contaminated water; drinking requires a DC 12 Poison save.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Peaceful Prairie Wind
         mod: +0 DC
         effect: Ideal traveling weather. Passive Perception increased by +2.
-      - roll: 4–5
+      - roll: "5"
         name: Mesa Fog
         mod: +2 DC
-        effect: Vision restricted to 1 hex. Navigation checks made with disadvantage.
+        effect: Lightly obscured outdoors. Disadvantage on Wisdom (Perception) checks relying on sight due to mesa fog.
       - roll: '6'
         name: Highland Gale Storm
         mod: +4 DC
         effect: >-
-          High winds disrupt flying mounts and ranged weapon fire. Ranged attacks suffer
-          disadvantage.
+          High winds disrupt flying mounts. Flying travel is impossible today; grounded mounts
+          must succeed on a DC 12 Animal Handling check or travel 1 fewer hex.
   - name: Teldrassil
     continent: Kalimdor
     tagline: Enchanted Canopy Forest and World Tree Branches
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Shadowglen Emerald Nooks
         text: Blessed forest groves; resting here removes 1 additional level of Exhaustion.
@@ -160,11 +162,11 @@ zones:
       - name: Rut'theran Coastal Bluffs
         text: Sea-level mist zones connecting to flight paths.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Arcane Canopy Glow
         mod: +0 DC
         effect: Constant twilight illumination. Night vision penalties negated.
-      - roll: 4–5
+      - roll: "5"
         name: Mist of Elune
         mod: +2 DC
         effect: Lightly obscured. Dexterity (Stealth) checks made with advantage.
@@ -177,9 +179,9 @@ zones:
   - name: Darkshore
     continent: Kalimdor
     tagline: Fog-Shrouded Ancient Coastal Shoreline
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Master's Glaive Titan Fossils
         text: Ancient petrified remains; aberrant magic causes wild magic surges on spellcasts.
@@ -192,14 +194,14 @@ zones:
       - name: Mist'edge Bogs
         text: Coastal tidelands resulting in difficult terrain across all sea-level hexes.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Overcast Coastal Drizzle
         mod: +0 DC
-        effect: Standard movement. Light rain continuously dampens campfire checks.
-      - roll: 4–5
+        effect: Overcast coastal air. Standard travel speeds apply.
+      - roll: "5"
         name: Dense Sea Fog
         mod: +2 DC
-        effect: Heavily obscured beyond 30 feet. Ranged weapons limited to 30 feet maximum range.
+        effect: Lightly obscured outdoors. Disadvantage on Wisdom (Perception) checks relying on sight due to sea fog.
       - roll: '6'
         name: Tidal Squall
         mod: +4 DC
@@ -209,9 +211,9 @@ zones:
   - name: Ashenvale
     continent: Kalimdor
     tagline: Ancient Temperate Rainforest and Contested Canopy
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Iris Lake Ley-Founts
         text: Arcane-infused waters; casters recover one 1st-level spell slot on long rest.
@@ -222,26 +224,26 @@ zones:
       - name: Lake Falathim Nooks
         text: Tranquil elven sanctuaries offering safe resting spots.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Emerald Sunlight
         mod: +0 DC
         effect: Clear canopy lighting. Perfect tracking conditions.
-      - roll: 4–5
+      - roll: "5"
         name: Rainforest Downpour
         mod: +2 DC
-        effect: Campfire creation requires DC 14 Survival check. Lightly obscured.
+        effect: Lightly obscured. Waterskins refill. Campfire creation requires a DC 14 Survival check.
       - roll: '6'
         name: Fel-Ash Rain
         mod: +4 DC
         effect: >-
-          Rain tainted by demon blood. Plants wither. Unsheltered creatures take 1d6 necrotic
-          damage per 4 hours traveled.
+          Rain tainted by demon blood. Plants wither. Foraging and Hunting checks are made with
+          disadvantage.
   - name: Stonetalon Mountains
     continent: Kalimdor
     tagline: Alpine Crags, Windy Passes, and Charred Ravines
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Sun Rock Glade Highlands
         text: High-altitude haven; clean water springs available.
@@ -252,26 +254,26 @@ zones:
       - name: Windshear Crag Deforestation Pit
         text: Goblin mechanical works; heavy noise negates passive hearing perception.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Mountain Winds
         mod: +0 DC
         effect: Crisp mountain air. Flying mounts travel +1 hex per day.
-      - roll: 4–5
+      - roll: "5"
         name: Crag Gale
         mod: +2 DC
-        effect: Ranged weapon attacks suffer -2. Flying requires DC 14 Acrobatics check.
+        effect: High winds. Flying requires a DC 14 Acrobatics check or the mount is grounded.
       - roll: '6'
         name: Avalanche & Ash Fall
         mod: +4 DC
         effect: >-
-          Mountain passes blocked. Traversal through narrow passes requires DC 15 Dexterity save
-          or take 3d10 bludgeoning damage.
+          Mountain passes blocked. Traversal through narrow passes requires a DC 15 Survival
+          check or the party travels 1 fewer hex today.
   - name: Desolace
     continent: Kalimdor
     tagline: Barren Salt Flats and Grey Desolation
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Maraudon Centaur Burial Grounds
         text: Sacred burial grounds; undead encounters trigger on 1–2 on 1d6.
@@ -282,11 +284,11 @@ zones:
       - name: Gelkis Village Salt Basins
         text: Evaporated salt beds; total absence of drinkable water.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Bleak Starlight/Sun
         mod: +0 DC
-        effect: Barren visibility. Unshaded heat increases water loss by 50%.
-      - roll: 4–5
+        effect: Barren, open flats. Tracks are easy to read; Survival checks to follow a trail gain advantage.
+      - roll: "5"
         name: Dust Gale
         mod: +2 DC
         effect: Fine grey dust coats gear. Unprotected eyes suffer disadvantage on Perception checks.
@@ -294,14 +296,14 @@ zones:
         name: Salt Squall
         mod: +4 DC
         effect: >-
-          Corrosive salt winds. Open wounds inflict 1d4 acid damage per hour of travel without
-          wrapped armor.
+          Corrosive salt winds. Heavily obscured outdoors. Open water and unsealed waterskins
+          become undrinkable; Survival checks to forage or hunt are made with disadvantage.
   - name: Feralas
     continent: Kalimdor
     tagline: Dense Tropical Rainforest and Ancient Highborne Ruins
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Eldre'Thalas (Dire Maul) Elven Ruins
         text: Stone corridors radiating residual Highborne arcane magic.
@@ -312,24 +314,24 @@ zones:
       - name: Feathermoon Coastal Shoals
         text: Island chain navigable only by waterborne vessels.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Humid Jungle Mist
         mod: +0 DC
-        effect: Heavy humidity. Rations spoil twice as fast without magical preservation.
-      - roll: 4–5
+        effect: Lush humidity. Foraging checks gain advantage among the abundant undergrowth.
+      - roll: "5"
         name: Monsoon Deluge
         mod: +2 DC
-        effect: Rivers overflow. Crossing non-bridged rivers requires DC 15 Athletics check.
+        effect: Rivers overflow. Waterskins refill. Crossing non-bridged rivers requires a DC 15 Athletics check.
       - roll: '6'
         name: Tropical Hurricane
         mod: +4 DC
-        effect: Fallen trees block jungle paths. Travel speed halved. Ranged attacks impossible.
+        effect: Fallen trees block jungle paths. Travel speed halved.
   - name: Thousand Needles
     continent: Kalimdor
     tagline: Canyon Pillars and Caked Salt Flats
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Freewind Post Mesa Needle Passes
         text: Narrow rope bridges connecting needle peaks; Acrobatics DC 12 required in high wind.
@@ -340,11 +342,11 @@ zones:
       - name: Razorfen Clefts
         text: Dense bramble tunnels leading into southern barrens.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Sun-Blasted Canyon
         mod: +0 DC
-        effect: Blinding glare off white salt. Vision checks without tinted glass suffer -2.
-      - roll: 4–5
+        effect: Bright canyon sun. Advantage on Wisdom (Perception) checks from high needle rims.
+      - roll: "5"
         name: Canyon Wind Shear
         mod: +2 DC
         effect: Strong gusts through narrow needle gorges; flying mounts cannot operate.
@@ -357,9 +359,9 @@ zones:
   - name: Tanaris
     continent: Kalimdor
     tagline: Endless Arid Desert Dunes
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Gadgetzan Steamwheedle Outpost
         text: Neutral goblin hub; full trade and repair facilities available.
@@ -370,26 +372,26 @@ zones:
       - name: Southmoon Ruins Sunken Vaults
         text: Buried Highborne buildings beneath shifting sands.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Scorching Clear Dunes
         mod: +0 DC
-        effect: Extreme daytime heat. Double daily water consumption required.
-      - roll: 4–5
+        effect: Clear desert sun. Distant travelers and oases stand out; Survival checks to find water gain advantage.
+      - roll: "5"
         name: Shifting Sandstorm
         mod: +2 DC
-        effect: Tracks erased in 1 hour. Survival checks to avoid getting lost made with disadvantage.
+        effect: Tracks erased in 1 hour. Dexterity (Stealth) checks gain advantage; the party also cannot be tracked.
       - roll: '6'
         name: Sirocco Sand Cyclone
         mod: +4 DC
         effect: >-
-          Heavily obscured. Takes 1d6 slashing damage per hour from flying sand particles unless
-          fully covered.
+          Heavily obscured outdoors. Uncovered travelers travel 1 fewer hex fighting the wind;
+          fully wrapped travelers keep pace.
   - name: Un'Goro Crater
     continent: Kalimdor
     tagline: Primeval Jungle Basin and Volcanic Fissures
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Fire Plume Ridge Lava Fissures
         text: Active central volcano; fire damage spells deal +1d6 extra fire damage.
@@ -402,16 +404,16 @@ zones:
       - name: Marshal's Refuge Titan Pylons
         text: Ancient Titan structures emitting defensive energy fields.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Muggy Primeval Heat
         mod: +0 DC
-        effect: Heavy thermal humidity. Heavy armor users suffer -1 to AC due to heat exhaustion.
-      - roll: 4–5
+        effect: Warm primeval air. Nature and foraging checks gain advantage among the dense flora.
+      - roll: "5"
         name: Volcanic Ash Haze
         mod: +2 DC
         effect: >-
-          Lightly obscured. Breathing without cloth masks requires DC 12 Con save against
-          coughing fits.
+          Lightly obscured. Fresh ash feeds the jungle; Nature and Herbalism checks gain
+          advantage.
       - roll: '6'
         name: Sulphur Deluge
         mod: +4 DC
@@ -421,9 +423,9 @@ zones:
   - name: Silithus
     continent: Kalimdor
     tagline: Arid Insectoid Hive Wastes
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Hive'Ashi Insectoid Clefts
         text: Vast underground Qiraji tunnels; ground collapses trigger on 1–2 on 1d20.
@@ -434,11 +436,11 @@ zones:
       - name: Crystal Vale Elemental Fissures
         text: Resonance crystals triggering unpredictable earth elementals.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Unnatural Dust Haze
         mod: +0 DC
-        effect: Arid, silent winds. Sensation of dread grants -1 to Morale/Wisdom saves.
-      - roll: 4–5
+        effect: Arid, silent winds. The hush grants advantage on Dexterity (Stealth) checks.
+      - roll: "5"
         name: Chitinous Sandstorm
         mod: +2 DC
         effect: >-
@@ -448,14 +450,14 @@ zones:
         name: Hive Seismic Tremor
         mod: +4 DC
         effect: >-
-          Earthquake event. Structures crumble. DC 15 Dexterity save or knocked prone and take
-          2d10 bludgeoning damage.
+          Earthquake event. Structures crumble. DC 15 Dexterity save or be knocked prone; on a
+          failure the party spends the day picking a safe path and travels 1 fewer hex.
   - name: Azshara
     continent: Kalimdor
     tagline: Autumnal Cliffs and Sunken Highborne Ruins
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Bitter Reaches Autumnal Bluffs
         text: Red-leafed forest cliffs overlooking ocean gulfs; high vantage points.
@@ -466,11 +468,11 @@ zones:
       - name: Tempest Bay Coral Reefs
         text: Dangerous coastal reefs wrecking deep-draft ships.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Golden Autumn Breeze
         mod: +0 DC
-        effect: Crisp, cool weather. Clear skies across all cliffs.
-      - roll: 4–5
+        effect: Crisp, cool weather. Clear skies across all cliffs. Foraging checks gain advantage.
+      - roll: "5"
         name: Sea Cliff Fog
         mod: +2 DC
         effect: >-
@@ -483,9 +485,9 @@ zones:
   - name: Winterspring
     continent: Kalimdor
     tagline: Subarctic Alpine Glades and Snowbound Slopes
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Frostsaber Rock Snowy Glades
         text: Den of apex predators; tracking checks suffer -2 due to falling powder.
@@ -496,26 +498,25 @@ zones:
       - name: Mazthoril Ice Caverns
         text: Blue dragonflight flight tunnels; cold damage increased by +2.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Crisp Frost Light
         mod: +0 DC
-        effect: Sub-zero clear weather. Cold weather gear mandatory to avoid baseline Exhaustion.
-      - roll: 4–5
+        effect: Clear frost and hard snow. Survival checks to hunt or track gain advantage.
+      - roll: "5"
         name: Freezing Snow Squall
         mod: +2 DC
-        effect: Difficult terrain across all unpaved hexes. Movement rate reduced by 25%.
+        effect: Difficult terrain across all unpaved ground. Fresh snow grants advantage on Survival checks to track.
       - roll: '6'
         name: Arctic Blizzard
         mod: +4 DC
         effect: >-
-          Visiblity zero (heavily obscured). Creatures without shelter take 1d6 cold damage per
-          hour.
+          Heavily obscured outdoors. Creatures without shelter travel 1 fewer hex today.
   - name: Moonglade
     continent: Kalimdor
     tagline: Sacred Druidic Haven and Peaceful Lakes
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Lake Elune'ara Shoreline
         text: Sacred waters; drinking grants the effects of a Lesser Restoration spell once per day.
@@ -526,11 +527,11 @@ zones:
       - name: Shrine of Remulos
         text: Holy shrine granting +2 to Nature and Animal Handling checks.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Eternal Spring Breeze
         mod: +0 DC
         effect: Perfect clear weather. All living creatures regain +2 additional HP per Hit Die spent.
-      - roll: 4–5
+      - roll: "5"
         name: Silvery Moonlight Mist
         mod: +2 DC
         effect: Gentle mist glowing under moonlight. Stealth checks made with advantage.
@@ -543,9 +544,9 @@ zones:
   - name: Azuremyst Isle
     continent: Kalimdor
     tagline: Crystal-Infused Temperate Woodlands
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Exodar Impact Crater
         text: Arcane wreckage site; power cores hum with dimensional energy.
@@ -556,11 +557,11 @@ zones:
       - name: Stillpine Timberlands
         text: Dense forested hills inhabited by friendly furbolg tribes.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Shimmering Coastal Sun
         mod: +0 DC
         effect: Mild temperature with iridescent purple sky hues.
-      - roll: 4–5
+      - roll: "5"
         name: Crystal Fog
         mod: +2 DC
         effect: >-
@@ -575,24 +576,24 @@ zones:
   - name: Bloodmyst Isle
     continent: Kalimdor
     tagline: Red Radiation-Warped Marshes and Irradiated Crags
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Bloodcurse Reef Sunken Shoals
         text: Cursed waters where blood-red algae blooms; swimming inflicts nausea.
       - name: Vector Isle Fel-Wreckage
         text: Irradiated ship wreckage; construct and demon encounter rate doubled.
       - name: Cryo-Core Irradiated Bogs
-        text: Red mutating waters; failing survival check causes 1d6 poison/radiation damage.
+        text: Red mutating waters; a failed Survival check to drink or forage here inflicts the poisoned condition for 1 hour.
       - name: Axxarien Shadow Nooks
         text: Satyr encampments utilizing dark curser magic.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Red Crimson Haze
         mod: +0 DC
-        effect: Constant red tint in the sky. Living creatures feel constant mild irritation.
-      - roll: 4–5
+        effect: Constant red tint in the sky. Creatures and landmarks stand out; Perception checks gain +2.
+      - roll: "5"
         name: Toxic Miasma
         mod: +2 DC
         effect: Lightly obscured. Non-native fauna become hostile and aggressive.
@@ -600,14 +601,14 @@ zones:
         name: Mutagenic Fallout
         mod: +4 DC
         effect: >-
-          Irradiated ash falls from the sky. DC 14 Constitution save or gain 1 level of
-          Exhaustion and mutated skin rash for 24 hours.
+          Irradiated ash falls from the sky. DC 14 Constitution save or suffer a mutated skin
+          rash for 24 hours (disadvantage on Charisma checks and saving throws).
   - name: Elwynn Forest
     continent: Eastern Kingdoms
     tagline: Temperate Deciduous Woodlands and Peaceful Valleys
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Northshire Valley Glades
         text: Protected monastic valley; full healing resources and training available.
@@ -618,11 +619,11 @@ zones:
       - name: Eastvale Timberlands
         text: Managed logging forests with established roads granting +1 movement speed.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Mild Forest Canopy Sun
         mod: +0 DC
         effect: Perfect weather. Standard travel pace across all hexes.
-      - roll: 4–5
+      - roll: "5"
         name: Woodland Rain
         mod: +2 DC
         effect: Dirt paths become slippery. Unmounted speed reduced by 5 feet.
@@ -635,27 +636,27 @@ zones:
   - name: Westfall
     continent: Eastern Kingdoms
     tagline: Arid Farmlands and Dust Plains
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Moonbrook Abandoned Digs
         text: Ruined mining town; Defias rogue ambush rate increased.
       - name: Sentinel Hill Outpost
-        text: Fortified militia tower offering commanding view over 2 adjacent hexes.
+        text: Fortified militia tower; advantage on Wisdom (Perception) checks from the ramparts.
       - name: Deadmines Ravine Clefts
         text: Jagged red canyon entrance concealing deep subterranean network.
       - name: Longshore Coastal Dunes
         text: Sandy shorelines strewn with shipwrecks and crab colonies.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Dry Sun
         mod: +0 DC
-        effect: Warm dry climate. Clear vision across all open plains.
-      - roll: 4–5
+        effect: Warm dry climate. Standard travel speeds apply.
+      - roll: "5"
         name: Dust Bowl Wind
         mod: +2 DC
-        effect: Wind kicks up dry topsoil. Ranged attacks beyond 60 feet suffer -2.
+        effect: Wind kicks up dry topsoil. Lightly obscured outdoors. Disadvantage on Wisdom (Perception) checks relying on sight.
       - roll: '6'
         name: Gale Force Dust Storm
         mod: +4 DC
@@ -665,9 +666,9 @@ zones:
   - name: Duskwood
     continent: Eastern Kingdoms
     tagline: Cursed Shadowed Forest and Haunted Graveyards
-    biome: Mild (Baseline DC 10 Baseline) / Harsh (DC 13 Shadow Nooks)
+    biome: Mild (Baseline DC 8 Baseline) / Harsh (DC 10 Shadow Nooks)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Darkshire Shadowed Glades
         text: Gloomy township encircled by magical street lanterns.
@@ -678,26 +679,27 @@ zones:
       - name: Rotting Orchard
         text: Blighted plant life; food foraging is completely impossible.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Perpetual Night Gloom
         mod: +0 DC
-        effect: Sun never pierces canopy. Permanent dim light conditions across all hexes.
-      - roll: 4–5
+        effect: Sun never pierces the canopy. Dim light; Dexterity (Stealth) checks are made with advantage.
+      - roll: "5"
         name: Chilling Black Mist
         mod: +2 DC
-        effect: Vision reduced to 30 feet. Undead gain +10 feet movement speed.
+        effect: Lightly obscured outdoors. Dexterity (Stealth) checks are made with advantage. Undead gain +10 feet movement speed.
       - roll: '6'
         name: Necrotic Howl
         mod: +4 DC
         effect: >-
-          Cursed wind echoes through trees. Creatures resting must make DC 14 Wisdom save or
-          gain no benefit from Long Rest.
+          Cursed wind echoes through the trees. Hunting checks are made with disadvantage
+          (game has fled). Living creatures have disadvantage on Wisdom saving throws until
+          the howl dies at dawn.
   - name: Redridge Mountains
     continent: Eastern Kingdoms
     tagline: Alpine Lakes and High Crags
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Lake Everstill Waters
         text: Vast alpine lake; water transport reduces travel time across central hexes.
@@ -708,26 +710,26 @@ zones:
       - name: Galardell Valley Slopes
         text: Steep mountain trails requiring pack mules or climbing gear.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Crisp Alpine Sun
         mod: +0 DC
-        effect: Bright clear mountain air. Double vision distance from high peaks.
-      - roll: 4–5
+        effect: Bright clear mountain air. Advantage on Wisdom (Perception) checks from high peaks.
+      - roll: "5"
         name: Mountain Fog
         mod: +2 DC
-        effect: Flanks of the mountains covered in fog. Navigational checks DC +2.
+        effect: Flanks of the mountains covered in fog. Lightly obscured outdoors. Disadvantage on Wisdom (Perception) checks relying on sight.
       - roll: '6'
         name: Ridge Torrential Rain
         mod: +4 DC
         effect: >-
-          Rockfalls trigger along mountain paths. DC 14 Dexterity save or take 2d10 bludgeoning
-          damage.
+          Rockfalls trigger along mountain paths. DC 14 Dexterity save or the party is pinned
+          until they clear debris, traveling 1 fewer hex today.
   - name: Stranglethorn Vale
     continent: Eastern Kingdoms
     tagline: Dense Tropical Jungle and Sunken Ruins
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Booty Bay Sea Caves
         text: Pirate harbor carved into coastal cliffs; complete market and maritime access.
@@ -738,14 +740,14 @@ zones:
       - name: Mistvale Swamps
         text: Miasmatic coastal marsh; difficult terrain and disease risks.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Oppressive Jungle Heat
         mod: +0 DC
-        effect: Sweltering humidity. Armor wearers require double daily water.
-      - roll: 4–5
+        effect: Warm jungle air. Foraging checks gain advantage among the dense canopy.
+      - roll: "5"
         name: Tropical Monsoons
         mod: +2 DC
-        effect: Heavy rain reduces sight to 60 feet. Fire-based spells deal -2 damage.
+        effect: Heavy rain. Lightly obscured outdoors. Fire-based spells deal -2 damage.
       - roll: '6'
         name: Jungle Deluge Surge
         mod: +4 DC
@@ -755,9 +757,9 @@ zones:
   - name: Arathi Highlands
     continent: Eastern Kingdoms
     tagline: Pastoral Plateaus and Ruined Castles
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Stromgarde Ruined Fortress
         text: Decayed stone city divided between urban warfare factions.
@@ -768,11 +770,11 @@ zones:
       - name: Boulderfist Ogre Clefts
         text: Natural cave networks carved into highland bluffs.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Highland Winds
         mod: +0 DC
         effect: Open clear plains. Ideal conditions for mounted cavalry charges (+10 ft movement).
-      - roll: 4–5
+      - roll: "5"
         name: Chilling Highland Drizzle
         mod: +2 DC
         effect: Cold rain dampens clothing. Perception checks suffer -2.
@@ -783,9 +785,9 @@ zones:
   - name: Wetlands
     continent: Eastern Kingdoms
     tagline: Waterlogged Bogs and Sunken Shoreline
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Menethil Harbor Sunken Shoreline
         text: Flooded port city; water deep enough in streets to require canoes or wading.
@@ -796,11 +798,11 @@ zones:
       - name: Ironbeard's Tomb Crags
         text: Highland tombs filled with ancestral dwarven specters.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Murky Swamp Haze
         mod: +0 DC
         effect: Damp, insect-filled air. Foraging yields edible bog roots and clean rainwater.
-      - roll: 4–5
+      - roll: "5"
         name: Bog Rain & Swarms
         mod: +2 DC
         effect: Biting flies swarm travelers. Concentration checks suffer disadvantage.
@@ -813,9 +815,9 @@ zones:
   - name: Hillsbrad Foothills
     continent: Eastern Kingdoms
     tagline: Temperate Rolling Hills and Coastal Pastures
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Durnholde Keep Ruins
         text: Massive ruined internment castle; ideal fortress base.
@@ -826,14 +828,14 @@ zones:
       - name: Tarren Mill Pastures
         text: Fortified Forsaken apothecary outpost emitting noxious alchemy fumes.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Temperate Coastal Sun
         mod: +0 DC
         effect: Pleasant coastal breeze. Standard resource and travel mechanics.
-      - roll: 4–5
+      - roll: "5"
         name: Foothill Fog
         mod: +2 DC
-        effect: Low clouds obscure mountain slopes. Range of sight reduced to 1 hex.
+        effect: Low clouds obscure mountain slopes. Lightly obscured outdoors. Disadvantage on Wisdom (Perception) checks relying on sight.
       - roll: '6'
         name: Freezing Rain
         mod: +4 DC
@@ -843,9 +845,9 @@ zones:
   - name: Silverpine Forest
     continent: Eastern Kingdoms
     tagline: Mist-Shrouded Pine Woods and Jagged Coastlines
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Fenris Isle Sunken Ruins
         text: Lake fortress inhabited by aggressive feral worgen packs.
@@ -856,11 +858,11 @@ zones:
       - name: The Sepulcher Glades
         text: Crypt-side Forsaken base nestled in evergreen woods.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Grey Pine Mist
         mod: +0 DC
-        effect: Dim twilight piercing dense pine branches. Ambient gloom.
-      - roll: 4–5
+        effect: Dim twilight piercing dense pine branches. Dexterity (Stealth) checks are made with advantage.
+      - roll: "5"
         name: Chilling Lake Fog
         mod: +2 DC
         effect: Heavy mist rolling off Lordamere Lake. Stealth checks gain +2.
@@ -873,9 +875,9 @@ zones:
   - name: Tirisfal Glades
     continent: Eastern Kingdoms
     tagline: Blighted Temperate Woods and Ruins of Lordaeron
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Deathknell Shadow Glades
         text: Crypt-strewn starting valley for newly raised Forsaken.
@@ -886,11 +888,11 @@ zones:
       - name: Whispering Gardens Nooks
         text: Arcane glades west of Undercity radiating ancient fey energies.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Pale Blighted Sunlight
         mod: +0 DC
-        effect: Sickly yellow sky. Vegetation stunted but navigable.
-      - roll: 4–5
+        effect: Sickly yellow sky. Vegetation is thin; Survival checks to follow a trail gain advantage.
+      - roll: "5"
         name: Autumnal Miasma
         mod: +2 DC
         effect: Stagnant chilly air. Odor of decay imposes -2 on passive Perception.
@@ -903,9 +905,9 @@ zones:
   - name: Western Plaguelands
     continent: Eastern Kingdoms
     tagline: Plagued Wastes and Ruined Farmlands
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Caer Darrow Sunken Isle
         text: Island fortress housing the Necromantic Academy of Scholomance.
@@ -916,14 +918,14 @@ zones:
       - name: Hearthglen Timberlands
         text: Fortified Crusade bastion nestled in northern pine valleys.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Ash Cloud Sky
         mod: +0 DC
-        effect: Heavy grey smog. Plants dead; foraging yields only poisonous matter.
-      - roll: 4–5
+        effect: Heavy grey smog. Scourge tracks stand out in the ash; Survival checks to follow undead gain advantage.
+      - roll: "5"
         name: Plague Cauldron Smoke
         mod: +2 DC
-        effect: Cauldron fumes drift across hexes. DC 14 Con save or take 1d8 necrotic damage.
+        effect: Lightly obscured. Living creatures must succeed on a DC 14 Constitution save or become poisoned for 1 hour.
       - roll: '6'
         name: Scourge Blight Storm
         mod: +4 DC
@@ -933,9 +935,9 @@ zones:
   - name: Eastern Plaguelands
     continent: Eastern Kingdoms
     tagline: Blighted Corrupted Scourgelands and Plagued Forests
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Stratholme Burning Slag
         text: Massive ruined metropolis continually burning with holy and unholy fire.
@@ -946,11 +948,11 @@ zones:
       - name: 'Plaguelands: The Scarlet Enclave'
         text: 'Eastern sector dominated by Acherus: The Ebon Hold floating overhead.'
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Crimson Plague Cloud
         mod: +0 DC
-        effect: Blood-red skies. Undead sight range doubled.
-      - roll: 4–5
+        effect: Blood-red skies. Living creatures have advantage on Wisdom (Perception) checks to spot undead.
+      - roll: "5"
         name: Necrotic Gale
         mod: +2 DC
         effect: Freezing deathly winds. Radiance and Holy magic healing reduced by 25%.
@@ -958,17 +960,17 @@ zones:
         name: Death Gate Storm
         mod: +4 DC
         effect: >-
-          Unholy atmospheric rupture. Random Scourge patrol spawns instantly on a roll of 1–4 on
-          1d6 every hour.
+          Unholy atmospheric rupture. If the party travels today, roll 1d6 once: on a 1–2, a
+          Scourge patrol intercepts them. Hunkering Down avoids the patrol.
   - name: Badlands
     continent: Eastern Kingdoms
     tagline: Arid Badlands and Canyons
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Dustbowl Salt Flats
-        text: Flat parched earth; line of sight extends up to 4 hexes.
+        text: Flat parched earth; little natural cover.
       - name: Uldaman Titan Digsites
         text: Ancient Titan vault buried beneath red clay canyons.
       - name: Lethlor Ravine Dragon Roosts
@@ -976,11 +978,11 @@ zones:
       - name: Kargath Clefts
         text: Horde outpost built atop narrow sandstone ridges.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Sun-Baking Canyon Heat
         mod: +0 DC
-        effect: Extreme arid heat. Daily water consumption doubled.
-      - roll: 4–5
+        effect: Bright arid canyons. Advantage on Wisdom (Perception) checks from high rims.
+      - roll: "5"
         name: Red Clay Dust Storm
         mod: +2 DC
         effect: Red dust coats optics and armor. Perception checks made with disadvantage.
@@ -988,14 +990,13 @@ zones:
         name: Ridge Flash Flood
         mod: +4 DC
         effect: >-
-          Torrential rain sweeps red mud down canyons. Halves all land movement. DC 15 Dex save
-          to avoid gear loss.
+          Torrential rain sweeps red mud down canyons. Halves all land movement. Waterskins refill.
   - name: Searing Gorge
     continent: Eastern Kingdoms
     tagline: Volcanic Ash Basins and Slag Pits
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Slag Pit Molten Fissures
         text: Vast dark iron mining pit filled with molten lava channels.
@@ -1006,26 +1007,26 @@ zones:
       - name: Firewatch Ridge
         text: Elevated ridge monitored by fire elemental lords.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Choking Volcanic Ash
         mod: +0 DC
-        effect: Permanent smoke haze. Breathing requires cloth wrappings or DC 12 Con save.
-      - roll: 4–5
+        effect: Thin volcanic haze. Forge-roads and slag tracks are easy to follow; Survival checks to stay on path gain advantage.
+      - roll: "5"
         name: Sulfur Gale
         mod: +2 DC
-        effect: Acidic sulfur fumes. Eyes burn; disadvantage on ranged attacks beyond 30 feet.
+        effect: Acidic sulfur fumes. Eyes burn; disadvantage on Wisdom (Perception) checks relying on sight.
       - roll: '6'
         name: Magma Eruption Fallout
         mod: +4 DC
         effect: >-
-          Molten rocks rain down from Blackrock Mountain. Random fiery impact deals 3d10 fire
-          damage to party (DC 15 Dex save for half).
+          Molten rocks rain down from Blackrock Mountain. The party must take cover and travels
+          1 fewer hex today (DC 15 Survival to find a sheltered route and keep pace).
   - name: Burning Steppes
     continent: Eastern Kingdoms
     tagline: Scorched Volcanic Wastes and Dragon Roosts
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Blackrock Mountain Slag Gates
         text: Massive mountain portal connecting to Blackrock Spire and Depths.
@@ -1036,26 +1037,27 @@ zones:
       - name: Altar of Storms Fel Fissures
         text: Volcanic rift leaking dark ley energy.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Scorched Ash Winds
         mod: +0 DC
-        effect: Intense ground heat. Bare skin contact with ground causes 1 fire damage per minute.
-      - roll: 4–5
+        effect: Intense ground heat. Fire damage spells deal +2 additional damage.
+      - roll: "5"
         name: Ash Blizzard
         mod: +2 DC
-        effect: Dense black ash falls like snow. Vision reduced to 30 feet.
+        effect: Dense black ash falls like snow. Lightly obscured outdoors. Disadvantage on Wisdom (Perception) checks relying on sight.
       - roll: '6'
         name: Fiery Heatwave Shockwave
         mod: +4 DC
         effect: >-
-          Extreme volcanic shockwave. DC 16 Con save or gain 2 levels of Exhaustion from heat
-          prostration.
+          Extreme volcanic shockwave. Heavily obscured by ash. Flying mounts are grounded.
+          Fire damage spells deal +2 additional damage. Foraging and Hunting checks are made
+          with disadvantage.
   - name: Swamp of Sorrows
     continent: Eastern Kingdoms
     tagline: Murky Swamps and Stagnant Bogs
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Sunken Temple (Atal'Hakkar) Bogs
         text: Submerged troll temple surrounded by poisonous waters.
@@ -1066,26 +1068,26 @@ zones:
       - name: Misty Reed Coast
         text: Foggy beach line littered with flotsam and aquatic predators.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Heavy Stagnant Humidity
         mod: +0 DC
-        effect: Thick damp air. Food spoils in 24 hours unless magically preserved.
-      - roll: 4–5
+        effect: Thick damp air. Foraging yields edible bog roots and clean rainwater.
+      - roll: "5"
         name: Swamp Gas Fog
         mod: +2 DC
         effect: >-
-          Flammable gas clouds drift across hexes. Open flames trigger 2d6 fire explosions in
-          10-foot radius.
+          Flammable gas clouds drift over the bogs. Open flames are extinguished; food cannot
+          be cooked unless heat is kept sealed.
       - roll: '6'
         name: Torrential Downpour
         mod: +4 DC
-        effect: Water levels surge. Trail navigation impossible without a guide (DC 18 Survival).
+        effect: Water levels surge. Unpaved trails become difficult terrain; the party travels 1 fewer hex unless they stick to raised boardwalks.
   - name: Blasted Lands
     continent: Eastern Kingdoms
     tagline: Ley-Warped Red Desert Wastes
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: The Dark Portal Fel Fissures
         text: Massive interdimensional gateway radiating demonic magic.
@@ -1096,11 +1098,11 @@ zones:
       - name: Nethergarde Crags
         text: High stone fortress overlooking the portal pass.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Red Fel Sky Glow
         mod: +0 DC
-        effect: Arid, blood-tinted desert. Water sources completely absent.
-      - roll: 4–5
+        effect: Arid, blood-tinted desert. Fel glow grants +2 on Intelligence (Arcana) checks.
+      - roll: "5"
         name: Ley-Warp Dust Gale
         mod: +2 DC
         effect: Arcane static distorts senses. Disadvantage on Arcana and Perception checks.
@@ -1108,14 +1110,15 @@ zones:
         name: Fel Electrical Tempest
         mod: +4 DC
         effect: >-
-          Green lightning strikes terrain. Spells casting fire or lightning deal maximum damage,
-          but caster takes 1d10 force damage.
+          Green lightning strikes terrain. Fire and lightning spells deal maximum damage, but
+          the caster must succeed on a DC 14 Constitution save or lose concentration and one
+          unused spell slot of 1st level or higher.
   - name: Eversong Woods
     continent: Eastern Kingdoms
     tagline: Arcane-Infused Golden Forests
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Sunstrider Isle Founts
         text: Golden forest sanctuary containing arcane training academies.
@@ -1126,14 +1129,14 @@ zones:
       - name: The Dead Scar Corrupted Soil
         text: Unholy scorched trench bisecting the zone; dead land grants zero foraging.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Eternal Autumn Sun
         mod: +0 DC
         effect: Magical eternal spring/autumn. Bright sunlight constantly.
-      - roll: 4–5
+      - roll: "5"
         name: Arcane Pollen Mist
         mod: +2 DC
-        effect: Golden leaves fall heavily. Passive Perception checks suffer -2.
+        effect: Golden leaves fall heavily. Herbalism checks gain advantage; Passive Perception checks suffer -2.
       - roll: '6'
         name: Ley Shield Surge
         mod: +4 DC
@@ -1141,9 +1144,9 @@ zones:
   - name: Ghostlands
     continent: Eastern Kingdoms
     tagline: Blighted Forest and Scourge Corridors
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Tranquillien Shadow Nooks
         text: Fortified joint Forsaken/Blood Elf refuge town.
@@ -1154,26 +1157,25 @@ zones:
       - name: Windrunner Spire Glades
         text: Ghostly ancestral estate haunted by banshees.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Gloomy Twilight Rain
         mod: +0 DC
-        effect: Constant overcast gloom. Light rain creates damp gear.
-      - roll: 4–5
+        effect: Constant overcast gloom. Dexterity (Stealth) checks are made with advantage.
+      - roll: "5"
         name: Blighted Mist
         mod: +2 DC
-        effect: Vision restricted to 60 feet. Undead stealth checks gain +4.
+        effect: Lightly obscured outdoors. Undead stealth checks gain +4.
       - roll: '6'
         name: Wail of the Banshee Wind
         mod: +4 DC
         effect: >-
-          Supernaturally cold gale. Non-evil creatures take 1d6 psychic damage every 4 hours of
-          travel.
+          Supernaturally cold gale. Non-evil creatures have disadvantage on Wisdom saves.
   - name: Dun Morogh
     continent: Eastern Kingdoms
     tagline: Snowy Subarctic Hills and Mountain Crags
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Kharanos Snowy Passes
         text: Central valley hub housing breweries and dwarven inns.
@@ -1184,24 +1186,24 @@ zones:
       - name: Gol'Bolar Quarry Digsites
         text: Deep stone quarry infested with trogg excavations.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Crisp Snowfall
         mod: +0 DC
         effect: Fresh snow blanket. Tracking checks gain advantage.
-      - roll: 4–5
+      - roll: "5"
         name: Alpine Squall
         mod: +2 DC
         effect: High winds create drift banks. Halves unmounted travel speed.
       - roll: '6'
         name: Ironforge Mountain Blizzard
         mod: +4 DC
-        effect: Extreme cold blizzard. Cold gear mandatory; DC 14 Con save to prevent frostbite.
+        effect: Extreme cold blizzard. Cold gear mandatory; without it, the party travels 1 fewer hex today.
   - name: Loch Modan
     continent: Eastern Kingdoms
     tagline: Pastoral Alpine Lake Basins
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: The Loch Waters
         text: Massive freshwater body ideal for boat transport across the zone.
@@ -1212,14 +1214,14 @@ zones:
       - name: Valley of Kings Sculpted Cliffs
         text: Monumental dwarven statues flanking southern mountain pass.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Clear Mountain Sun
         mod: +0 DC
         effect: Gentle mountain breezes. Advantage on daily foraging checks.
-      - roll: 4–5
+      - roll: "5"
         name: Lake Fog
         mod: +2 DC
-        effect: Mist rolls off the Loch. Visibility limited to 2 hexes.
+        effect: Mist rolls off the Loch. Lightly obscured outdoors. Disadvantage on Wisdom (Perception) checks relying on sight.
       - roll: '6'
         name: Alpine Thunderstorm
         mod: +4 DC
@@ -1229,9 +1231,9 @@ zones:
   - name: The Hinterlands
     continent: Eastern Kingdoms
     tagline: High Temperate Highlands and Ancient Forests
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Seradane Emerald Portal Glades
         text: Great tree housing an Emerald Dream portal guarded by green dragons.
@@ -1242,24 +1244,24 @@ zones:
       - name: Wildhammer Highlands
         text: High forest plateaus teeming with wild game.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: High Highland Sun
         mod: +0 DC
         effect: Crisp elevated mountain air. Ideal flight conditions for wild gryphons.
-      - roll: 4–5
+      - roll: "5"
         name: Forest Canopy Rain
         mod: +2 DC
         effect: Dense leaf dripping creates wet terrain. Fire starting DC +2.
       - roll: '6'
         name: Gale Force Mountain Storm
         mod: +4 DC
-        effect: High winds blow off cliffsides. Ranged weapon fire impossible.
+        effect: High winds blow off cliffsides. Flying mounts are grounded.
   - name: Deadwind Pass
     continent: Eastern Kingdoms
     tagline: Cursed Shadow Ravines and Ley-Rifts
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Karazhan Tower Spire
         text: Medivh's ancient arcane tower radiating chaotic magical energy.
@@ -1270,11 +1272,11 @@ zones:
       - name: The Ravaged Square
         text: Ley-line rift nexus where gravity occasionally wavers.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Unnatural Dead Silence
         mod: +0 DC
-        effect: No wind or animal noise. Unsettling quiet causes -2 on Morale checks.
-      - roll: 4–5
+        effect: No wind or animal noise. Any sound carries; Wisdom (Perception) checks relying on hearing gain advantage.
+      - roll: "5"
         name: Ley Static Fog
         mod: +2 DC
         effect: >-
@@ -1284,14 +1286,14 @@ zones:
         name: Gravitational Distortion Storm
         mod: +4 DC
         effect: >-
-          Gravity shifts randomly. Fall damage doubled. Movement speed randomized (1d4 × 10
-          feet).
+          Gravity shifts randomly. Climbing and jumping checks are made with disadvantage;
+          movement speed is randomized (1d4 × 10 feet).
   - name: Isle of Quel'Danas
     continent: Eastern Kingdoms
     tagline: Arcane Coastal Isle and Fel Warzones
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Sunwell Plateau Arcane Basin
         text: Holy/arcane fountain crater at center of the island.
@@ -1302,11 +1304,11 @@ zones:
       - name: Greengill Coast Tidepools
         text: Murloc infested beaches along northern reefs.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Arcane Glowing Skies
         mod: +0 DC
         effect: Constant shimmering twilight. Arcana checks gain +2.
-      - roll: 4–5
+      - roll: "5"
         name: Coastal Ash Rain
         mod: +2 DC
         effect: Demonic naval bombardment debris falls. Lightly obscured.
@@ -1314,14 +1316,14 @@ zones:
         name: Fel Bombardment Gale
         mod: +4 DC
         effect: >-
-          Active siege conditions. Random artillery impact checks every 2 hours (4d10 fire/force
-          damage, DC 15 Dex save for half).
+          Active siege conditions. The party must seek cover between salvos — travel 1 fewer hex
+          today, and flying mounts cannot be used.
   - name: Hellfire Peninsula
     continent: Outland
     tagline: Shattered Red Fel-Wastes
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Hellfire Citadel Iron Scars
         text: Massive iron fortress straddling the main central thoroughfare.
@@ -1331,31 +1333,30 @@ zones:
         text: Ruined defensive fortifications occupied by unholy spirits.
       - name: Pools of Aggonar Acid Basins
         text: >-
-          Green acid pools created by decaying demon lord remains; touching acid inflicts 4d10
-          acid damage.
+          Green acid pools created by decaying demon lord remains; crossing requires a 1-hex
+          detour or a DC 12 Survival check to pick a safe rim path.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Scorching Fel Wind
         mod: +0 DC
-        effect: Red sky with floating nether debris. Unprotected water evaporates 50% faster.
-      - roll: 4–5
+        effect: Red sky with floating nether debris. Baked clay holds tracks; Survival checks to follow a trail gain advantage.
+      - roll: "5"
         name: Red Sandstorm
         mod: +2 DC
         effect: >-
-          Abrasive red dust storm. Vision limited to 30 feet. Ranged attacks suffer
-          disadvantage.
+          Abrasive red dust storm. Lightly obscured outdoors. Disadvantage on Wisdom (Perception)
+          checks relying on sight.
       - roll: '6'
         name: Nether Shockwave
         mod: +4 DC
         effect: >-
-          Planetary tears discharge nether energy. Non-demons take 1d8 force damage per hour
-          traveled outdoors.
+          Planetary tears discharge nether energy. Non-demons travel 1 fewer hex today.
   - name: Zangarmarsh
     continent: Outland
     tagline: Bioluminescent Fungal Swamps
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Coilfang Reservoir Sunken Drain
         text: Deep lake trench housing Naga pumping facilities.
@@ -1366,14 +1367,14 @@ zones:
       - name: Ango'rosh Ogre Bogs
         text: Heavy marsh camps populated by blue ogres.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Bioluminescent Drizzle
         mod: +0 DC
-        effect: Soft glowing rain. High humidity negates dry campfire creation without oil.
-      - roll: 4–5
+        effect: Soft glowing rain. Nighttime travel ignores darkness penalties.
+      - roll: "5"
         name: Spore Cloud Fog
         mod: +2 DC
-        effect: Dense fungal spores fill the air. DC 12 Con save or poisoned for 4 hours.
+        effect: Dense fungal spores fill the air. DC 12 Con save or poisoned for 1 hour.
       - roll: '6'
         name: Fungal Spore Burst
         mod: +4 DC
@@ -1383,9 +1384,9 @@ zones:
   - name: Terokkar Forest
     continent: Outland
     tagline: Ancient Boreal Woods and Bone Wastes
-    biome: Mild (DC 10 Forest) / Harsh (DC 13 Bone Wastes)
+    biome: Mild (DC 8 Forest) / Harsh (DC 10 Bone Wastes)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Auchindoun Ossuary Ruins
         text: Massive exploded mausoleum crater at the center of the desert ring.
@@ -1396,11 +1397,11 @@ zones:
       - name: Tuurem Sunken Ruins
         text: Broken draenei river town occupied by broken and shadow council cultists.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Canopy Twilight
         mod: +0 DC
         effect: Gentle breeze through high purple-leafed trees.
-      - roll: 4–5
+      - roll: "5"
         name: Bone Dust Wind
         mod: +2 DC
         effect: White ash wind inside the Bone Wastes. Eyes sting; Perception checks suffer -2.
@@ -1413,9 +1414,9 @@ zones:
   - name: Nagrand
     continent: Outland
     tagline: Floating Islands and Verdant Savanna
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Elemental Plateau Ley-Founts
         text: Elevated mountain plateau teeming with primal fire, earth, air, and water elementals.
@@ -1426,11 +1427,11 @@ zones:
       - name: Sunspring Post River Basins
         text: Clear freshwater rivers supporting abundant hunting and fishing.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Pristine Prairie Sunlight
         mod: +0 DC
         effect: Perfect clear weather. Mounted speed increased by +10 feet.
-      - roll: 4–5
+      - roll: "5"
         name: Highland Breeze
         mod: +2 DC
         effect: >-
@@ -1445,9 +1446,9 @@ zones:
   - name: Blade's Edge Mountains
     continent: Outland
     tagline: Jagged Canyon Spikes and Wind-Swept Ravines
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Circle of Blood Clefts
         text: Natural stone amphitheater used for gladiatorial combat.
@@ -1458,11 +1459,11 @@ zones:
       - name: Ruuan Weald Canopy
         text: Dense green pocket jungle nestled deep within jagged granite peaks.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Jagged Shadow Light
         mod: +0 DC
-        effect: Sharp canyon shadows. Flying mounts travel at half speed due to spike obstacles.
-      - roll: 4–5
+        effect: Sharp canyon shadows. Advantage on Wisdom (Perception) checks to spot movement along the ridges.
+      - roll: "5"
         name: Canyon Drag Winds
         mod: +2 DC
         effect: >-
@@ -1472,14 +1473,14 @@ zones:
         name: Rockfall Gale
         mod: +4 DC
         effect: >-
-          Stone spikes collapse down canyons. DC 15 Dexterity save or take 3d10 bludgeoning
-          damage.
+          Stone spikes collapse down canyons. DC 15 Dexterity save or the trail is blocked —
+          the party travels 1 fewer hex clearing a detour.
   - name: Netherstorm
     continent: Outland
     tagline: Shattered Arcane Ley-Wastes and Mana-Forges
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Mana-Forge Ara Ley-Spires
         text: Siphoning towers drawing raw magic directly from the twisted nether.
@@ -1492,11 +1493,11 @@ zones:
       - name: Eco-Dome Farfield Havens
         text: Protected magical domes where normal mild weather mechanics apply.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Shimmering Purple Void
         mod: +0 DC
         effect: Constant purple glow from nether storms. No natural darkness.
-      - roll: 4–5
+      - roll: "5"
         name: Mana Discharge
         mod: +2 DC
         effect: >-
@@ -1506,14 +1507,13 @@ zones:
         name: Ley-Line Rupture Storm
         mod: +4 DC
         effect: >-
-          Raw arcane lightning sweeps across land. Unprotected creatures take 2d6 force damage
-          per hour. Wild magic surges occur on all spellcasts.
+          Raw arcane lightning sweeps across the land. Wild magic surges occur on all spellcasts.
   - name: Shadowmoon Valley
     continent: Outland
     tagline: Fel Volcanic Wastes and Nether-Scarred Plains
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Black Temple Fel Citadel
         text: Massive ancient draenei temple converted into Illidan's central seat of power.
@@ -1524,28 +1524,28 @@ zones:
       - name: Warden's Cage Shadow Nooks
         text: Underground holding vaults carved into subterranean stone.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Fel Volcano Smog
         mod: +0 DC
-        effect: Constant green ash sky. Natural water nonexistent.
-      - roll: 4–5
+        effect: Constant green ash sky. Fel glow grants +2 on Intelligence (Arcana) checks.
+      - roll: "5"
         name: Green Fel-Fire Rain
         mod: +2 DC
         effect: >-
-          Falling droplets burn skin. Uncovered travelers take 1d6 fire damage per 2 hours
-          traveled.
+          Falling droplets sear cloth and leather. Uncovered travelers have disadvantage on
+          Constitution saves today.
       - roll: '6'
         name: Shadowmoon Eruption
         mod: +4 DC
         effect: >-
-          Severe volcanicquake. Fel-lava erupts in random hexes. Land navigation checks made
-          with disadvantage.
+          Severe volcanicquake. Fel-lava erupts along random trails. Unpaved ground becomes
+          difficult terrain.
   - name: Borean Tundra
     continent: Northrend
     tagline: Subarctic Tundra, Tundra Steppes, and Ice Floes
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Coldarra Arcane Spires
         text: >-
@@ -1561,15 +1561,17 @@ zones:
       - kind: danger
         title: Freezing Coastal Waters
         text: >-
-          Submerging in the waters of the Riplash Strand or Coldarra chasm causes 2d10 cold
-          damage per round. A creature spending more than 3 rounds in these waters automatically
-          incurs 1 level of Exhaustion.
+          The waters of the Riplash Strand and Coldarra chasm are killing-cold. While submerged,
+          a creature has disadvantage on attack rolls and ability checks. Climbing out requires
+          a DC 14 Strength (Athletics) check; on a failure they remain in the water. After three
+          failed checks, they are trapped in the ice until another creature succeeds on the
+          check to pull them out.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Freezing Clear Light
         mod: +0 DC
-        effect: Cold, crisp conditions. Vision extends to 3 hexes across open tundra plains.
-      - roll: 4–5
+        effect: Cold, crisp conditions. Standard travel speeds apply.
+      - roll: "5"
         name: Tundra Sleet Squall
         mod: +2 DC
         effect: Freezing sleet coats ground in ice. Unpaved ground becomes difficult terrain.
@@ -1577,14 +1579,14 @@ zones:
         name: Arctic Gale Blizzard
         mod: +4 DC
         effect: >-
-          Visiblity heavily obscured. Disadvantage on Perception checks and ranged attacks.
-          Daily DC 18 Con save against frostbite (1d8 cold damage per hour).
+          Heavily obscured outdoors. Disadvantage on Wisdom (Perception) checks relying on sight.
+          Without shelter, cold gear is mandatory or the party travels 1 fewer hex today.
   - name: Howling Fjord
     continent: Northrend
     tagline: Coastal Fjords, Boreal Redwood Forests, and Vrykul Cliffs
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Utgarde Keep Vrykul Cliffs
         text: Monumental stone fortress towering over central fjord cliffs.
@@ -1597,26 +1599,25 @@ zones:
       - name: Gjalerbron Vrykul Tombs
         text: Ancient slumber chambers where iron and frost vrykul awaken.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Crisp Fjord Sunlight
         mod: +0 DC
-        effect: Clear skies across coastal bluffs. Advantage on Navigation from high peaks.
-      - roll: 4–5
+        effect: Clear skies across coastal bluffs. Advantage on Wisdom (Perception) checks from high peaks.
+      - roll: "5"
         name: Sea Fog & Drizzle
         mod: +2 DC
-        effect: Dense fog rolls down from cliffs. Flying mounts travel at half speed.
+        effect: Dense fog rolls down from cliffs. Flying mounts travel at half speed. Dexterity (Stealth) checks gain advantage.
       - roll: '6'
         name: Fjord Gale Storm
         mod: +4 DC
         effect: >-
           Coastal storm surges. Ships must dock or face capsize checks (DC 16 Water Vehicles).
-          Ranged attacks suffer disadvantage.
   - name: Dragonblight
     continent: Northrend
     tagline: Glacial Dragon Graveyards and Frozen Waste
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Wyrmrest Temple Titan Spire
         text: Massive central titan tower serving as neutral dragonflight headquarters.
@@ -1627,11 +1628,11 @@ zones:
       - name: Azjol-Nerub Sinkholes
         text: Massive subterranean openings revealing underground nerubian kingdom.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Overcast Frost Light
         mod: +0 DC
         effect: Cold sub-zero temperatures. Tracking dragonkin/undead gains +2.
-      - roll: 4–5
+      - roll: "5"
         name: Dragonblight Powder Squall
         mod: +2 DC
         effect: High winds blow loose bone ash and snow. Lightly obscured.
@@ -1644,9 +1645,9 @@ zones:
   - name: Grizzly Hills
     continent: Northrend
     tagline: Boreal Redwood Forests and Mountain Rivers
-    biome: Mild (Baseline DC 10)
+    biome: Mild (Baseline DC 8)
     severity: mild
-    dc: 10
+    dc: 8
     subfeatures:
       - name: Grizzlemaw Hollowed Tree Ruins
         text: Fallen ancient world tree trunk turned into furbolg stronghold city.
@@ -1657,26 +1658,26 @@ zones:
       - name: Drak'Tharon Keep Overlook
         text: Imposing troll fortress guarding northern pass into Zul'Drak.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Crisp Boreal Sunlight
         mod: +0 DC
         effect: Ideal traveling weather through redwood canopy. Advantage on daily Survival foraging.
-      - roll: 4–5
+      - roll: "5"
         name: Pine Forest Rain
         mod: +2 DC
-        effect: Heavy rain dampens brush. Unmounted travel pace reduced by 5 feet.
+        effect: Heavy rain dampens brush and refills waterskins. Unmounted travel pace reduced by 5 feet.
       - roll: '6'
         name: Mountain Timber Squall
         mod: +4 DC
         effect: >-
-          High winds cause falling branches. DC 14 Dexterity save or take 2d8 bludgeoning damage
-          while traveling forest hexes.
+          High winds cause falling branches. DC 14 Dexterity save or the trail is blocked by
+          timber — the party travels 1 fewer hex today.
   - name: Zul'Drak
     continent: Northrend
     tagline: Plagued Troll Ziggurats and Frozen Necropolises
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Gundrak Temple Terraces
         text: Massive capital fortress of the Drakkari ice trolls.
@@ -1687,11 +1688,11 @@ zones:
       - name: Altar of Har'koa Glades
         text: Shrine of the snow leopard loa offering holy protection.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Sickly Frozen Gloom
         mod: +0 DC
-        effect: Freezing temperatures with black ash clouds. Dead soil; foraging impossible.
-      - roll: 4–5
+        effect: Freezing temperatures with black ash clouds. Scourge tracks stand out; Survival checks to follow undead gain advantage.
+      - roll: "5"
         name: Sleet & Necrotic Fog
         mod: +2 DC
         effect: Ice fog covers stone steps. Walking speed halved on ziggurat stairs.
@@ -1699,14 +1700,14 @@ zones:
         name: Blood-Frost Blizzard
         mod: +4 DC
         effect: >-
-          Frozen blood rain falls. Non-undead take 1d6 cold and 1d6 necrotic damage per 4 hours
-          traveled outdoors.
+          Frozen blood rain falls. Non-undead have disadvantage on saving throws against fear
+          and disease.
   - name: Sholazar Basin
     continent: Northrend
     tagline: Primeval Tropical Crater Basin
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: River-Makers Titan Waygate
         text: Ancient Titan archway connecting directly to Un'Goro Crater waygate.
@@ -1717,28 +1718,28 @@ zones:
       - name: Maker's Perch Titan Pylons
         text: Glowing Titan crystals maintaining tropical climate amid arctic Northrend.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Steamy Tropical Heat
         mod: +0 DC
-        effect: High humidity completely contrasting surrounded arctic zones. Double water loss.
-      - roll: 4–5
+        effect: High humidity completely contrasting the surrounding arctic. Foraging checks gain advantage among the lush basin flora.
+      - roll: "5"
         name: Basin Downpour
         mod: +2 DC
         effect: >-
-          Torrential rain fills riverbed paths. Swim checks required at river crossings (DC 14
-          Athletics).
+          Torrential rain fills riverbed paths and refills waterskins. Swim checks required at
+          river crossings (DC 14 Athletics).
       - roll: '6'
         name: Titan Shield Fluctuation
         mod: +4 DC
         effect: >-
-          Pylon energy wavers. Random atmospheric electrical arcs deal 2d10 lightning damage to
-          highest party member (DC 15 Dex save for half).
+          Pylon energy wavers. Atmospheric electrical arcs force the party to take cover —
+          travel 1 fewer hex today unless a DC 15 Survival check finds a grounded path.
   - name: Storm Peaks
     continent: Northrend
     tagline: Alpine Glacial Titan Peaks and Precipices
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Ulduar Titan Precipices
         text: Monumental Titan city-raid complex carved into northernmost peaks.
@@ -1755,26 +1756,26 @@ zones:
           Traversing the Storm Peaks requires flying mounts or specialized climbing gear across
           80% of its hexes. Land mounts without climbing support move at 1/4 standard speed.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Glacial Starlight
         mod: +0 DC
-        effect: Sub-zero arctic air. Clear vision up to 5 hexes from elevated peaks.
-      - roll: 4–5
+        effect: Sub-zero arctic air. Standard travel speeds apply.
+      - roll: "5"
         name: Mountain Sheer Winds
         mod: +2 DC
-        effect: Powerful updrafts. Flying mounts suffer -10 feet speed and -2 to Dexterity saves.
+        effect: Powerful updrafts. Flying mounts travel +1 hex today, but Dexterity saves are made with disadvantage.
       - roll: '6'
         name: Screaming Titan Blizzard
         mod: +4 DC
         effect: >-
-          Visiblity zero. Flying mounts grounded. Unprotected exposure inflicts 2d6 cold damage
-          per hour and 1 level of Exhaustion every 4 hours.
+          Heavily obscured outdoors. Flying mounts grounded. Unprotected travelers travel
+          1 fewer hex today; Survival checks to forage or hunt are made with disadvantage.
   - name: Icecrown
     continent: Northrend
     tagline: Glacial Scourge Citadel and Frozen Wastes
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Icecrown Citadel Citadel Gates
         text: Imposing saronite fortress housing the Frozen Throne at its pinnacle.
@@ -1792,11 +1793,11 @@ zones:
           deterioration. Spending more than 24 hours near open saronite mines requires a DC 16
           Wisdom save or suffer short-term madness.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Desolate Arctic Night
         mod: +0 DC
-        effect: Sun never pierces black clouds. Ambient darkness across all hexes.
-      - roll: 4–5
+        effect: Sun never pierces black clouds. Dim light; Dexterity (Stealth) checks are made with advantage.
+      - roll: "5"
         name: Saronite Dust Wind
         mod: +2 DC
         effect: Black mineral dust blows in wind. Concentration checks on magic suffer disadvantage.
@@ -1804,14 +1805,14 @@ zones:
         name: Scourge Lich-King Blizzard
         mod: +4 DC
         effect: >-
-          Unholy glacial tempest. Vision zero. Non-undead suffer disadvantage on all attack
-          rolls and saving throws. Radiant damage suppressed by half.
+          Unholy glacial tempest. Heavily obscured outdoors. Non-undead suffer disadvantage on
+          attack rolls and saving throws. Radiant damage suppressed by half.
   - name: Crystalsong Forest
     continent: Northrend
     tagline: Crystalline Enchanted Woods and Sunken Elven Ruins
-    biome: Mild (DC 10 Crystalline Forest) / Deadly (DC 16 Great Conflagration Ruins)
+    biome: Mild (DC 8 Crystalline Forest) / Deadly (DC 12 Great Conflagration Ruins)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Dalaran Crater Overlook
         text: Position directly beneath the floating mage sanctuary city of Dalaran.
@@ -1822,11 +1823,11 @@ zones:
       - name: Ruins of Shandaral Crystalline Vaults
         text: Ancient Highborne city transformed into solid crystal during dragon war.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Prism Sunlight Glow
         mod: +0 DC
         effect: Sunlight refracts through glass trees. Illumination bright across all hours.
-      - roll: 4–5
+      - roll: "5"
         name: Crystalline Dust Mist
         mod: +2 DC
         effect: Fine glass powder falls from leaves. Stealth checks gain +2 due to light refraction.
@@ -1839,9 +1840,9 @@ zones:
   - name: Wintergrasp
     continent: Northrend
     tagline: Alpine Battleground and Glacial Siege Wastes
-    biome: Harsh (DC 13 Alpine) / Deadly (DC 16 Siege Wastes)
+    biome: Harsh (DC 10 Alpine) / Deadly (DC 12 Siege Wastes)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: Wintergrasp Fortress Titan Vault
         text: Massive central keep housing Vault of Archavon.
@@ -1852,11 +1853,11 @@ zones:
       - name: Shadowsight Tower
         text: High watchtower granting tactical view over eastern bridge.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Subarctic Battle Skies
         mod: +0 DC
         effect: Cold crisp mountain air. Siege engines move at full speed.
-      - roll: 4–5
+      - roll: "5"
         name: Freezing Sleet
         mod: +2 DC
         effect: Ice coats siege tracks. Vehicle movement speed reduced by 25%.
@@ -1864,14 +1865,14 @@ zones:
         name: Siege Blizzard
         mod: +4 DC
         effect: >-
-          Heavy snow conceals forces. Siege weapon targeting range halved. Con save DC 18
-          against Exhaustion.
+          Heavy snow conceals forces. Siege weapon targeting range halved. Dexterity (Stealth)
+          checks gain advantage. Flying mounts are grounded.
   - name: Hrothgar's Landing
     continent: Northrend
     tagline: Subarctic Coastal Mist Isles and Kvaldir Camps
-    biome: Harsh (Baseline DC 13)
+    biome: Harsh (Baseline DC 10)
     severity: harsh
-    dc: 13
+    dc: 10
     subfeatures:
       - name: Kvaldir Mist Shorelines
         text: Fog-drenched island camps inhabited by fog-vrykul raiders.
@@ -1880,11 +1881,11 @@ zones:
       - name: Sea Elephant Island Rock Pillars
         text: Coastal rock monoliths populated by sea fauna.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Chilling Sea Light
         mod: +0 DC
         effect: Cold sea air. Salt fog hovers at water level.
-      - roll: 4–5
+      - roll: "5"
         name: Kvaldir Fog Surge
         mod: +2 DC
         effect: Unnatural fog hides shorelines completely. Sight limited to 15 feet.
@@ -1897,9 +1898,9 @@ zones:
   - name: Acherus & The Scarlet Enclave
     continent: Northrend
     tagline: Scourge Necropolis and Scorched Haven
-    biome: Deadly (Baseline DC 16)
+    biome: Deadly (Baseline DC 12)
     severity: deadly
-    dc: 16
+    dc: 12
     subfeatures:
       - name: 'Acherus: The Ebon Hold'
         text: >-
@@ -1912,11 +1913,11 @@ zones:
       - name: Avalanche Canyon Ruined Crypts
         text: Deep stone tombs carved into eastern coastal cliffs.
     weather:
-      - roll: 1–3
+      - roll: 1–4
         name: Unholy Eclipse
         mod: +0 DC
-        effect: Sun blocked by necropolis shadow. Dim light continuously across all hexes.
-      - roll: 4–5
+        effect: Sun blocked by necropolis shadow. Dim light; Dexterity (Stealth) checks are made with advantage.
+      - roll: "5"
         name: Death Frost Fog
         mod: +2 DC
         effect: Cold unholy fog rolls in off the ocean. Stealth checks for undead gain +2.
@@ -1924,5 +1925,6 @@ zones:
         name: Scourge Pestilence Ash Storm
         mod: +4 DC
         effect: >-
-          Heavy ash and plague rain falls. Living non-evil creatures must make DC 16 Con save or
-          gain 1 level of Exhaustion and lose 1 Hit Die.
+          Heavy ash and plague rain falls. Living non-evil creatures must succeed on a DC 16
+          Constitution save or become poisoned for 1 hour. Hunting and Foraging checks are
+          made with disadvantage.
